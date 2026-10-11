@@ -22,3 +22,4 @@ test-assets/stage3c/
 # ---- 本地临时 ----
 *.tmp
 *.bak
+_r.html
