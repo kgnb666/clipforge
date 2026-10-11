@@ -1,0 +1,22 @@
+﻿== cargo test (执行前基线) START 2026-10-10T20:05:18.6957694+08:00 ==
+   Compiling clipforge v0.1.0 (D:\应聘项目zcode\clipforge\src-tauri)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.29s
+     Running unittests src\lib.rs (D:\cargo-target\debug\deps\clipforge_lib-a4db6c649319c78b.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\main.rs (D:\cargo-target\debug\deps\clipforge-d02b2e0d1cf1c17b.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests clipforge_lib
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+EXIT=0 DURATION_S=6.1 END 2026-10-10T20:05:24.8654758+08:00

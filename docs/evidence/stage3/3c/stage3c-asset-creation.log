@@ -1,0 +1,118 @@
+== Stage 3C 素材生成 2026-10-11T21:51:03.5673254+08:00 ==
+ffmpeg  = C:\Users\宋舜江\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffmpeg.exe
+ffmpeg  version = ffmpeg version 9.0.2-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers
+TA      = D:\应聘项目zcode\test-assets\stage3c
+
+--- [生成] D:\应聘项目zcode\test-assets\stage3c\sample.mp4
+    ffmpeg -f lavfi -i testsrc2=size=640x360:rate=30:duration=5 -f lavfi -i sine=frequency=440:sample_rate=44100:duration=5 -c:v libx264 -preset veryfast -crf 23 -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart <out>
+--- [生成] D:\应聘项目zcode\test-assets\stage3c\sample.mkv
+    ffmpeg -f lavfi -i smptebars=size=640x360:rate=30:duration=4 -f lavfi -i sine=frequency=660:sample_rate=44100:duration=4 -c:v libx264 -preset veryfast -crf 23 -pix_fmt yuv420p -c:a aac -b:a 128k <out>
+--- [生成] D:\应聘项目zcode\test-assets\stage3c\sample.mov
+    ffmpeg -f lavfi -i testsrc=size=640x360:rate=30:duration=3 -f lavfi -i sine=frequency=880:sample_rate=44100:duration=3 -c:v libx264 -preset veryfast -crf 23 -pix_fmt yuv420p -c:a aac -b:a 128k <out>
+--- [生成] D:\应聘项目zcode\test-assets\stage3c\sample.avi
+    ffmpeg -f lavfi -i smptehdbars=size=640x360:rate=25:duration=3 -f lavfi -i sine=frequency=220:sample_rate=44100:duration=3 -c:v mpeg4 -q:v 4 -c:a libmp3lame -b:a 128k <out>
+--- [生成] D:\应聘项目zcode\test-assets\stage3c\no_audio.mp4
+    ffmpeg -f lavfi -i testsrc2=size=640x360:rate=30:duration=3 -c:v libx264 -preset veryfast -crf 23 -pix_fmt yuv420p -an <out>
+
+--- [复制] T7 特殊路径素材
+    copy sample.mp4 -> D:\应聘项目zcode\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4
+--- [生成] D:\应聘项目zcode\test-assets\stage3c\_t8_full_no_faststart.mp4
+    ffmpeg -f lavfi -i testsrc2=size=320x180:rate=15:duration=4 -f lavfi -i sine=frequency=330:sample_rate=44100:duration=4 -c:v libx264 -preset veryfast -crf 28 -pix_fmt yuv420p -c:a aac -b:a 96k <out>
+
+--- [损坏A] truncated.mp4 = 完整文件前 30% 字节
+    源大小=113125 截断后=33937 保留比例=0.30
+--- [生成] D:\应聘项目zcode\test-assets\stage3c\_t8b_full_faststart.mp4
+    ffmpeg -f lavfi -i testsrc2=size=320x180:rate=15:duration=4 -f lavfi -i sine=frequency=330:sample_rate=44100:duration=4 -c:v libx264 -preset veryfast -crf 28 -pix_fmt yuv420p -c:a aac -b:a 96k -movflags +faststart <out>
+
+--- [损坏B] corrupt_mdat.mp4 = 保留 ftyp+moov，切除 mdat 全部媒体数据
+    源大小=113125 moov 结束偏移=3486 截断后=3486
+
+== 素材清单（relative-path / size / sha256 / mtime）==
+corrupt_mdat.mp4                               3486 B  3b6ce1df6a6dbd088046e97591ef589a172e51d330a722558349447fe73f02cf  2026-10-11T21:51:04.7510143+08:00
+no_audio.mp4                                 276158 B  64f840078d12808719fc2f1f87b2d9a1fe8589b3c0b67580f5070059f23e83a9  2026-10-11T21:51:04.3719896+08:00
+sample.avi                                   145884 B  bf2f5e486cfa97a6039fb08053485f38d5fa61fcfe4548720def3ee75415314b  2026-10-11T21:51:04.2374243+08:00
+sample.mkv                                    69562 B  79a0744184a0c7e705b00997e54c59a7ecbab6d22be7de38c8ce73372a5ad35a  2026-10-11T21:51:03.9868334+08:00
+sample.mov                                    73000 B  d08eb9c3fcd2f1cf341074903156c780f10ce0e3f7b80a83b89995c28bb53cb9  2026-10-11T21:51:04.1564609+08:00
+sample.mp4                                   545189 B  0e401a5aae76e2a106e8753b85d19aba88ec38d4545c8ddefeff2a9c0a0f6c23  2026-10-11T21:51:03.8498339+08:00
+truncated.mp4                                 33937 B  4c459506e71c6887bc8088b959ea36968fc9b958b37c705252855e7ca9e87079  2026-10-11T21:51:04.5799886+08:00
+测试 & 视频 #1 (终版)'s\sample.mp4                 545189 B  0e401a5aae76e2a106e8753b85d19aba88ec38d4545c8ddefeff2a9c0a0f6c23  2026-10-11T21:51:03.8498339+08:00
+
+== 输入素材 ffprobe 特征（format / streams）==
+--- corrupt_mdat.mp4  ffprobe_exit=0
+    codec_name=h264
+    codec_type=video
+    codec_name=aac
+    codec_type=audio
+    format_name=mov,mp4,m4a,3gp,3g2,mj2
+    duration=4.000000
+    [stderr]
+    [mov,mp4,m4a,3gp,3g2,mj2 @ 000002a4a505f300] stream 0, offset 0xdae: partial file
+--- no_audio.mp4  ffprobe_exit=0
+    codec_name=h264
+    codec_type=video
+    format_name=mov,mp4,m4a,3gp,3g2,mj2
+    duration=3.000000
+--- sample.avi  ffprobe_exit=0
+    codec_name=mpeg4
+    codec_type=video
+    codec_name=mp3
+    codec_type=audio
+    format_name=avi
+    duration=3.040000
+--- sample.mkv  ffprobe_exit=0
+    codec_name=h264
+    codec_type=video
+    codec_name=aac
+    codec_type=audio
+    format_name=matroska,webm
+    duration=4.023000
+--- sample.mov  ffprobe_exit=0
+    codec_name=h264
+    codec_type=video
+    codec_name=aac
+    codec_type=audio
+    format_name=mov,mp4,m4a,3gp,3g2,mj2
+    duration=3.000000
+--- sample.mp4  ffprobe_exit=0
+    codec_name=h264
+    codec_type=video
+    codec_name=aac
+    codec_type=audio
+    format_name=mov,mp4,m4a,3gp,3g2,mj2
+    duration=5.000000
+--- truncated.mp4  ffprobe_exit=1
+    [stderr]
+    [mov,mp4,m4a,3gp,3g2,mj2 @ 000001ee9aece480] moov atom not found
+    D:\应聘项目zcode\test-assets\stage3c\truncated.mp4: Invalid data found when processing input
+--- 测试 & 视频 #1 (终版)'s\sample.mp4  ffprobe_exit=0
+    codec_name=h264
+    codec_type=video
+    codec_name=aac
+    codec_type=audio
+    format_name=mov,mp4,m4a,3gp,3g2,mj2
+    duration=5.000000
+
+== 损坏素材行为核验 A（ffprobe 元数据读取：-show_format -show_streams）==
+--- truncated.mp4  ffprobe_exit=1
+    [stderr]
+    [mov,mp4,m4a,3gp,3g2,mj2 @ 000001f253fbeb80] moov atom not found
+    D:\应聘项目zcode\test-assets\stage3c\truncated.mp4: Invalid data found when processing input
+--- corrupt_mdat.mp4  ffprobe_exit=0
+    [stderr]
+    [mov,mp4,m4a,3gp,3g2,mj2 @ 0000026cd064ebc0] stream 0, offset 0xdae: partial file
+
+== 损坏素材行为核验 B（ffmpeg 解码探测：-f null -）==
+--- truncated.mp4  ffmpeg_exit=-1094995529
+    [stderr]
+    [in#0 @ 00000176ed6fef40] moov atom not found
+    [in#0 @ 00000176ed6feb40] Error opening input: Invalid data found when processing input
+    Error opening input file D:\应聘项目zcode\test-assets\stage3c\truncated.mp4.
+    Error opening input files: Invalid data found when processing input
+--- corrupt_mdat.mp4  ffmpeg_exit=-1094995529
+    [stderr]
+    [in#0/mov,mp4,m4a,3gp,3g2,mj2 @ 00000223f9c5e5c0] stream 0, offset 0xdae: partial file
+    [in#0/mov,mp4,m4a,3gp,3g2,mj2 @ 00000223f9c5e5c0] stream 0, offset 0x1bb2: partial file
+    [vf#0:0 @ 00000223f9d06700] Cannot determine format of input 0:0 after EOF
+    [vf#0:0 @ 00000223f9d06700] Task finished with error code: -1094995529 (Invalid data found when processing input)
+
+DONE 2026-10-11T21:51:05.3385307+08:00

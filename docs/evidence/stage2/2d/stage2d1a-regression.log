@@ -1,0 +1,13 @@
+===== Stage 2D-1-A 行为回归（2A/2B/2C）2026-10-11T16:04:18+08:00 =====
+--- [2A/2B] 特殊字符导入 + 元数据
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=False
+FAIL: 界面未出现文本: 1.18 MiB
+rc=1
+--- [2A] 重复导入
+FAIL: Exception calling "Invoke" with "0" argument(s): ""
+FAIL: 界面未出现文本: 已在列表中
+rc=1
+--- [2C] 干净关闭（日志应含 shutdown cleanup）
+close=True pid=28544 time=2026-10-11T16:05:36.6446899+08:00
+exited=True
+leftover=0

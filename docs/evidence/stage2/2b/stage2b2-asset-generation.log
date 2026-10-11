@@ -1,0 +1,100 @@
+﻿== 无音轨素材生成（D-0021 授权）2026-10-10T22:13:55.8139991+08:00 ==
+ffmpeg_path=C:\Users\宋舜江\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffmpeg.exe
+ffprobe_path=C:\Users\宋舜江\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffprobe.exe
+--- 生成命令（testsrc2 仅视频，mpeg4，5s，640x360）---
+Input #0, lavfi, from 'testsrc2=size=640x360:rate=30':
+  Duration: N/A, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: wrapped_avframe, yuv420p, 640x360 [SAR 1:1 DAR 16:9], 30 fps, 30 tbr, 30 tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (wrapped_avframe (native) -> mpeg4 (native))
+Press [q] to stop, [?] for help
+Output #0, matroska, to 'D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv':
+  Metadata:
+    encoder         : Lavf63.1.102
+  Stream #0:0: Video: mpeg4 (FMP4 / 0x34504D46), yuv420p(tv, progressive), 640x360 [SAR 1:1 DAR 16:9], q=2-31, 200 kb/s, 30 fps, 1k tbn
+    Metadata:
+      encoder         : Lavc63.1.102 mpeg4
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/200000 buffer size: 0 vbv_delay: N/A
+[out#0/matroska @ 000002ccbe557a00] video:1161KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.178638%
+frame=  150 fps=0.0 q=5.0 Lsize=    1163KiB time=00:00:05.00 bitrate=1905.8kbits/s speed=88.9x elapsed=0:00:00.05    
+GEN_EXIT=0
+asset_sha256=8375211FB536E34ED0DA0B934907B010281B741C2C8DB1AAEFE905B29DD9645E
+asset_size=1191118
+asset_mtime=2026-10-10T22:13:56.8418490+08:00
+--- 参考 JSON：no_audio_sample.mkv ---
+{
+    "streams": [
+        {
+            "index": 0,
+            "codec_name": "mpeg4",
+            "codec_long_name": "MPEG-4 part 2",
+            "profile": "Simple Profile",
+            "codec_type": "video",
+            "codec_tag_string": "[0][0][0][0]",
+            "codec_tag": "0x0000",
+            "mime_codec_string": "mp4v.20",
+            "width": 640,
+            "height": 360,
+            "coded_width": 640,
+            "coded_height": 360,
+            "has_b_frames": 0,
+            "sample_aspect_ratio": "1:1",
+            "display_aspect_ratio": "16:9",
+            "pix_fmt": "yuv420p",
+            "level": 1,
+            "color_range": "tv",
+            "chroma_location": "left",
+            "field_order": "progressive",
+            "quarter_sample": "false",
+            "divx_packed": "false",
+            "r_frame_rate": "30/1",
+            "avg_frame_rate": "30/1",
+            "time_base": "1/1000",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "extradata_size": 46,
+            "disposition": {
+                "default": 0,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0,
+                "non_diegetic": 0,
+                "captions": 0,
+                "descriptions": 0,
+                "metadata": 0,
+                "dependent": 0,
+                "still_image": 0,
+                "multilayer": 0
+            },
+            "tags": {
+                "ENCODER": "Lavc63.1.102 mpeg4",
+                "DURATION": "00:00:05.000000000"
+            }
+        }
+    ],
+    "format": {
+        "filename": "D:\\应聘项目zcode\\docs\\evidence\\stage2\\test-assets\\no_audio_sample.mkv",
+        "nb_streams": 1,
+        "nb_programs": 0,
+        "nb_stream_groups": 0,
+        "format_name": "matroska,webm",
+        "format_long_name": "Matroska / WebM",
+        "start_time": "0.000000",
+        "duration": "5.000000",
+        "size": "1191118",
+        "bit_rate": "1905788",
+        "probe_score": 100,
+        "tags": {
+            "ENCODER": "Lavf63.1.102"
+        }
+    }
+}

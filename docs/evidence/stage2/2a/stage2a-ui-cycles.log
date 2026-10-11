@@ -1,0 +1,620 @@
+=== Cycle A: P2A-001 基本导入（special）20:26:28 ===
+--- [click-import] rc:
+FAIL: 导入按钮未找到
+rc=1
+--- [shot-dialog -Out docs\evidence\stage2\2a\stage2a-ui-dialog-special.png] rc:
+OK: shot-dialog docs\evidence\stage2\2a\stage2a-ui-dialog-special.png (231 B)
+rc=0
+--- [set-filename -Scenario special] rc:
+FAIL: 未知 Action: set-filename
+rc=1
+--- [click-ok] rc:
+FAIL: 未知 Action: click-ok
+rc=1
+--- [wait-closed] rc:
+FAIL: 对话框未在期限内关闭
+rc=1
+--- [wait-entry -Scenario special] rc:
+FAIL: 未在界面中找到条目文本: 样本 视频 #1 (初版)'s.mkv
+rc=1
+--- [shot-app -Out docs\evidence\stage2\2a\stage2a-ui-entry-special.png] rc:
+OK: shot-app docs\evidence\stage2\2a\stage2a-ui-entry-special.png (15821 B)
+rc=0
+--- [read-app-text] rc:
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2A · 导入基础
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 尚未导入任何文件。
+OK: read-app-text 完成
+rc=0
+=== [20:26 Cycle A 首次尝试：辅助脚本缺陷（动作缺失/隐藏窗口误判/首次查询未就绪），产生的 231B 无效截图 stage2a-ui-dialog-special.png 已作废并删除；修复后于下方重跑 ===
+=== Cycle A 重跑：P2A-001 基本导入（special）20:27:16 ===
+--- [click-import]
+OK: 已点击导入视频
+rc=0
+--- [wait-dialog]
+OK: dialog name=[选择视频文件] class=[#32770] hwnd=593950
+rc=0
+--- [shot-dialog -Out docs\evidence\stage2\2a\stage2a-ui-dialog-special.png]
+OK: shot-dialog docs\evidence\stage2\2a\stage2a-ui-dialog-special.png (4903 B)
+rc=0
+--- [set-filename -Scenario special]
+FAIL: 未找到文件名输入框
+rc=1
+--- [click-ok]
+FAIL: 未找到对话框按钮: ok
+rc=1
+--- [wait-closed]
+FAIL: 对话框未在期限内关闭
+rc=1
+--- [wait-entry -Scenario special]
+FAIL: 未在界面中找到条目文本: 样本 视频 #1 (初版)'s.mkv
+rc=1
+--- [shot-app -Out docs\evidence\stage2\2a\stage2a-ui-entry-special.png]
+OK: shot-app docs\evidence\stage2\2a\stage2a-ui-entry-special.png (57510 B)
+rc=0
+--- [read-app-text]
+TXT: 命令模块
+TXT: 帮助(&H)
+TXT: 预览窗格
+TXT: 视图
+TXT: 视图滑块
+TXT: 组织​​
+TXT: 新建​​文件夹​​
+TXT: 控制项宿主
+TXT: 树视图
+TXT: Shell 文件夹视图
+TXT: 项目视图
+TXT: 水平滚动条
+TXT: 垂直滚动条
+TXT: 标题
+TXT: 名称
+TXT: 筛选器下拉列表
+TXT: 修改日期
+TXT: 类型
+TXT: 大小
+TXT: BaiduNetdiskTmp
+TXT: Bcut Drafts
+TXT: CFSystem
+TXT: Codex
+TXT: deepseek-harness
+TXT: Fiddler2
+TXT: MuMu共享文件夹
+TXT: Navicat
+TXT: Tencent Files
+TXT: TencentMeeting
+TXT: WPSDrive
+TXT: xwechat_files
+TXT: 应用程序控件
+TXT: 文件名(N):
+TXT: 视频文件 (*.mp4;*.mkv;*.mov;*.avi;*.webm;*.m4v;*.ts;*.flv;*.wmv)
+TXT: 打开(O)
+TXT: 取消
+TXT: 导航按钮
+TXT: 向上一级区段工具栏
+TXT: 地址: 文档
+TXT: 地址区段工具栏
+TXT: 搜索框
+TXT: 搜索
+OK: read-app-text 完成
+rc=0
+--- [dump-dialog 诊断（对话框仍打开）]
+dialog=[] class=[SoPY_Status]
+OK: dump 完成（上限 70 项）
+rc=0
+--- [关闭上轮遗留对话框 click-cancel + wait-closed] 20:30:01
+InvokePattern
+OK: 已点击 取消
+FAIL: 对话框未在期限内关闭
+=== Cycle A 三跑：P2A-001 基本导入（special）20:30:15 ===
+--- [click-import]
+FAIL: Exception calling "Invoke" with "0" argument(s): ""
+rc=1
+--- [wait-dialog]
+OK: dialog name=[选择视频文件] class=[#32770] hwnd=593950
+rc=0
+--- [shot-dialog -Out docs\evidence\stage2\2a\stage2a-ui-dialog-special.png]
+OK: shot-dialog docs\evidence\stage2\2a\stage2a-ui-dialog-special.png (42296 B)
+rc=0
+--- [set-filename -Scenario special]
+OK: 已设置文件名（ValuePattern(1148)）场景=special
+rc=0
+--- [click-ok]
+InvokePattern
+OK: 已点击 打开
+rc=0
+--- [wait-closed]
+FAIL: 对话框未在期限内关闭
+rc=1
+--- [wait-entry -Scenario special]
+FAIL: 未在界面中找到条目文本: 样本 视频 #1 (初版)'s.mkv
+rc=1
+--- [shot-app -Out docs\evidence\stage2\2a\stage2a-ui-entry-special.png]
+OK: shot-app docs\evidence\stage2\2a\stage2a-ui-entry-special.png (14806 B)
+rc=0
+--- [read-app-text]
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2A · 导入基础
+TXT: 选择中…
+TXT: 导入条目列表
+TXT: 尚未导入任何文件。
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+rc=0
+--- [reset: close-dialog 关闭卡住的对话框] 20:31:46
+OK: 已请求关闭对话框(WindowPattern)
+OK: 对话框已关闭
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2A · 导入基础
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 尚未导入任何文件。
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+=== Cycle A 四跑（辅助脚本 v2.1：按钮排除ListItem+名称优先；写值后提交）20:31:57 ===
+--- [click-import]
+OK: 已点击导入视频
+rc=0
+--- [wait-dialog]
+OK: dialog name=[选择视频文件] class=[#32770] hwnd=8391410
+rc=0
+--- [shot-dialog -Out docs\evidence\stage2\2a\stage2a-ui-dialog-special.png]
+OK: shot-dialog docs\evidence\stage2\2a\stage2a-ui-dialog-special.png (48737 B)
+rc=0
+--- [set-filename -Scenario special]
+OK: 已设置文件名（ValuePattern(1148)）场景=special
+rc=0
+--- [click-ok]
+InvokePattern (元素[Button] name=[打开(O)])
+OK: 已点击 打开
+rc=0
+--- [wait-closed]
+OK: 对话框已关闭
+rc=0
+--- [wait-entry -Scenario special]
+OK: 界面已出现条目文本 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv]
+rc=0
+--- [shot-app -Out docs\evidence\stage2\2a\stage2a-ui-entry-special.png]
+OK: shot-app docs\evidence\stage2\2a\stage2a-ui-entry-special.png (25765 B)
+rc=0
+--- [read-app-text]
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2A · 导入基础
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+rc=0
+=== Cycle A2：展开条目完整路径 + P2A-003 源文件复核 20:32:16 ===
+OK: 已点击条目路径按钮 [D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv]
+rc=0
+OK: shot-app docs\evidence\stage2\2a\stage2a-ui-entry-expanded.png (25642 B)
+rc=0
+(注：上一条 bash 命令因引号中断，此前的展开路径+截图已执行)
+=== Cycle B：取消选择（P2A-002）20:32:27 ===
+--- [import-cancel]
+InvokePattern (元素[Button] name=[取消])
+OK: 取消流程完成 dialog_closed=True
+rc=0
+--- [read-app-text]
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2A · 导入基础
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+rc=0
+--- [shot-app -Out docs\evidence\stage2\2a\stage2a-ui-cancel.png]
+OK: shot-app docs\evidence\stage2\2a\stage2a-ui-cancel.png (25703 B)
+rc=0
+=== P2A-003 复核重跑（修正数组取值 bug；前次 RESULT 作废）20:32:44 ===
+=== Cycle C：重复导入（P2A-007 / P2D-009）20:32:45 ===
+--- [import special 第二次]
+InvokePattern (元素[Button] name=[打开(O)])
+OK: 导入流程完成 scenario=special setvia=ValuePattern(1148) dialog_closed=True
+rc=0
+--- [read-app-text 应有 已在列表中 提示]
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2A · 导入基础
+TXT: 导入视频
+TXT: 已在列表中：样本 视频 #1 (初版)'s.mkv
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+rc=0
+OK: shot-app docs\evidence\stage2\2a\stage2a-ui-duplicate.png (27838 B)
+rc=0
+=== Cycle D：P2A-006 伪装扩展名 + 无扩展名 20:32:57 ===
+--- [import -Scenario fake]
+InvokePattern (元素[Button] name=[打开(O)])
+OK: 导入流程完成 scenario=fake setvia=ValuePattern(1148) dialog_closed=True
+rc=0
+--- [wait-entry -Scenario fake]
+OK: 界面已出现条目文本 [fake_text.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4]
+rc=0
+--- [import -Scenario noext]
+InvokePattern (元素[Button] name=[打开(O)])
+OK: 导入流程完成 scenario=noext setvia=ValuePattern(1148) dialog_closed=True
+rc=0
+--- [wait-entry -Scenario noext]
+OK: 界面已出现条目文本 [no_extension_sample已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample]
+rc=0
+--- [shot-app -Out docs\evidence\stage2\2a\stage2a-ui-entry-fake-noext.png]
+OK: shot-app docs\evidence\stage2\2a\stage2a-ui-entry-fake-noext.png (38580 B)
+rc=0
+--- [read-app-text]
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2A · 导入基础
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: fake_text.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: no_extension_sample已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+rc=0
+=== Cycle E：P2A-010 过滤器 20:33:20 ===
+--- [click-import]
+OK: 已点击导入视频
+rc=0
+--- [wait-dialog]
+OK: dialog name=[选择视频文件] class=[#32770] hwnd=12784124
+rc=0
+--- [shot-dialog -Out docs\evidence\stage2\2a\stage2a-ui-dialog-filter-video.png]
+OK: shot-dialog docs\evidence\stage2\2a\stage2a-ui-dialog-filter-video.png (68027 B)
+rc=0
+--- [switch-filter-allfiles]
+FAIL: Unable to find type [System.Windows.Automation.LegacyIAccessiblePattern].
+rc=1
+--- [shot-dialog -Out docs\evidence\stage2\2a\stage2a-ui-dialog-filter-allfiles.png]
+OK: shot-dialog docs\evidence\stage2\2a\stage2a-ui-dialog-filter-allfiles.png (56725 B)
+rc=0
+--- [click-cancel]
+InvokePattern (元素[Button] name=[取消])
+OK: 已点击 取消
+rc=0
+--- [wait-closed]
+OK: 对话框已关闭
+rc=0
+=== Cycle E2：过滤器切换重试 20:33:46 ===
+--- [click-import]
+OK: 已点击导入视频
+rc=0
+--- [wait-dialog]
+OK: dialog name=[选择视频文件] class=[#32770] hwnd=1118676
+rc=0
+--- [switch-filter-allfiles]
+OK: 已切换过滤器 -> [所有文件 (*.*)] via SelectionItem
+rc=0
+--- [shot-dialog -Out docs\evidence\stage2\2a\stage2a-ui-dialog-filter-allfiles.png]
+OK: shot-dialog docs\evidence\stage2\2a\stage2a-ui-dialog-filter-allfiles.png (60781 B)
+rc=0
+--- [click-cancel]
+InvokePattern (元素[Button] name=[取消])
+OK: 已点击 取消
+rc=0
+--- [wait-closed]
+OK: 对话框已关闭
+rc=0
+=== Cycle F：P2A-005 ACL 权限测试（§10.2）20:34:10 ===
+--- [UI: import -Scenario acl]
+InvokePattern (元素[Button] name=[打开(O)])
+OK: 导入流程完成 scenario=acl setvia=ValuePattern(1148) dialog_closed=False
+rc=0
+--- [UI: wait-entry -Scenario acl]
+FAIL: 未在界面中找到条目文本: acl-test-copy.mkv
+rc=1
+--- [UI: read-app-text]
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2A · 导入基础
+TXT: 选择中…
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: fake_text.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: no_extension_sample已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+rc=0
+--- [UI: shot-app -Out docs\evidence\stage2\2a\stage2a-ui-entry-permission.png]
+OK: shot-app docs\evidence\stage2\2a\stage2a-ui-entry-permission.png (44376 B)
+rc=0
+--- [P2A-005 发现] 系统对话框自身拦截无读取权限文件（提示框截图: stage2a-ui-acl-os-block.png）；应用无法经标准对话框收到该路径 ---
+InvokePattern (元素[Button] name=[取消])
+OK: 已点击 取消
+FAIL: 对话框未在期限内关闭
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2A · 导入基础
+TXT: 选择中…
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: fake_text.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: no_extension_sample已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+--- [cleanup] 用回车关闭系统错误框，再取消对话框
+FAIL: 对话框未出现（无法点击按钮）
+OK: 对话框已关闭
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2A · 导入基础
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: fake_text.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: no_extension_sample已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+=== Cycle G：被占用文件（真实失败态）20:36:57 ===
+--- [import -Scenario locked]
+InvokePattern (元素[Button] name=[打开(O)])
+OK: 导入流程完成 scenario=locked setvia=ValuePattern(1148) dialog_closed=True
+rc=0
+--- [wait-entry -Scenario locked]
+OK: 界面已出现条目文本 [locked-test-copy.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\locked-test-copy.mkv]
+rc=0
+--- [read-app-text]
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2A · 导入基础
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: fake_text.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: no_extension_sample已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: locked-test-copy.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\locked-test-copy.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\locked-test-copy.mkv
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+rc=0
+--- [shot-app -Out docs\evidence\stage2\2a\stage2a-ui-entry-locked.png]
+OK: shot-app docs\evidence\stage2\2a\stage2a-ui-entry-locked.png (45162 B)
+rc=0
+=== Cycle H：断链符号链接尝试（P2A-004 失败态）20:37:20 ===
+symlink_failed: �Ҳ���·����D:\ӦƸ��Ŀzcode\docs\evidence\stage2\test-assets\does_not_exist_target.mp4������Ϊ��·�������ڡ�
+symlink_failed: �˲�����Ҫ����ԱȨ�ޡ�
+ʹ�á�1�����������á�CreateDirectory��ʱ�����쳣:��·���о��зǷ��ַ�����
+����λ�� ��:9 �ַ�: 1
++ [IO.Directory]::CreateDirectory($dir) | Out-Null;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [], MethodInvocationException
+    + FullyQualifiedErrorId : ArgumentException
+ 
+ʹ�á�2�����������á�WriteAllText��ʱ�����쳣:��·���о��зǷ��ַ�����
+����λ�� ��:10 �ַ�: 1
++ [IO.File]::WriteAllText($ext, "long path test asset (P2A-004)");
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [], MethodInvocationException
+    + FullyQualifiedErrorId : ArgumentException
+ 
+full_len=270
+ext_exists=False
+normal_exists=False
+longpath_txt_written=True
+create_file_failed err=3
+full_len=270
+ext_exists=False
+normal_testpath=False
+longpath_txt_written=True
+file_written_bytes=30
+full_len=270
+ext_exists=True
+normal_testpath=False
+longpath_txt_written=True
+=== Cycle I：超长路径文件导入（P2A-004 失败态候选）20:38:43 ===
+--- [import -Scenario longpath]
+InvokePattern (元素[Button] name=[打开(O)])
+OK: 导入流程完成 scenario=longpath setvia=ClipboardPaste dialog_closed=False
+rc=0
+--- [wait-entry -Scenario longpath]
+FAIL: 未在界面中找到条目文本: deep-file.mkv
+rc=1
+--- [read-app-text]
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2A · 导入基础
+TXT: 选择中…
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: fake_text.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: no_extension_sample已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: locked-test-copy.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\locked-test-copy.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\locked-test-copy.mkv
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+rc=0
+--- [shot-app -Out docs\evidence\stage2\2a\stage2a-ui-entry-longpath.png]
+OK: shot-app docs\evidence\stage2\2a\stage2a-ui-entry-longpath.png (45085 B)
+rc=0
+--- [reset] close-dialog 复位（长路径首次尝试对话框未关闭）
+OK: 已请求关闭对话框(WindowPattern)
+OK: 对话框已关闭
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2A · 导入基础
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: fake_text.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: no_extension_sample已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: locked-test-copy.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\locked-test-copy.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\locked-test-copy.mkv
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+--- 复位后按钮状态检查 ---
+=== Cycle I2：超长路径导入重试（Do-SetFilename v3）20:39:56 ===
+--- [import -Scenario longpath]
+InvokePattern (元素[Button] name=[打开(O)])
+OK: 导入流程完成 scenario=longpath setvia=ClipboardPaste verified=False dialog_closed=False
+rc=0
+--- [wait-entry -Scenario longpath]
+FAIL: 未在界面中找到条目文本: deep-file.mkv
+rc=1
+--- [read-app-text]
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2A · 导入基础
+TXT: 选择中…
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: fake_text.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: no_extension_sample已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: locked-test-copy.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\locked-test-copy.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\locked-test-copy.mkv
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+rc=0
+--- [shot-app -Out docs\evidence\stage2\2a\stage2a-ui-entry-longpath.png]
+OK: shot-app docs\evidence\stage2\2a\stage2a-ui-entry-longpath.png (37658 B)
+rc=0
+--- [结论] 长路径变体：Shell 可导航长路径（截图证据），但 270 字符无法经 ValuePattern 写入、剪贴板落点偏离，自动化不可完成；停止并如实记录。P2A-004/005/008 的 UI 级失败态在本环境不可达（OS 对话框预校验），逻辑级以单元测试为证。tmp 诊断图清理。
+OK: 已请求关闭对话框(WindowPattern)
+OK: 对话框已关闭
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2A · 导入基础
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: fake_text.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: no_extension_sample已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: locked-test-copy.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\locked-test-copy.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\locked-test-copy.mkv
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+=== Cycle J：最终窗口回归（关闭→重启→关闭）20:41:17 ===
+close_sent=True pid=3932 time=2026-10-10T20:41:17.5984522+08:00
+process_exited=True
+leftover_processes=0
+port1420_listening=0
+run4_close_sent=True
+run4_exited=True
+run4_leftover=0
+port1420=0

@@ -1,0 +1,24 @@
+﻿== Stage 3B dev2（CDP WebM 测试）START 2026-10-11T20:42:30.8239721+08:00 ==
+
+> clipforge@0.1.0 tauri
+> tauri dev
+
+     Running BeforeDevCommand (`npm run dev`)
+     Running DevCommand (`cargo  run --no-default-features --color always --`)
+        Info Watching D:\应聘项目zcode\clipforge\src-tauri for changes...
+
+> clipforge@0.1.0 dev
+> vite
+
+[1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 0.45s
+[1m[92m     Running[0m `D:\cargo-target\debug\clipforge.exe`
+[logging] initialized at C:\Users\宋舜江\AppData\Local\com.clipforge.app\logs
+[31merror when starting dev server:
+Error: Port 1420 is already in use
+    at httpServerStart (file:///D:/%E5%BA%94%E8%81%98%E9%A1%B9%E7%9B%AEzcode/clipforge/node_modules/vite/dist/node/chunks/node.js:14706:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async startServer (file:///D:/%E5%BA%94%E8%81%98%E9%A1%B9%E7%9B%AEzcode/clipforge/node_modules/vite/dist/node/chunks/node.js:25156:30)
+    at async Object.listen (file:///D:/%E5%BA%94%E8%81%98%E9%A1%B9%E7%9B%AEzcode/clipforge/node_modules/vite/dist/node/chunks/node.js:24962:4)
+    at async CAC.<anonymous> (file:///D:/%E5%BA%94%E8%81%98%E9%A1%B9%E7%9B%AEzcode/clipforge/node_modules/vite/dist/node/cli.js:725:3)[39m
+       Error The "beforeDevCommand" terminated with a non-zero status code.
+== EXITED 2026-10-11T20:42:32.4759727+08:00 ==

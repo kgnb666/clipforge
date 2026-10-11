@@ -1,0 +1,129 @@
+===== Stage 3C Step 4 稳定性检查（连续多格式转换）  开始 2026-10-11T22:09:00+08:00 =====
+本轮连续转换：T1(sample.mp4→MP4) T3(sample.mkv→MP4) T4(sample.mov→MP4) T5(sample.avi→MP4) T6(no_audio.mp4→MP4) T7(特殊路径 sample.mp4→MP4)
+
+=== 连续第 1 个文件：t1 ===
+--- [t1] import -Scenario t1
+OK: 导入流程完成 scenario=t1 setvia=ValuePattern(1148) attempt=1 dialog_closed=True
+rc=0
+--- [t1] wait-meta -Timeout 40
+OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC转换MP4WebM]
+rc=0
+--- [t1] click-conv -Format mp4
+OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+rc=0
+--- [t1] wait-settled -Timeout 180 -Expect 1
+OK: 转换已收敛（已结论条目=1 期望>=1 进行中=0）
+rc=0
+  转换后残留检查：ffmpeg=0 ffprobe=0 clipforge=1
+
+=== 连续第 2 个文件：t3 ===
+--- [t3] import -Scenario t3
+OK: 导入流程完成 scenario=t3 setvia=ValuePattern(1148) attempt=1 dialog_closed=True
+rc=0
+--- [t3] wait-meta -Timeout 40
+OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 MP4（490 KB）重新转换]
+rc=0
+--- [t3] click-conv -Format mp4
+OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+rc=0
+--- [t3] wait-settled -Timeout 180 -Expect 2
+OK: 转换已收敛（已结论条目=2 期望>=2 进行中=0）
+rc=0
+  转换后残留检查：ffmpeg=0 ffprobe=0 clipforge=1
+
+=== 连续第 3 个文件：t4 ===
+--- [t4] import -Scenario t4
+OK: 导入流程完成 scenario=t4 setvia=ValuePattern(1148) attempt=1 dialog_closed=True
+rc=0
+--- [t4] wait-meta -Timeout 40
+OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 MP4（490 KB）重新转换]
+rc=0
+--- [t4] click-conv -Format mp4
+OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+rc=0
+--- [t4] wait-settled -Timeout 180 -Expect 3
+OK: 转换已收敛（已结论条目=3 期望>=3 进行中=0）
+rc=0
+  转换后残留检查：ffmpeg=0 ffprobe=0 clipforge=1
+
+=== 连续第 4 个文件：t5 ===
+--- [t5] import -Scenario t5
+OK: 导入流程完成 scenario=t5 setvia=ValuePattern(1148) attempt=1 dialog_closed=True
+rc=0
+--- [t5] wait-meta -Timeout 40
+OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 MP4（490 KB）重新转换]
+rc=0
+--- [t5] click-conv -Format mp4
+OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+rc=0
+--- [t5] wait-settled -Timeout 180 -Expect 4
+OK: 转换已收敛（已结论条目=4 期望>=4 进行中=0）
+rc=0
+  转换后残留检查：ffmpeg=0 ffprobe=0 clipforge=1
+
+=== 连续第 5 个文件：t6 ===
+--- [t6] import -Scenario t6
+OK: 导入流程完成 scenario=t6 setvia=ValuePattern(1148) attempt=1 dialog_closed=True
+rc=0
+--- [t6] wait-meta -Timeout 40
+OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 MP4（490 KB）重新转换]
+rc=0
+--- [t6] click-conv -Format mp4
+OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+rc=0
+--- [t6] wait-settled -Timeout 180 -Expect 5
+OK: 转换已收敛（已结论条目=5 期望>=5 进行中=0）
+rc=0
+  转换后残留检查：ffmpeg=0 ffprobe=0 clipforge=1
+
+=== 连续第 6 个文件：t7 ===
+--- [t7] import -Scenario t7
+OK: 导入流程完成 scenario=t7 setvia=ValuePattern(1148) attempt=1 dialog_closed=True
+rc=0
+--- [t7] wait-meta -Timeout 40
+OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 MP4（490 KB）重新转换]
+rc=0
+--- [t7] click-conv -Format mp4
+OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+rc=0
+--- [t7] wait-settled -Timeout 180 -Expect 6
+OK: 转换已收敛（已结论条目=6 期望>=6 进行中=0）
+rc=0
+  转换后残留检查：ffmpeg=0 ffprobe=0 clipforge=1
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-stability-final.png (97984 B)
+=== 本轮 conv 事件（应用日志）===
+2026-10-11T14:09:06.411Z [lifecycle] conv register entry_id=0 format=mp4
+2026-10-11T14:09:06.413Z [lifecycle] conv start entry_id=0
+2026-10-11T14:09:06.680Z [lifecycle] conv complete entry_id=0 output_size=501946
+2026-10-11T14:09:13.403Z [lifecycle] conv register entry_id=1 format=mp4
+2026-10-11T14:09:13.405Z [lifecycle] conv start entry_id=1
+2026-10-11T14:09:13.568Z [lifecycle] conv complete entry_id=1 output_size=71985
+2026-10-11T14:09:20.407Z [lifecycle] conv register entry_id=2 format=mp4
+2026-10-11T14:09:20.409Z [lifecycle] conv start entry_id=2
+2026-10-11T14:09:20.569Z [lifecycle] conv complete entry_id=2 output_size=70366
+2026-10-11T14:09:27.591Z [lifecycle] conv register entry_id=3 format=mp4
+2026-10-11T14:09:27.593Z [lifecycle] conv start entry_id=3
+2026-10-11T14:09:27.703Z [lifecycle] conv complete entry_id=3 output_size=53474
+2026-10-11T14:09:34.608Z [lifecycle] conv register entry_id=4 format=mp4
+2026-10-11T14:09:34.610Z [lifecycle] conv start entry_id=4
+2026-10-11T14:09:34.771Z [lifecycle] conv complete entry_id=4 output_size=249292
+2026-10-11T14:09:41.586Z [lifecycle] conv register entry_id=5 format=mp4
+2026-10-11T14:09:41.588Z [lifecycle] conv start entry_id=5
+2026-10-11T14:09:41.800Z [lifecycle] conv complete entry_id=5 output_size=501946
+
+=== 输出文件 ===
+-rw-r--r-- 1 宋舜江 197121 249292 Oct 11 22:01 no_audio_converted.mp4
+-rw-r--r-- 1 宋舜江 197121 249292 Oct 11 22:09 no_audio_converted_2.mp4
+-rw-r--r-- 1 宋舜江 197121 501946 Oct 11 21:55 sample_converted.mp4
+-rw-r--r-- 1 宋舜江 197121 648297 Oct 11 21:56 sample_converted.webm
+-rw-r--r-- 1 宋舜江 197121  71985 Oct 11 21:57 sample_converted_2.mp4
+-rw-r--r-- 1 宋舜江 197121  70366 Oct 11 21:59 sample_converted_3.mp4
+-rw-r--r-- 1 宋舜江 197121  53474 Oct 11 22:00 sample_converted_4.mp4
+-rw-r--r-- 1 宋舜江 197121 501946 Oct 11 22:09 sample_converted_5.mp4
+-rw-r--r-- 1 宋舜江 197121  71985 Oct 11 22:09 sample_converted_6.mp4
+-rw-r--r-- 1 宋舜江 197121  70366 Oct 11 22:09 sample_converted_7.mp4
+-rw-r--r-- 1 宋舜江 197121  53474 Oct 11 22:09 sample_converted_8.mp4
+OK: 已请求关闭主窗口(WindowPattern.Close)
+关闭后 clipforge=0 ffmpeg=0 ffprobe=0 node=0 port1420_listen=0
+--- shutdown 摘要（应用日志）
+2026-10-11T14:10:26.453Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]

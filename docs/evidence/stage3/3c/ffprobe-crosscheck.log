@@ -1,0 +1,98 @@
+===== Stage 3C 输出文件 FFprobe 二次验证 2026-10-11T22:12:02.4150852+08:00 =====
+ffprobe = C:\Users\宋舜江\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffprobe.exe
+
+--- [T1 ] D:\应聘项目zcode\test-assets\stage3c\sample_converted.mp4
+    ffprobe_exit=0  文件大小=501946 B  mtime=2026-10-11T21:55:05.5807142+08:00
+    format_name=mov,mp4,m4a,3gp,3g2,mj2  duration=5.000000  bit_rate=803113
+    stream[0] video codec=h264 640x360 pix_fmt=yuv420p r_frame_rate=30/1
+    stream[1] audio codec=aac sample_rate=44100 channels=1
+    RESULT=PROBE_OK
+
+--- [T2 ] D:\应聘项目zcode\test-assets\stage3c\sample_converted.webm
+    ffprobe_exit=0  文件大小=648297 B  mtime=2026-10-11T21:56:19.2677735+08:00
+    format_name=matroska,webm  duration=5.003000  bit_rate=1036653
+    stream[0] video codec=vp8 640x360 pix_fmt=yuv420p r_frame_rate=30/1
+    stream[1] audio codec=vorbis sample_rate=44100 channels=1
+    RESULT=PROBE_OK
+
+--- [T3 ] D:\应聘项目zcode\test-assets\stage3c\sample_converted_2.mp4
+    ffprobe_exit=0  文件大小=71985 B  mtime=2026-10-11T21:57:48.2438275+08:00
+    format_name=mov,mp4,m4a,3gp,3g2,mj2  duration=4.017052  bit_rate=143358
+    stream[0] video codec=h264 640x360 pix_fmt=yuv420p r_frame_rate=30/1
+    stream[1] audio codec=aac sample_rate=44100 channels=1
+    RESULT=PROBE_OK
+
+--- [T4 ] D:\应聘项目zcode\test-assets\stage3c\sample_converted_3.mp4
+    ffprobe_exit=0  文件大小=70366 B  mtime=2026-10-11T21:59:25.6566363+08:00
+    format_name=mov,mp4,m4a,3gp,3g2,mj2  duration=3.000000  bit_rate=187642
+    stream[0] video codec=h264 640x360 pix_fmt=yuv420p r_frame_rate=30/1
+    stream[1] audio codec=aac sample_rate=44100 channels=1
+    RESULT=PROBE_OK
+
+--- [T5 ] D:\应聘项目zcode\test-assets\stage3c\sample_converted_4.mp4
+    ffprobe_exit=0  文件大小=53474 B  mtime=2026-10-11T22:00:04.4587293+08:00
+    format_name=mov,mp4,m4a,3gp,3g2,mj2  duration=3.040000  bit_rate=140721
+    stream[0] video codec=h264 640x360 pix_fmt=yuv420p r_frame_rate=25/1
+    stream[1] audio codec=aac sample_rate=44100 channels=1
+    RESULT=PROBE_OK
+
+--- [T6 ] D:\应聘项目zcode\test-assets\stage3c\no_audio_converted.mp4
+    ffprobe_exit=0  文件大小=249292 B  mtime=2026-10-11T22:01:12.3707260+08:00
+    format_name=mov,mp4,m4a,3gp,3g2,mj2  duration=3.000000  bit_rate=664778
+    stream[0] video codec=h264 640x360 pix_fmt=yuv420p r_frame_rate=30/1
+    RESULT=PROBE_OK
+
+--- [T7 ] D:\应聘项目zcode\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample_converted.mp4
+    ffprobe_exit=0  文件大小=501946 B  mtime=2026-10-11T22:01:51.2786598+08:00
+    format_name=mov,mp4,m4a,3gp,3g2,mj2  duration=5.000000  bit_rate=803113
+    stream[0] video codec=h264 640x360 pix_fmt=yuv420p r_frame_rate=30/1
+    stream[1] audio codec=aac sample_rate=44100 channels=1
+    RESULT=PROBE_OK
+
+--- [S1 ] D:\应聘项目zcode\test-assets\stage3c\sample_converted_5.mp4
+    ffprobe_exit=0  文件大小=501946 B  mtime=2026-10-11T22:09:06.6186653+08:00
+    format_name=mov,mp4,m4a,3gp,3g2,mj2  duration=5.000000  bit_rate=803113
+    stream[0] video codec=h264 640x360 pix_fmt=yuv420p r_frame_rate=30/1
+    stream[1] audio codec=aac sample_rate=44100 channels=1
+    RESULT=PROBE_OK
+
+--- [S2 ] D:\应聘项目zcode\test-assets\stage3c\sample_converted_6.mp4
+    ffprobe_exit=0  文件大小=71985 B  mtime=2026-10-11T22:09:13.5255749+08:00
+    format_name=mov,mp4,m4a,3gp,3g2,mj2  duration=4.017052  bit_rate=143358
+    stream[0] video codec=h264 640x360 pix_fmt=yuv420p r_frame_rate=30/1
+    stream[1] audio codec=aac sample_rate=44100 channels=1
+    RESULT=PROBE_OK
+
+--- [S3 ] D:\应聘项目zcode\test-assets\stage3c\sample_converted_7.mp4
+    ffprobe_exit=0  文件大小=70366 B  mtime=2026-10-11T22:09:20.5313381+08:00
+    format_name=mov,mp4,m4a,3gp,3g2,mj2  duration=3.000000  bit_rate=187642
+    stream[0] video codec=h264 640x360 pix_fmt=yuv420p r_frame_rate=30/1
+    stream[1] audio codec=aac sample_rate=44100 channels=1
+    RESULT=PROBE_OK
+
+--- [S4 ] D:\应聘项目zcode\test-assets\stage3c\sample_converted_8.mp4
+    ffprobe_exit=0  文件大小=53474 B  mtime=2026-10-11T22:09:27.6874203+08:00
+    format_name=mov,mp4,m4a,3gp,3g2,mj2  duration=3.040000  bit_rate=140721
+    stream[0] video codec=h264 640x360 pix_fmt=yuv420p r_frame_rate=25/1
+    stream[1] audio codec=aac sample_rate=44100 channels=1
+    RESULT=PROBE_OK
+
+--- [S5 ] D:\应聘项目zcode\test-assets\stage3c\no_audio_converted_2.mp4
+    ffprobe_exit=0  文件大小=249292 B  mtime=2026-10-11T22:09:34.7484638+08:00
+    format_name=mov,mp4,m4a,3gp,3g2,mj2  duration=3.000000  bit_rate=664778
+    stream[0] video codec=h264 640x360 pix_fmt=yuv420p r_frame_rate=30/1
+    RESULT=PROBE_OK
+
+--- [S6 ] D:\应聘项目zcode\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample_converted_2.mp4
+    ffprobe_exit=0  文件大小=501946 B  mtime=2026-10-11T22:09:41.7856030+08:00
+    format_name=mov,mp4,m4a,3gp,3g2,mj2  duration=5.000000  bit_rate=803113
+    stream[0] video codec=h264 640x360 pix_fmt=yuv420p r_frame_rate=30/1
+    stream[1] audio codec=aac sample_rate=44100 channels=1
+    RESULT=PROBE_OK
+
+--- [T8 / T8b] 失败用例不应留下输出文件
+    truncated_converted.mp4 存在=False  RESULT=OK(已清理/未产生)
+    corrupt_mdat_converted.mp4 存在=False  RESULT=OK(已清理/未产生)
+
+===== 汇总：PROBE_OK=13  PROBE_MISMATCH/FAIL=0  MISSING=0 =====
+DONE 2026-10-11T22:12:03.1919116+08:00

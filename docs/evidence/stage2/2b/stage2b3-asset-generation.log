@@ -1,0 +1,130 @@
+﻿== Phase 2B-3 素材生成（D-0021）2026-10-10T22:35:02.4725095+08:00 ==
+ffmpeg=C:\Users\宋舜江\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffmpeg.exe
+ffprobe=C:\Users\宋舜江\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffprobe.exe
+--- [1] audio_only_sample.m4a（仅音频，无视频流 → MEDIA_UNSUPPORTED 标本）---
+Input #0, lavfi, from 'sine=frequency=440:sample_rate=44100':
+  Duration: N/A, start: 0.000000, bitrate: 705 kb/s
+  Stream #0:0: Audio: pcm_s16le, 44100 Hz, mono, s16, 705 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> aac (native))
+Press [q] to stop, [?] for help
+Output #0, ipod, to 'D:\应聘项目zcode\docs\evidence\stage2\test-assets\audio_only_sample.m4a':
+  Metadata:
+    encoder         : Lavf63.1.102
+  Stream #0:0: Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, mono, fltp, 69 kb/s
+    Metadata:
+      encoder         : Lavc63.1.102 aac
+[out#0/ipod @ 0000019243ef73c0] video:0KiB audio:43KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 3.843152%
+size=      44KiB time=00:00:05.00 bitrate=  72.4kbits/s speed=49.1x elapsed=0:00:00.10    
+[aac @ 0000019243f39200] Qavg: 417.169
+AUDIO_EXIT=0
+--- [2] plain_note.txt（正常非视频文件）---
+NOTE_EXIT=0
+--- [3] truncated_sample.mp4（先建小 MP4 再截断至 2000 字节 → moov 缺失）---
+Input #0, lavfi, from 'testsrc2=size=320x240:rate=30':
+  Duration: N/A, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: wrapped_avframe, yuv420p, 320x240 [SAR 1:1 DAR 4:3], 30 fps, 30 tbr, 30 tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (wrapped_avframe (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[libx264 @ 000002d13e8ec440] using SAR=1/1
+[libx264 @ 000002d13e8ec440] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 000002d13e8ec440] profile Constrained Baseline, level 1.3, 4:2:0, 8-bit
+[libx264 @ 000002d13e8ec440] 264 - core 165 r3223 0480cb0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=0 ref=1 deblock=0:0:0 analyse=0:0 me=dia subme=0 psy=1 psy_rd=1.00:0.00 mixed_ref=0 me_range=16 chroma_me=1 trellis=0 8x8dct=0 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=0 threads=7 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=0 weightp=0 keyint=250 keyint_min=25 scenecut=0 intra_refresh=0 rc=crf mbtree=0 crf=23.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=0
+Output #0, mp4, to 'D:\应聘项目zcode\docs\evidence\stage2\test-assets\tiny_src_full.mp4':
+  Metadata:
+    encoder         : Lavf63.1.102
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(tv, progressive), 320x240 [SAR 1:1 DAR 4:3], q=2-31, 30 fps, 15360 tbn
+    Metadata:
+      encoder         : Lavc63.1.102 libx264
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+[out#0/mp4 @ 000002d13e899700] video:289KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.409241%
+frame=   90 fps=0.0 q=-1.0 Lsize=     290KiB time=00:00:03.00 bitrate= 791.7kbits/s speed=  72x elapsed=0:00:00.04    
+[libx264 @ 000002d13e8ec440] frame I:1     Avg QP:20.00  size:  8058
+[libx264 @ 000002d13e8ec440] frame P:89    Avg QP:20.87  size:  3225
+[libx264 @ 000002d13e8ec440] mb I  I16..4: 100.0%  0.0%  0.0%
+[libx264 @ 000002d13e8ec440] mb P  I16..4:  3.9%  0.0%  0.0%  P16..4: 24.6%  0.0%  0.0%  0.0%  0.0%    skip:71.5%
+[libx264 @ 000002d13e8ec440] coded y,uvDC,uvAC intra: 12.9% 29.6% 19.6% inter: 10.6% 20.9% 15.6%
+[libx264 @ 000002d13e8ec440] i16 v,h,dc,p: 84%  9%  6%  1%
+[libx264 @ 000002d13e8ec440] i8c dc,h,v,p: 41% 14% 44%  2%
+[libx264 @ 000002d13e8ec440] kb/s:786.85
+TINY_EXIT=0 tiny_size=296879
+TRUNCATED_SIZE=2000
+--- [4] raw_stream.h264（裸流：无容器时长）---
+Input #0, lavfi, from 'testsrc2=size=640x360:rate=30':
+  Duration: N/A, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: wrapped_avframe, yuv420p, 640x360 [SAR 1:1 DAR 16:9], 30 fps, 30 tbr, 30 tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (wrapped_avframe (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[libx264 @ 000001d827995180] using SAR=1/1
+[libx264 @ 000001d827995180] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 000001d827995180] profile Constrained Baseline, level 3.0, 4:2:0, 8-bit
+Output #0, h264, to 'D:\应聘项目zcode\docs\evidence\stage2\test-assets\raw_stream.h264':
+  Metadata:
+    encoder         : Lavf63.1.102
+  Stream #0:0: Video: h264, yuv420p(tv, progressive), 640x360 [SAR 1:1 DAR 16:9], q=2-31, 30 fps, 30 tbn
+    Metadata:
+      encoder         : Lavc63.1.102 libx264
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+[out#0/h264 @ 000001d8279461c0] video:1188KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.000000%
+frame=  150 fps=0.0 q=-1.0 Lsize=    1188KiB time=00:00:05.00 bitrate=1946.1kbits/s speed=82.1x elapsed=0:00:00.06    
+[libx264 @ 000001d827995180] frame I:1     Avg QP:20.00  size: 16485
+[libx264 @ 000001d827995180] frame P:149   Avg QP:20.30  size:  8053
+[libx264 @ 000001d827995180] mb I  I16..4: 100.0%  0.0%  0.0%
+[libx264 @ 000001d827995180] mb P  I16..4:  4.3%  0.0%  0.0%  P16..4: 15.6%  0.0%  0.0%  0.0%  0.0%    skip:80.1%
+[libx264 @ 000001d827995180] coded y,uvDC,uvAC intra: 9.0% 19.0% 12.0% inter: 7.5% 13.0% 9.5%
+[libx264 @ 000001d827995180] i16 v,h,dc,p: 87% 10%  3%  1%
+[libx264 @ 000001d827995180] i8c dc,h,v,p: 50% 14% 35%  1%
+[libx264 @ 000001d827995180] kb/s:1946.15
+RAW_EXIT=0
+--- [5] large_sample.mkv（stream_loop 复制 ≈480MB，供响应性验收）---
+Input #0, matroska,webm, from 'D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv':
+  Metadata:
+    ENCODER         : Lavf63.1.102
+  Duration: 00:00:05.02, start: 0.000000, bitrate: 1969 kb/s
+  Stream #0:0: Video: mpeg4 (Simple Profile), yuv420p(tv, progressive), 640x360 [SAR 1:1 DAR 16:9], 30 fps, 30 tbr, 1k tbn
+    Metadata:
+      ENCODER         : Lavc63.1.102 mpeg4
+      DURATION        : 00:00:05.000000000
+  Stream #0:1: Audio: aac (LC), 44100 Hz, mono, fltp
+    Metadata:
+      ENCODER         : Lavc63.1.102 aac
+      DURATION        : 00:00:05.023000000
+Option stream_loop (set number of times input stream shall be looped) cannot be applied to output url D:\应聘项目zcode\docs\evidence\stage2\test-assets\large_sample.mkv -- you are trying to apply an input option to an output file or vice versa. Move this option before the file it belongs to.
+Error parsing options for output file D:\应聘项目zcode\docs\evidence\stage2\test-assets\large_sample.mkv.
+Error opening output files: Invalid argument
+LARGE_EXIT=-22
+--- 素材属性与哈希 ---
+audio_only_sample.m4a size=45232 mtime=2026-10-10T22:35:02.7061888+08:00 sha256=D19521DC889D18A168635AD5BF547090BF6020068001F74FC29EB5C79715FBC5
+plain_note.txt size=68 mtime=2026-10-10T22:35:02.7161904+08:00 sha256=349E079CF24C8B50422EDF0B45F870B6BB8968CCB19486B4EB7C530044FE3BE6
+truncated_sample.mp4 size=2000 mtime=2026-10-10T22:35:02.8228082+08:00 sha256=607F4B618A591386C91C872F20CD3322020D23FF76E8857B9BFAC099EF1074A4
+raw_stream.h264 size=1216342 mtime=2026-10-10T22:35:02.9308065+08:00 sha256=C4623A1256F462738C2CF8739236DEB2AD7C8A5A21704BD2283064CCD31C6A6A
+large_sample.mkv size=0 mtime= sha256=
+--- 参考 JSON 与关键属性 ---
+== ffprobe raw_stream.h264 ==
+probe_exit=0
+stream_types=video
+duration=N/A
+== ffprobe audio_only_sample.m4a ==
+probe_exit=0
+stream_types=audio
+duration=5.000000
+== ffprobe truncated_sample.mp4 ==
+probe_exit=1
+stream_types=
+duration=
+== ffprobe large_sample.mkv ==
+probe_exit=1
+stream_types=
+duration=
+--- [5-重试] large_sample.mkv（修正 -stream_loop 为输入选项）2026-10-10T22:36:49.7664393+08:00 ---
+frame=40159 fps=0.0 q=-1.0 size=  322560KiB time=00:22:24.90 bitrate=1964.8kbits/s speed=2.66e+03x elapsed=0:00:00.50    
+[out#0/matroska @ 0000027a34e05000] video:464451KiB audio:16915KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.250481%
+frame=60000 fps=0.0 q=-1.0 Lsize=  482572KiB time=00:33:29.17 bitrate=1967.6kbits/s speed=2.64e+03x elapsed=0:00:00.76    
+LARGE_EXIT=0
+large_sample.mkv size=494153326 mtime=2026-10-10T22:36:50.6174271+08:00 sha256=3F1478363202D2DC78DDC50B21B3CB98FAE0CA730276D3DEBAC237608ADB486B
+probe_exit=0 stream_types=video audio
+large duration=2009.200000

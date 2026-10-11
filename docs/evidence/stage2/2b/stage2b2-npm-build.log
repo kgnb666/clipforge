@@ -1,0 +1,32 @@
+﻿== npm run build（Phase 2B-2）START 2026-10-10T22:13:08.1628841+08:00 ==
+
+> clipforge@0.1.0 build
+> tsc && vite build
+
+[36mvite v8.3.4 [32mbuilding client environment for production...[36m[39m
+transforming...
+✓ 19 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.48 kB │ gzip:  0.31 kB
+dist/assets/index-CLnT4LMQ.css    2.11 kB │ gzip:  0.86 kB
+dist/assets/index-Cln5nx_p.js   223.62 kB │ gzip: 70.30 kB
+
+[32m✓ built in 222ms[39m
+EXIT=0 END 2026-10-10T22:13:10.5747776+08:00
+== npm run build（Phase 2B-2，即发即忘修订后）START 2026-10-10T22:22:48.3503333+08:00 ==
+
+> clipforge@0.1.0 build
+> tsc && vite build
+
+[36mvite v8.3.4 [32mbuilding client environment for production...[36m[39m
+transforming...
+✓ 19 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.48 kB │ gzip:  0.31 kB
+dist/assets/index-CLnT4LMQ.css    2.11 kB │ gzip:  0.86 kB
+dist/assets/index-DftO5HL3.js   223.61 kB │ gzip: 70.30 kB
+
+[32m✓ built in 176ms[39m
+EXIT=0 END 2026-10-10T22:22:50.2306315+08:00

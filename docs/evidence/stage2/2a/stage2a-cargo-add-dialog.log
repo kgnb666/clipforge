@@ -1,0 +1,22 @@
+﻿== cargo add tauri-plugin-dialog@2.8.1 START 2026-10-10T20:23:13.7814729+08:00 ==
+    Updating crates.io index
+      Adding tauri-plugin-dialog v2.8.1 to dependencies
+             Features:
+             + gtk3
+             - xdg-portal
+    Updating crates.io index
+     Locking 13 packages to highest Rust 1.99.0 compatible versions
+      Adding rfd v0.16.0
+      Adding tauri-plugin-dialog v2.8.1
+      Adding tauri-plugin-fs v2.6.0
+      Adding windows-sys v0.60.2
+      Adding windows-targets v0.53.5
+      Adding windows_aarch64_gnullvm v0.53.1
+      Adding windows_aarch64_msvc v0.53.1
+      Adding windows_i686_gnu v0.53.1
+      Adding windows_i686_gnullvm v0.53.1
+      Adding windows_i686_msvc v0.53.1
+      Adding windows_x86_64_gnu v0.53.1
+      Adding windows_x86_64_gnullvm v0.53.1
+      Adding windows_x86_64_msvc v0.53.1
+EXIT=0 END 2026-10-10T20:23:20.6631750+08:00

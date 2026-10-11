@@ -1,0 +1,18 @@
+[package]
+name = "fake-ffprobe"
+version = "0.1.0"
+edition = "2021"
+description = "ClipForge 测试替身（仅测试用途；D-0023）：受控非零退出与受控延迟行为，用于验证 Phase 2B-1 的失败分类与超时终止。不参与应用构建与发布。"
+license = "MIT"
+
+[[bin]]
+name = "fake-ffprobe-exit1"
+path = "src/bin/fake-ffprobe-exit1.rs"
+
+[[bin]]
+name = "fake-ffprobe-delay"
+path = "src/bin/fake-ffprobe-delay.rs"
+
+[[bin]]
+name = "fake-ffprobe-ok"
+path = "src/bin/fake-ffprobe-ok.rs"

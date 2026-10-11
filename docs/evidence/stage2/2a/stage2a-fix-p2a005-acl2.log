@@ -1,0 +1,29 @@
+﻿== P2A-005（补测）ACL 拒绝施加 START 2026-10-10T21:05:45.5298490+08:00 ==
+target=D:\应聘项目zcode\docs\evidence\stage2\test-assets\acl-test-copy.mkv
+user=宋舜江 whoami=宋舜江
+pre_sha256=5D511034DB9797594230CB483A8097A1078FEC4EA59A529225525F2D062192BB
+--- 应用最小范围拒绝（仅此单文件）---
+deny_exit=0
+processed file: D:\ӦƸ��Ŀzcode\docs\evidence\stage2\test-assets\acl-test-copy.mkv
+Successfully processed 1 files; Failed processing 0 files
+post_deny_acl_has_DENY=True
+testpath_still_true=True
+read_denied=True
+read_error=对路径“D:\应聘项目zcode\docs\evidence\stage2\test-assets\acl-test-copy.mkv”的访问被拒绝。
+--- 恢复流程：移除 DENY（仅此单文件）2026-10-10T21:06:52.7590254+08:00 ---
+remove_deny_exit=0
+processed file: D:\ӦƸ��Ŀzcode\docs\evidence\stage2\test-assets\acl-test-copy.mkv
+Successfully processed 1 files; Failed processing 0 files
+--- 恢复后 ACL ---
+D:\ӦƸ��Ŀzcode\docs\evidence\stage2\test-assets\acl-test-copy.mkv BUILTIN\Administrators:(I)(F)
+                                                                NT AUTHORITY\SYSTEM:(I)(F)
+                                                                NT AUTHORITY\Authenticated Users:(I)(M)
+                                                                BUILTIN\Users:(I)(RX)
+
+Successfully processed 1 files; Failed processing 0 files
+acl_restored_equal=True
+deny_removed=True
+post_sha256=5D511034DB9797594230CB483A8097A1078FEC4EA59A529225525F2D062192BB
+hash_unchanged=True
+read_works_again=True
+RESULT=PASS: ACL 已恢复原状、DENY 已移除、哈希不变、读取恢复

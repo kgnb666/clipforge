@@ -1,0 +1,54 @@
+# D-0028 页头副标题产品化 —— 取证与验证记录
+
+- 日期：2026-10-11
+- 决策：`docs/decision-log.md` D-0028
+- 改动：`clipforge/src/App.tsx` 页头副标题（单行）
+  - 改前：`Stage 2B · 元数据展示`
+  - 改后：`本地视频导入 · 元数据 · 格式转换`
+
+## 1. 影响面核查（改动前）
+
+- 全仓库检索字面量 `Stage 2B · 元数据展示`：源码中仅 `clipforge/src/App.tsx` 一处；`App.css` 仅定义 `.subtitle` 样式（未改）；**无任何测试、脚本或断言引用该字符串**（历史验收证据日志中的 UI 文本 dump 属历史快照，按 D-0028 不回改）。
+- 其余 `Stage …` 字样均位于 `src-tauri/src/*.rs` 注释（历史能力标注、非用户可见），不在本次范围。
+- 规格核查：`requirements-and-acceptance.md` 对页头副标题无任何条款（仅要求窗口标题 `clipforge`），本次改动不触及验收标准，故规格无修订、无版本递增（与 D-0023~D-0026 属同类"实施期决策"记录方式一致）。
+
+## 2. 环境
+
+- dev 会话（用户会话，改动前已在运行）：`cargo`×2 + `clipforge.exe`（PID 5436）+ Vite dev server（node，127.0.0.1:1420），启动时间 2026-10-11 22:32。
+- 改动经 Vite HMR 直接作用于该运行中窗口——**未重启应用、未重启 dev 会话、未新增进程**。
+- 被测窗口：hwnd=986876，class `Tauri Window`，title `clipforge`，窗口矩形 1018×797。
+
+## 3. 步骤与结果
+
+| # | 步骤 | 结果 | 证据 |
+|---|---|---|---|
+| 1 | 改前状态留档 | 用户提供的真实窗口截图（含旧副标题），自 ZCode 图像缓存复制入证据目录 | `d0028-before-header.png` |
+| 2 | 修改 `App.tsx` → 等待 HMR → UI Automation dump | 25 个文本元素；含新文案 `TXT: 本地视频导入 · 元数据 · 格式转换`；页头区含 `ClipForge` / `导入视频` | `d0028-after-header.log` |
+| 3 | 改后窗口截图 | PrintWindow(PW_RENDERFULLCONTENT) 抓取窗口自身像素，1018×797 | `d0028-after-header.png` |
+| 4 | 构建验证 | `npm run build`（tsc && vite build）**EXIT=0**；19 modules；`dist/assets/index-p5YNrqmd.js` 226.46 kB | `d0028-npm-build.log` |
+| 5 | 窗口状态还原 | 取证后将窗口 SW_MINIMIZE 还原为取证前的最小化状态（`MINIMIZED hwnd=986876 iconic=True`） | 本记录 §3 |
+
+## 4. 方法学记录（D-0012 截图方法的补充；本次实测三个坑）
+
+1. **`Process.MainWindowHandle` 不可信（Tauri/WebView2）**：`clipforge` 进程的 MainWindowHandle 指向一个 14×14 辅助窗口（`visible=True, rect=0,0,14,14`），并非真实应用窗口。还原/截图必须使用 UIA 窗口元素的 `NativeWindowHandle`（或按 class+title 枚举）。
+2. **窗口最小化（iconic）时 WebView2 内容不实例化**：此时 UIA 树只暴露窗口框架（元素坐标 -32000），读不到任何 DOM 文本；必须先 `SW_RESTORE` 再读树/截图。
+3. **后台进程 `SetForegroundWindow` 被系统拒绝**：第一次截图走屏幕像素路径时抢前台失败，`CopyFromScreen` 实际抓到的是遮挡在前面的 ZCode 窗口（无效截图，已删除、未列入证据集）。改用 `PrintWindow(hwnd, hdc, PW_RENDERFULLCONTENT=2)` 直接抓窗口自身像素 + 空白检测（网格抽样 ≤2 色判定失败）；保留 `AttachThreadInput` 提权路径作为后备。今后所有窗口截图建议优先 PrintWindow 路径。
+
+## 5. 只读与安全声明
+
+- 取证脚本（`d0028-ui-verify.ps1`）对应用**只读**：不点击、不输入、不调用任何 IPC；仅读 UIA 树与窗口像素，外加必要的窗口显示状态切换（restore/shot/minimize），取证结束后恢复原状态。
+- 未修改任何测试素材、未新增依赖、未改动后端代码。
+
+## 6. 证据文件（SHA256）
+
+```
+2b9b284812a4d3b98bf15e3862237e49df69c6ffd3bc2b810a150f535b64e94e  d0028-before-header.png   (用户截图，1002x788)
+3746591a9506619e1a47ef96898d556200870d8b751916dcbafb0d9b43eb0974  d0028-after-header.png    (改后截图，1018x797)
+4d7af7695ab34d555ce5befdd4585fb0ac04cc349990db2f467c18d375ab0d7a  d0028-after-header.log    (UIA 文本 dump)
+800b67bab937f770edd6cbbd6db1fe5136031070ee9621e531aaef2c479e321f  d0028-npm-build.log       (tsc + vite build，EXIT=0)
+cf9dedfd7aeed1ca3c81e2a1ae5b92cdf2e97c86a0e6457cdd07a2b11528b943  d0028-ui-verify.ps1       (取证脚本，UTF-8 with BOM)
+```
+
+## 7. 范围外观察（仅记录，未处理）
+
+- `clipforge/index.html` 的 `<title>` 仍为模板默认 `Tauri + React + Typescript`（在 UIA 中表现为文档元素名）。应用窗口标题栏/任务栏显示 `clipforge`（来自 `tauri.conf.json`），故该默认标题**在应用内不可见**；仅当以浏览器方式打开前端时可见。如交付前希望一并清理，可另行授权（属独立小改动，未纳入 D-0028）。

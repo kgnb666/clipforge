@@ -1,0 +1,28 @@
+=== 安装包哈希 ===
+5ba316a3645e19695672ba0e72f0821ac435ce0d890351c37bab12bb01e97d8a *ClipForge_0.1.0_x64-setup.exe
+
+=== 静默安装 /S ===
+INSTALL_EXIT=0
+
+=== 安装体核对（改名前：临时版本）===
+--- 注册表卸载项 ---
+
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Uninstall\ClipForge
+    MainBinaryName    REG_SZ    clipforge.exe
+    DisplayName    REG_SZ    ClipForge
+    DisplayIcon    REG_SZ    "C:\Users\��˴��\AppData\Local\ClipForge\clipforge.exe"
+    DisplayVersion    REG_SZ    0.1.0
+    Publisher    REG_SZ    clipforge
+    InstallLocation    REG_SZ    "C:\Users\��˴��\AppData\Local\ClipForge"
+    UninstallString    REG_SZ    "C:\Users\��˴��\AppData\Local\ClipForge\uninstall.exe"
+    NoModify    REG_DWORD    0x1
+    NoRepair    REG_DWORD    0x1
+    EstimatedSize    REG_DWORD    0x131b
+
+--- 开始菜单快捷方式 ---
+ClipForge.lnk
+--- 桌面快捷方式 ---
+ClipForge.lnk
+
+=== 卸载（静默）===
+UNINSTALL_EXIT=0

@@ -1,0 +1,24 @@
+# ================= ClipForge 交付仓库 · 入库裁剪 =================
+# 原则：源码、文档、证据日志/截图、生成脚本全部入库；
+#       体积大且可由已入库脚本/公开链接复现的媒体与构建产物不入库。
+
+# ---- 构建产物 ----
+clipforge/node_modules/
+clipforge/dist/
+**/target/
+
+# ---- 生成/下载的测试媒体（可由脚本或公开链接复现；清单见各自 MANIFEST.md）----
+# Stage 2 专用测试素材（生成命令见 docs/evidence/stage2/，约 532 MB）
+docs/evidence/stage2/test-assets/
+# 手测用真实世界素材（下载来源见 test-assets/real-world/MANIFEST.md，约 196 MB）
+test-assets/real-world/*.mp4
+test-assets/real-world/*.webm
+test-assets/real-world/*.mkv
+test-assets/real-world/*.mov
+test-assets/real-world/*.avi
+# Stage 3C 合成素材与转换产物（生成脚本见 docs/evidence/stage3/3c/，含中文路径目录）
+test-assets/stage3c/
+
+# ---- 本地临时 ----
+*.tmp
+*.bak

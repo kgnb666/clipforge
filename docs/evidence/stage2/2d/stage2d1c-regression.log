@@ -1,0 +1,102 @@
+﻿== Stage 2D-1-C 应用回归 会话 R（真实 FFprobe：场景 1/2/3/4/5）START 2026-10-11T18:11:27.3918029+08:00 ==
+
+> clipforge@0.1.0 tauri
+> tauri dev
+
+     Running BeforeDevCommand (`npm run dev`)
+
+> clipforge@0.1.0 dev
+> vite
+
+
+  [32m[1mVITE[22m v8.3.4[39m  [2mready in [0m[1m302[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m1420[22m/[39m
+     Running DevCommand (`cargo  run --no-default-features --color always --`)
+        Info Watching D:\应聘项目zcode\clipforge\src-tauri for changes...
+[1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 0.40s
+[1m[92m     Running[0m `D:\cargo-target\debug\clipforge.exe`
+[logging] initialized at C:\Users\宋舜江\AppData\Local\com.clipforge.app\logs
+--- [场景1] 特殊字符中文路径导入
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+s1_rc=0
+--- [场景2] 重复导入
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [已在列表中：样本 视频 #1 (初版)'s.mkv]
+s2_rc=0
+--- [场景3] 正常媒体（samplea）
+OK: 导入流程完成 scenario=samplea ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+s3_rc=0
+--- [场景4] 无音轨媒体
+OK: 导入流程完成 scenario=noaudio ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [no_audio_sample.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv大小1.14 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码无音轨]
+s4_rc=0
+--- [场景5] 损坏媒体
+OK: 导入流程完成 scenario=truncated ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [truncated_sample.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\truncated_sample.mp4元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：[mov,mp4,m4a,3gp,3g2,mj2 @ 00000226cb530b00] moov atom not found重试]
+s5_rc=0
+OK: shot-app docs\evidence\stage2\2d\stage2d1c-regression-states.png (72645 B)
+closeR=True
+[lifecycle] exit cleanup: cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+== 会话 R EXITED 2026-10-11T18:13:12.2716832+08:00 ==
+exitedR=True
+leftoverR=0
+--- [场景6] FFprobe 不存在（target\debug 缺失路径）
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv元数据读取失败（FFPROBE_NOT_FOUND）：未发现可用的 FFprobe（请安装 FFmpeg 或在后续阶段于设置中指定路径）重试]
+s6_rc=0
+closeO1=True
+exitedO1=True
+--- [场景7] FFprobe 启动失败（unlaunchable.dat）
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv元数据读取失败（FFPROBE_START_FAILED）：无法启动 FFprobe（系统错误 193）：%1 不是有效的 Win32 应用程序。 (os error 193)重试]
+s7_rc=0
+closeO2=True
+exitedO2=True
+--- [场景8] FFprobe 非 0 退出（exit1 替身）
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：fake-ffprobe-exit1: simulated probe failure (controlled test double, exit=1)重试]
+s8_rc=0
+closeO3=True
+exitedO3=True
+--- [场景9] 超时（1500ms）
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv元数据读取失败（FFPROBE_TIMEOUT）：FFprobe 超时（>1500 ms，实际约 1532 ms），已终止子进程重试]
+s9_rc=0
+child_after_timeout=0
+--- [场景10] shutdown 取消（在途探测 + 关闭）
+OK: 已点击导入视频
+OK: dialog name=[选择视频文件] class=[#32770] hwnd=6883224
+OK: 已设置文件名（ValuePattern(1148) attempt=1）场景=samplea
+InvokePattern (元素[Button] name=[打开(O)])
+OK: 已点击 打开
+OK: 对话框已关闭
+inflight_before_close=0
+closeO4=True pid=29552 time=2026-10-11T18:19:15.6197297+08:00
+exitedO4=True
+child_residual=0
+leftoverO4=0
+port1420=0
+port9333=0
+[lifecycle] exit cleanup: cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+2026-10-11T10:19:13.432Z [lifecycle] task start entry_id=1
+2026-10-11T10:19:14.962Z [lifecycle] task failed entry_id=1 code=FFPROBE_TIMEOUT
+2026-10-11T10:19:15.649Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+--- [场景10 重做] shutdown 取消（默认 30s，在途窗口宽）
+OK: 已点击导入视频
+OK: dialog name=[选择视频文件] class=[#32770] hwnd=3147560
+OK: 已设置文件名（ValuePattern(1148) attempt=1）场景=samplea
+InvokePattern (元素[Button] name=[打开(O)])
+OK: 已点击 打开
+OK: 对话框已关闭
+inflight_before_close=1
+closeO5=True pid=6660 time=2026-10-11T18:21:47.0901993+08:00
+exitedO5=True
+child_residual=0
+leftoverO5=0
+[lifecycle] exit cleanup: cancelled=1 reaped=1 remaining=0 peak=1 elapsed_ms=33 errors=[]
+2026-10-11T10:21:44.854Z [lifecycle] task start entry_id=0
+2026-10-11T10:21:47.137Z [lifecycle] task cancelled entry_id=0 code=FFPROBE_CANCELLED
+2026-10-11T10:21:47.144Z [lifecycle] shutdown cleanup cancelled=1 reaped=1 remaining=0 peak=1 elapsed_ms=33 errors=[]

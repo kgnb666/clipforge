@@ -1,0 +1,56 @@
+===== Stage 3B 转换实机验证 2026-10-11T20:41:14+08:00 =====
+--- [C1] 导入特殊字符路径文件
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC转换MP4WebM]
+import_rc=0
+--- [C2] MP4 转换（UIA 点击 MP4 按钮）
+MP4_clicked=True
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC已输出 MP4（539 KB）重新转换
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: 视频缩略图
+TXT: 重新转换
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+===== Stage 3B WebM CDP 测试 2026-10-11T20:43:31+08:00 =====
+TypeError: fetch failed
+    at Object.processResponse (node:internal/deps/undici/undici:12793:20)
+    at node:internal/deps/undici/undici:13181:23
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at node:internal/deps/undici/undici:17409:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async [eval]:4:23 {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:9333
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16) {
+    errno: -4078,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 9333
+  }
+}
+[eval]:22
+  const list = await invoke('list_conversion_results', {});
+        ^
+
+SyntaxError: Identifier 'list' has already been declared
+    at makeContextifyScript (node:internal/vm:194:14)
+    at compileScript (node:internal/process/execution:388:10)
+    at evalTypeScript (node:internal/process/execution:270:24)
+    at node:internal/main/eval_string:71:3
+
+Node.js v24.14.1
+fetch failed
+probe_state: undefined
+mp4: undefined undefined
+webm: undefined undefined

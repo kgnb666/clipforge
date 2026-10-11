@@ -1,0 +1,324 @@
+===== [Session 1] T1 基础 MP4 → MP4  开始 2026-10-11T21:54:44+08:00 =====
+--- import
+OK: 导入流程完成 scenario=t1 setvia=ValuePattern(1148) attempt=1 dialog_closed=True
+rc=0
+--- wait-entry
+OK: 界面已出现条目文本 [sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC转换MP4WebM]
+rc=0
+--- wait-meta
+OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC转换MP4WebM]
+rc=0
+--- wait-thumb
+OK: 缩略图已渲染 [视频缩略图]
+rc=0
+--- shot-app
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T1-before.png (93997 B)
+rc=0
+--- click-conv
+OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+rc=0
+--- wait-conv
+OK: 转换已结论 [sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 MP4（490 KB）重新转换]
+rc=0
+--- read-app-text
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 MP4（490 KB）重新转换
+TXT: D:\应聘项目zcode\test-assets\stage3c\sample.mp4
+TXT: 视频缩略图
+TXT: 重新转换
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+rc=0
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T1-done.png (94176 B)
+--- close-app
+OK: 已请求关闭主窗口(WindowPattern.Close)
+rc=0
+=== 关闭后残留检查 ===
+clipforge=0 ffmpeg=0 ffprobe=0 node=0 port1420_listen=0
+
+===== [Session 2] T2 MP4 → WebM（重点：真实点击 WebM）  开始 2026-10-11T21:56:09+08:00 =====
+--- wait-window
+OK: 主窗口就绪 name=[clipforge] class=[Tauri Window]
+rc=0
+--- import
+OK: 导入流程完成 scenario=t1 setvia=ValuePattern(1148) attempt=1 dialog_closed=True
+rc=0
+--- wait-meta
+OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC转换MP4WebM]
+rc=0
+--- wait-thumb
+OK: 缩略图已渲染 [视频缩略图]
+rc=0
+--- shot-app
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T2-before.png (93850 B)
+rc=0
+--- click-conv
+OK: 已点击转换按钮 [WebM] (匹配数=1 选中 index=0 方式=InvokePattern)
+rc=0
+OK: 转换已结论 [sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 WEBM（633 KB）重新转换]
+
+real	0m0.713s
+user	0m0.000s
+sys	0m0.030s
+rc=0
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 WEBM（633 KB）重新转换
+TXT: D:\应聘项目zcode\test-assets\stage3c\sample.mp4
+TXT: 视频缩略图
+TXT: 重新转换
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+rc=0
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T2-done.png (93657 B)
+
+===== [Session 2] T3 MKV → MP4  开始 2026-10-11T21:57:40+08:00 =====
+--- import -Scenario t3
+OK: 导入流程完成 scenario=t3 setvia=ValuePattern(1148) attempt=1 dialog_closed=True
+rc=0
+--- wait-meta -Timeout 30
+OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 WEBM（633 KB）重新转换]
+rc=0
+--- wait-thumb -Timeout 30
+OK: 缩略图已渲染 [视频缩略图]
+rc=0
+--- shot-app -Out /d/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T3-before.png
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T3-before.png (110265 B)
+rc=0
+--- click-conv -Format mp4
+OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+rc=0
+--- wait-conv -Timeout 180
+OK: 转换已结论 [sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 WEBM（633 KB）重新转换]
+rc=0
+--- shot-app -Out /d/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T3-done.png
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T3-done.png (111448 B)
+rc=0
+OK: 转换已收敛（已结论条目=2 期望>=2 进行中=0）
+rc=0
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T3-done.png (76495 B)
+
+===== [Session 2] T4 MOV → MP4  开始 2026-10-11T21:59:17+08:00 =====
+--- import -Scenario t4
+OK: 导入流程完成 scenario=t4 setvia=ValuePattern(1148) attempt=1 dialog_closed=True
+rc=0
+--- wait-meta -Timeout 30
+OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 WEBM（633 KB）重新转换]
+rc=0
+--- wait-thumb -Timeout 30
+OK: 缩略图已渲染 [视频缩略图]
+rc=0
+--- shot-app -Out /d/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T4-before.png
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T4-before.png (78261 B)
+rc=0
+--- click-conv -Format mp4
+OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+rc=0
+--- wait-settled -Timeout 180 -Expect 3
+OK: 转换已收敛（已结论条目=3 期望>=3 进行中=0）
+rc=0
+--- shot-app -Out /d/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T4-done.png
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T4-done.png (70717 B)
+rc=0
+
+===== [Session 2] T5 AVI → MP4  开始 2026-10-11T21:59:56+08:00 =====
+--- import -Scenario t5
+OK: 导入流程完成 scenario=t5 setvia=ValuePattern(1148) attempt=1 dialog_closed=True
+rc=0
+--- wait-meta -Timeout 30
+OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 WEBM（633 KB）重新转换]
+rc=0
+--- wait-thumb -Timeout 30
+OK: 缩略图已渲染 [视频缩略图]
+rc=0
+--- shot-app -Out /d/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T5-before.png
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T5-before.png (78202 B)
+rc=0
+--- click-conv -Format mp4
+OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+rc=0
+--- wait-settled -Timeout 180 -Expect 4
+OK: 转换已收敛（已结论条目=4 期望>=4 进行中=0）
+rc=0
+--- shot-app -Out /d/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T5-done.png
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T5-done.png (75128 B)
+rc=0
+
+===== [Session 2] T6 无音轨 MP4 → MP4  开始 2026-10-11T22:01:04+08:00 =====
+--- import -Scenario t6
+OK: 导入流程完成 scenario=t6 setvia=ValuePattern(1148) attempt=1 dialog_closed=True
+rc=0
+--- wait-meta -Timeout 30
+OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 WEBM（633 KB）重新转换]
+rc=0
+--- wait-thumb -Timeout 30
+OK: 缩略图已渲染 [视频缩略图]
+rc=0
+--- shot-app -Out /d/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T6-before.png
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T6-before.png (78216 B)
+rc=0
+--- click-conv -Format mp4
+OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+rc=0
+--- wait-settled -Timeout 180 -Expect 5
+OK: 转换已收敛（已结论条目=5 期望>=5 进行中=0）
+rc=0
+--- shot-app -Out /d/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T6-done.png
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T6-done.png (81824 B)
+rc=0
+
+===== [Session 2] T7 特殊路径（中文+空格+&+'+#）→ MP4  开始 2026-10-11T22:01:42+08:00 =====
+--- import -Scenario t7
+OK: 导入流程完成 scenario=t7 setvia=ValuePattern(1148) attempt=1 dialog_closed=True
+rc=0
+--- wait-meta -Timeout 30
+OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 WEBM（633 KB）重新转换]
+rc=0
+--- wait-thumb -Timeout 30
+OK: 缩略图已渲染 [视频缩略图]
+rc=0
+--- shot-app -Out /d/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T7-before.png
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T7-before.png (78216 B)
+rc=0
+--- click-conv -Format mp4
+OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+rc=0
+--- wait-settled -Timeout 180 -Expect 6
+OK: 转换已收敛（已结论条目=6 期望>=6 进行中=0）
+rc=0
+--- shot-app -Out /d/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T7-done.png
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T7-done.png (97954 B)
+rc=0
+
+===== [Session 2] T8 损坏视频 truncated.mp4（FFprobe 可识别为损坏） 开始 2026-10-11T22:02:40+08:00 =====
+--- import -Scenario t8
+OK: 导入流程完成 scenario=t8 setvia=ValuePattern(1148) attempt=1 dialog_closed=True
+rc=0
+--- wait-meta -Timeout 40
+OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 WEBM（633 KB）重新转换]
+rc=0
+--- shot-app -Out /d/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T8-before.png
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T8-before.png (78219 B)
+rc=0
+--- click-conv -Format mp4
+OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+rc=0
+--- wait-notice -Timeout 60
+OK: 已出现失败通知 [转换失败：元数据解析失败（FFPROBE_NONZERO_EXIT），无法转换]
+rc=0
+--- shot-app -Out /d/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T8-after.png
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T8-after.png (75569 B)
+rc=0
+--- read-app-text 
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 转换失败：元数据解析失败（FFPROBE_NONZERO_EXIT），无法转换
+TXT: 导入条目列表
+TXT: sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 WEBM（633 KB）重新转换
+TXT: D:\应聘项目zcode\test-assets\stage3c\sample.mp4
+TXT: 视频缩略图
+TXT: 重新转换
+TXT: sample.mkv已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mkv大小67.93 KiB时长00:04分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 MP4（70 KB）重新转换
+TXT: D:\应聘项目zcode\test-assets\stage3c\sample.mkv
+TXT: sample.mov已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.mov大小71.29 KiB时长00:03分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 MP4（69 KB）重新转换
+TXT: D:\应聘项目zcode\test-assets\stage3c\sample.mov
+TXT: sample.avi已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\sample.avi大小142.46 KiB时长00:03分辨率640×360视频编码MPEG-4 Video音频编码MP3已输出 MP4（52 KB）重新转换
+TXT: D:\应聘项目zcode\test-assets\stage3c\sample.avi
+TXT: no_audio.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\no_audio.mp4大小269.69 KiB时长00:03分辨率640×360视频编码H.264 / AVC音频编码无音轨已输出 MP4（243 KB）重新转换
+TXT: D:\应聘项目zcode\test-assets\stage3c\no_audio.mp4
+TXT: sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 MP4（490 KB）重新转换
+TXT: D:\应聘项目zcode\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4
+TXT: truncated.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\truncated.mp4元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：[mov,mp4,m4a,3gp,3g2,mj2 @ 00000178f3f22200] moov atom not found重试转换MP4WebM
+TXT: D:\应聘项目zcode\test-assets\stage3c\truncated.mp4
+TXT: 重试
+TXT: MP4
+TXT: WebM
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+rc=0
+=== Session 2 关闭前：ffmpeg 残留检查 ===
+关闭前 ffmpeg= ffprobe=
+OK: 已请求关闭主窗口(WindowPattern.Close)
+关闭后 clipforge=0 ffmpeg=0 ffprobe=0 node=0 port1420_listen=0
+
+===== [Session 3] T8b 损坏视频 corrupt_mdat.mp4（元数据可读 / 媒体数据损坏） 开始 2026-10-11T22:04:15+08:00 =====
+--- wait-window 
+OK: 主窗口就绪 name=[clipforge] class=[Tauri Window]
+rc=0
+--- import -Scenario t8b
+OK: 导入流程完成 scenario=t8b setvia=ValuePattern(1148) attempt=1 dialog_closed=True
+rc=0
+--- wait-meta -Timeout 40
+OK: 元数据已结论 [corrupt_mdat.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\corrupt_mdat.mp4缩略图生成失败（THUMB_NONZERO_EXIT）：FFmpeg 以非零退出码结束（-1094995529）：[in#0/mov,mp4,m4a,3gp,3g2,mj2 @ 0000013c23380800] stream 0, offset 0xdae: partial file重试大小3.40 KiB时长00:04分辨率320×180视频编码H.264 / AVC音频编码AAC转换MP4WebM]
+rc=0
+--- wait-thumb -Timeout 30
+FAIL: 等待超时（30s）：未出现 缩略图元素 —— 期望任一 [视频缩略图]
+rc=1
+--- shot-app -Out /d/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T8b-before.png
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T8b-before.png (39734 B)
+rc=0
+--- click-conv -Format mp4
+OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+rc=0
+--- wait-settled -Timeout 180 -Expect 1
+OK: 转换已收敛（已结论条目=1 期望>=1 进行中=0）
+rc=0
+--- shot-app -Out /d/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T8b-after.png
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T8b-after.png (46783 B)
+rc=0
+--- click-conv -Format mp4
+OK: 已点击转换按钮 [MP4] (匹配数=2 选中 index=0 方式=InvokePattern)
+rc=0
+--- wait-settled -Timeout 180 -Expect 1
+OK: 转换已收敛（已结论条目=1 期望>=1 进行中=0）
+rc=0
+--- shot-app -Out /d/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T8b-after.png
+OK: shot-app D:/应聘项目zcode/docs/evidence/stage3/3c/stage3c-T8b-after.png (46316 B)
+rc=0
+--- read-app-text 
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: corrupt_mdat.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\corrupt_mdat.mp4缩略图生成失败（THUMB_NONZERO_EXIT）：FFmpeg 以非零退出码结束（-1094995529）：[in#0/mov,mp4,m4a,3gp,3g2,mj2 @ 0000026457a562c0] stream 0, offset 0xdae: partial file重试大小3.40 KiB时长00:04分辨率320×180视频编码H.264 / AVC音频编码AAC转换失败（CONV_NONZERO_EXIT）：FFmpeg 以非零退出码结束（-1094995529）：[in#0/mov,mp4,m4a,3gp,3g2,mj2 @ 000001b3e73c0c40] stream 0, offset 0xdae: partial file重试
+TXT: D:\应聘项目zcode\test-assets\stage3c\corrupt_mdat.mp4
+TXT: 重试
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+rc=0
+OK: 已请求关闭主窗口(WindowPattern.Close)
+Session 3 关闭后 clipforge=0 ffmpeg=0 ffprobe=0 node=0 port1420_listen=0

@@ -1,0 +1,99 @@
+===== Stage 3A 缩略图实机验证（修复后）2026-10-11T19:57:21+08:00 =====
+--- [T1] 特殊字符路径导入（元数据+缩略图）
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+metadata_rc=0
+OK: shot-app docs\evidence\stage3\3a\stage3a-thumb-special.png (57183 B)
+shot_rc=0
+2026-10-11T11:57:26.207Z [lifecycle] task start entry_id=0
+2026-10-11T11:57:26.258Z [lifecycle] task complete entry_id=0
+2026-10-11T11:57:26.262Z [lifecycle] thumb register entry_id=0
+2026-10-11T11:57:26.264Z [lifecycle] thumb start entry_id=0 seek=0.502
+2026-10-11T11:57:26.372Z [lifecycle] thumb complete entry_id=0
+2026-10-11T11:57:26.373Z [lifecycle] thumb generated entry_id=0 bytes=14743 cache_hit=false oversized=false
+  cache: thumb_3af841f3efe35c51.jpg [14743 B]
+--- [T2] 重复导入同文件 → 缓存命中
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+2026-10-11T11:57:26.264Z [lifecycle] thumb start entry_id=0 seek=0.502
+2026-10-11T11:57:26.372Z [lifecycle] thumb complete entry_id=0
+2026-10-11T11:57:26.373Z [lifecycle] thumb generated entry_id=0 bytes=14743 cache_hit=false oversized=false
+--- [T3] 损坏媒体（truncated → 缩略图错误态，不冒充）
+OK: 导入流程完成 scenario=truncated ValuePattern attempt=1 InvokePattern dialog_closed=True
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: 视频缩略图
+TXT: truncated_sample.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\truncated_sample.mp4元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：[mov,mp4,m4a,3gp,3g2,mj2 @ 0000017613830300] moov atom not found重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\truncated_sample.mp4
+TXT: 重试
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+--- [T4] 非媒体音频（audioonly → 缩略图错误态）
+OK: 导入流程完成 scenario=audioonly ValuePattern attempt=1 InvokePattern dialog_closed=True
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: 视频缩略图
+TXT: truncated_sample.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\truncated_sample.mp4元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：[mov,mp4,m4a,3gp,3g2,mj2 @ 0000017613830300] moov atom not found重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\truncated_sample.mp4
+TXT: 重试
+TXT: audio_only_sample.m4a已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\audio_only_sample.m4a元数据读取失败（MEDIA_UNSUPPORTED）：文件中未发现视频流（可能为音频或其他非视频媒体）重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\audio_only_sample.m4a
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+OK: shot-app docs\evidence\stage3\3a\stage3a-thumb-states.png (88238 B)
+shot_rc=0
+--- [T5] 关闭应用 → 无残留
+close=True pid=20720 time=2026-10-11T19:59:38.3513144+08:00
+exited=True
+leftover=7
+ffmpeg_residual=0
+shutdown_line=
+--- [T6] 重启后同文件导入 → 跨会话缓存命中
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+import_rc=0
+2026-10-11T11:59:18.902Z [lifecycle] task failed entry_id=2 code=MEDIA_UNSUPPORTED
+2026-10-11T11:59:38.375Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+2026-10-11T12:00:43.559Z [app] application start
+2026-10-11T12:01:41.118Z [lifecycle] task register entry_id=0
+2026-10-11T12:01:41.127Z [lifecycle] task start entry_id=0
+2026-10-11T12:01:41.178Z [lifecycle] task complete entry_id=0
+2026-10-11T12:01:41.182Z [lifecycle] thumb cache hit entry_id=0
+--- [T6 收尾] 关闭 → 资源终态
+closeT6=True
+exitedT6=True
+ffmpeg_residual=0
+leftoverT6=7
+port1420=1
+port9333=0
+env=[][]
+leftover_final=7
+ffmpeg_residual=0
+port1420=1
+port9333=0
+env=[][]
+cache: thumb_3af841f3efe35c51.jpg [14743 B]
+clean_final=True
+port1420=0
+port9333=0

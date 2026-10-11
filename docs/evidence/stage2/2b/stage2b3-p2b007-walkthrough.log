@@ -1,0 +1,74 @@
+== P2B-007 走查：元数据解析仅基于结构化 JSON 2026-10-10T23:00:07+08:00 ==
+—— 解析入口（唯一字段解析函数）——
+428:pub fn parse_probe_json(stdout: &[u8]) -> Result<ProbeMetadata, String> {
+430:        serde_json::from_slice(stdout).map_err(|err| format!("FFprobe 输出 JSON 解析失败：{err}"))?;
+432:    let format = value.get("format");
+449:    if let Some(streams) = value.get("streams").and_then(|s| s.as_array()) {
+1232:        assert!(value.get("sizeText").is_some());
+1233:        assert!(value.get("failureCode").is_some());
+
+—— stdout 的全部用途（应只进入 JSON 解析）——
+272:        .stdout(Stdio::piped())
+285:    // 并发排空 stdout/stderr，避免管道缓冲导致子进程阻塞。
+286:    let stdout_pipe = child.stdout.take().expect("stdout 已设为 piped");
+288:    let stdout_reader = std::thread::spawn(move || {
+290:        let _ = { let mut p = stdout_pipe; p.read_to_end(&mut buf) };
+313:                let _ = stdout_reader.join();
+327:            let stdout = stdout_reader.join().unwrap_or_default();
+337:            parse_probe_json(&stdout).map_err(|parse_message| ProbeFailure {
+350:            let _ = stdout_reader.join();
+428:pub fn parse_probe_json(stdout: &[u8]) -> Result<ProbeMetadata, String> {
+430:        serde_json::from_slice(stdout).map_err(|err| format!("FFprobe 输出 JSON 解析失败：{err}"))?;
+
+—— stderr 的全部用途（应只为失败诊断：尾部截断/可读原因，不进入字段）——
+5://!   失败分类只使用"退出码 + stderr 尾部"作为诊断信息，**不用于字段推断**；
+22:/// stderr 尾部保留上限（ARCH-004 / D-0020：8 KiB = 8,192 字节）。
+57:/// 失败详情（含诊断信息；stderr 尾部已按上限截断）。
+63:    pub stderr_tail: Option<String>,
+258:            stderr_tail: None,
+273:        .stderr(Stdio::piped())
+282:            stderr_tail: None,
+285:    // 并发排空 stdout/stderr，避免管道缓冲导致子进程阻塞。
+287:    let stderr_pipe = child.stderr.take().expect("stderr 已设为 piped");
+293:    let stderr_reader = std::thread::spawn(move || {
+295:        let _ = { let mut p = stderr_pipe; p.read_to_end(&mut buf) };
+314:                let _ = stderr_reader.join();
+319:                    stderr_tail: None,
+328:            let stderr = stderr_reader.join().unwrap_or_default();
+332:                    message: nonzero_exit_message(status.code(), &stderr),
+334:                    stderr_tail: non_empty_tail(&stderr),
+341:                stderr_tail: non_empty_tail(&stderr),
+349:            let stderr = stderr_reader.join().unwrap_or_default();
+364:                stderr_tail: non_empty_tail(&stderr),
+379:/// stderr 尾部截断（保留最后 `limit` 字节；UTF-8 无损失败时按 lossy 转换）。
+389:/// 从 stderr 提取可读原因：首个非空行（去首尾空白；超长截断 200 字符）。
+391:fn extract_readable_reason(stderr: &[u8]) -> Option<String> {
+392:    let text = String::from_utf8_lossy(stderr);
+403:fn nonzero_exit_message(code: Option<i32>, stderr: &[u8]) -> String {
+407:    match extract_readable_reason(stderr) {
+421:            stderr_tail: None,
+1054:    /// 覆盖场景 (c)：替身非零退出 → NonZeroExit（含退出码与 stderr 尾部）。
+1061:            "OVERRIDE exit1 => code={} exit_code={:?} stderr_tail={:?}",
+1064:            err.stderr_tail
+1068:        assert!(err.stderr_tail.as_deref().unwrap_or("").contains("fake-ffprobe-exit1"));
+1207:            stderr_tail: None,
+1248:                stderr_tail: None,
+
+—— 全后端搜索可疑的脆弱文本解析（对字段使用 split/contains/find）——
+clipforge/src-tauri/src/import.rs:103:        if let Some(existing) = registry.entries.iter().find(|e| e.comparison_key == key) {
+clipforge/src-tauri/src/probe.rs:142:        for entry in path_env.to_string_lossy().split(';') {
+clipforge/src-tauri/src/probe.rs:179:        if !name.contains("ffmpeg") {
+clipforge/src-tauri/src/probe.rs:393:    let line = text.lines().map(str::trim).find(|line| !line.is_empty())?;
+clipforge/src-tauri/src/probe.rs:709:        .find(|e| e.id == entry_id)
+clipforge/src-tauri/src/probe.rs:904:        assert!(err.contains("解析失败"), "错误信息应指明解析失败：{err}");
+clipforge/src-tauri/src/probe.rs:1068:        assert!(err.stderr_tail.as_deref().unwrap_or("").contains("fake-ffprobe-exit1"));
+clipforge/src-tauri/src/probe.rs:1216:        assert!(view.failure_message.as_deref().unwrap_or("").contains("超时"));
+clipforge/src-tauri/src/probe.rs:1278:        assert!(with_reason.contains("（1）"));
+clipforge/src-tauri/src/probe.rs:1279:        assert!(with_reason.contains("Invalid data found when processing input"));
+clipforge/src-tauri/src/probe.rs:1298:        assert!(err.message.contains("未发现视频流"));
+
+—— 结论 ——
+① 字段唯一来源：parse_probe_json(stdout) -> serde_json::Value -> format.duration / streams[].codec_type/codec_name/width/height / format.format_name；
+② stdout 仅被 parse_probe_json 消费（未做任何文本匹配）；
+③ stderr 仅用于失败诊断（尾部截断 8KiB 存储 + 首行可读原因），未用于任何字段推断；
+④ 搜索到的字符串处理使用点：PATH 环境变量分号切分（发现逻辑）、编码名小写化（映射表查找）、测试内的断言——均与 FFprobe 输出解析无关。

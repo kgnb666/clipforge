@@ -1,0 +1,39 @@
+﻿ELEMENTS_WITH_TEXT: 25
+--- HEADER (top < 180) ---
+TXT[109,926]: Minimize
+TXT[109,986]: Maximize
+TXT[109,1045]: Close
+TXT[117,104]: clipforge
+TXT[117,104]: System Menu Bar
+TXT[117,104]: System
+TXT[146,104]: Tauri + React + Typescript
+TXT[146,104]: Tauri + React + Typescript
+TXT[146,104]: Tauri + React + Typescript - Web 内容
+TXT[171,940]: 导入视频
+TXT[172,134]: ClipForge
+--- ALL TEXTS ---
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: 导入视频
+TXT: ClipForge
+TXT: 本地视频导入 · 元数据 · 格式转换
+TXT: sample.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 MP4（490 KB）重新转换
+TXT: 导入条目列表
+TXT: D:\应聘项目zcode\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4
+TXT: 视频缩略图
+TXT: 重新转换
+TXT: sample_converted_5.mp4已导入（路径校验通过）D:\应聘项目zcode\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample_converted_5.mp4大小490.18 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 WEBM（634 KB）重新转换
+TXT: D:\应聘项目zcode\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample_converted_5.mp4
+TXT: 视频缩略图
+TXT: 重新转换
+TXT: sample.mp4已导入（路径校验通过）C:\Users\宋舜江\Desktop\新建文件夹\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 WEBM（633 KB）重新转换
+TXT: C:\Users\宋舜江\Desktop\新建文件夹\sample.mp4
+TXT: 视频缩略图
+TXT: 重新转换

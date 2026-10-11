@@ -1,0 +1,12 @@
+== 冻结文件哈希（Stage 2A 实施前，供事后核对未改动）==
+recorded_at=2026-10-10T20:07:14+08:00
+6aafd96da0f055f2fd983016281934902f06984cefdfbd3d0f21c680df7ac852 *clipforge/package.json
+f14f03cf4a66ed67dda9f37f624e3a0dca814dd437b1fe7e6ffa8b9594e61b7b *clipforge/package-lock.json
+0f35000e27edaa2de38bdacefe989c0a45827a26d8085285dcf7f5437863db40 *clipforge/src-tauri/Cargo.toml
+41ff06f2c284858a425565abff4ef3f55d77bef7c2ba30506ea684601a02582a *clipforge/src-tauri/Cargo.lock
+f4e450983bbc94f2c2b0aa05513923a00af47d2b62d272177b48315d46719807 *clipforge/src-tauri/capabilities/default.json
+bb6dc6fb736a3a18e1c1d59ca4b8d6783a6b49a72c1a70c52f1174404597dff7 *clipforge/src-tauri/tauri.conf.json
+a2a7ed08898fa2250a6ab390e87ce017ecf2d86bc5980c4a3faa4bdca7e7847e *clipforge/src-tauri/src/main.rs
+7822d26a73db455395fb18ed264712fb3d00339872bb3c8baa3ec64b89a4e791 *clipforge/index.html
+b3a4228b4ee36096dbd3ef2efee13f00a749903b17a9c69055cfc4789db26a9d *docs/requirements-and-acceptance.md
+936cc9ccc7ce7e79209ac8cc5eae00c5b11e1eda9626cd78b5d690c948c6b260 *docs/decision-log.md

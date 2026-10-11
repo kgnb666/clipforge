@@ -1,0 +1,71 @@
+===== N-1~N-3 UI 文本 2026-10-10T21:07:22+08:00 =====
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: clipforge
+TXT: 系统菜单栏
+TXT: 系统
+TXT: 最小化
+TXT: 最大化
+TXT: 关闭
+OK: read-app-text 完成
+===== 重读（reload 后内容树就绪）2026-10-10T21:08:35+08:00 =====
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2A · 导入基础
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: ghost-file.mp4导入失败D:\应聘项目zcode\docs\evidence\stage2\test-assets\ghost-file.mp4文件不存在或无法访问（NOT_FOUND）
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\ghost-file.mp4
+TXT: 文件不存在或无法访问
+TXT: （
+TXT: NOT_FOUND
+TXT: ）
+TXT: deep-file.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…xx\seg08xxxxxxxxxxxxxxxxxxxx\deep-file.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…xx\seg08xxxxxxxxxxxxxxxxxxxx\deep-file.mkv
+TXT: acl-test-copy.mkv导入失败D:\应聘项目zcode\docs\evidence\stage2\test-assets\acl-test-copy.mkv权限不足：无法读取所选文件（PERMISSION_DENIED）
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\acl-test-copy.mkv
+TXT: 权限不足：无法读取所选文件
+TXT: PERMISSION_DENIED
+TXT: no_extension_sample已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: clipforge
+TXT: 系统菜单栏
+TXT: 系统
+TXT: 最小化
+TXT: 最大化
+TXT: 关闭
+OK: read-app-text 完成
+===== N-4 恢复证明：真实对话框再次导入 2026-10-10T21:09:11+08:00 =====
+InvokePattern (元素[Button] name=[打开(O)])
+OK: 导入流程完成 scenario=fake setvia=ValuePattern(1148) attempt=1 dialog_closed=True
+OK: 界面已出现条目文本 [fake_text.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4]
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2A · 导入基础
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: ghost-file.mp4导入失败D:\应聘项目zcode\docs\evidence\stage2\test-assets\ghost-file.mp4文件不存在或无法访问（NOT_FOUND）
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\ghost-file.mp4
+TXT: 文件不存在或无法访问
+TXT: （
+TXT: NOT_FOUND
+TXT: ）
+TXT: deep-file.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…xx\seg08xxxxxxxxxxxxxxxxxxxx\deep-file.mkv
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…xx\seg08xxxxxxxxxxxxxxxxxxxx\deep-file.mkv
+TXT: acl-test-copy.mkv导入失败D:\应聘项目zcode\docs\evidence\stage2\test-assets\acl-test-copy.mkv权限不足：无法读取所选文件（PERMISSION_DENIED）
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\acl-test-copy.mkv
+TXT: 权限不足：无法读取所选文件
+TXT: PERMISSION_DENIED
+TXT: no_extension_sample已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: fake_text.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成

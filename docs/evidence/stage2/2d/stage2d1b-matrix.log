@@ -1,0 +1,390 @@
+===== Stage 2D-1-B P2D 矩阵实测 2026-10-11T17:26:37+08:00 =====
+--- [P2D-001] 导入→元数据（特殊字符路径，分步驱动）
+OK: 已点击导入视频
+OK: dialog name=[选择视频文件] class=[#32770] hwnd=396588
+OK: 已设置文件名（ValuePattern(1148) attempt=1）场景=special
+InvokePattern (元素[Button] name=[打开(O)])
+OK: 已点击 打开
+OK: 对话框已关闭
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+p2d001_metadata_rc=0
+OK: shot-app docs\evidence\stage2\2d\stage2d1b-p2d001-metadata.png (33339 B)
+--- [P2D-002] 无音轨
+OK: 导入流程完成 scenario=noaudio ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [no_audio_sample.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv大小1.14 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码无音轨]
+p2d002_rc=0
+--- [P2D-003] 损坏/非媒体（truncated + fake）
+OK: 导入流程完成 scenario=truncated ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [truncated_sample.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\truncated_sample.mp4元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：[mov,mp4,m4a,3gp,3g2,mj2 @ 000001c1f4dda100] moov atom not found重试]
+p2d003_trunc_rc=0
+OK: 导入流程完成 scenario=fake ValuePattern attempt=1 InvokePattern dialog_closed=True
+FAIL: 界面未出现文本: Invalid data found
+p2d003_fake_rc=1
+--- [P2D-003 重采] fake_text 条目出现 + 全文取证
+OK: 界面已出现 [fake_text.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：[mov,mp4,m4a,3gp,3g2,mj2 @ 00000152930811c0] moov atom not found重试]
+p2d003_fake_entry_rc=0
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: no_audio_sample.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv大小1.14 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码无音轨
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv
+TXT: truncated_sample.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\truncated_sample.mp4元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：[mov,mp4,m4a,3gp,3g2,mj2 @ 000001c1f4dda100] moov atom not found重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\truncated_sample.mp4
+TXT: 重试
+TXT: fake_text.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：[mov,mp4,m4a,3gp,3g2,mj2 @ 00000152930811c0] moov atom not found重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+--- [P2D-004] 流缺失（裸流 → 时长 N/A）
+OK: 导入流程完成 scenario=rawstream ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [raw_stream.h264已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\raw_stream.h264大小1.16 MiB时长N/A分辨率640×360视频编码H.264 / AVC音频编码无音轨]
+p2d004_rc=0
+--- [P2D-011] 非媒体边界（audioonly → MEDIA_UNSUPPORTED；noext → 正常读取）
+OK: 导入流程完成 scenario=audioonly ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [audio_only_sample.m4a已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\audio_only_sample.m4a元数据读取失败（MEDIA_UNSUPPORTED）：文件中未发现视频流（可能为音频或其他非视频媒体）重试]
+p2d011_audioonly_rc=0
+OK: 导入流程完成 scenario=noext ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [no_extension_sample已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+p2d011_noext_rc=0
+responding=True
+--- [P2D-009/011] 大文件异步响应性（471MB，导入后立即可交互）
+OK: 导入流程完成 scenario=largefile ValuePattern attempt=1 InvokePattern dialog_closed=True
+import_wall_s=4
+responding_during_or_after=True
+metadata_visible_after_s=0.7
+0
+--- [P2D-001] 源保护复核（会话 A 全部操作后）
+Missing ')' in method call.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : MissingEndParenthesisInMethodCall
+ 
+sha=True mtime=True dir=True
+--- [P2D-010user] 交叉核对三方对照（special 与 noaudio）
+---- [special] ----
+UI  : UI=1.18 MiB/00:05/640x360/MPEG-4 Video/AAC
+JSON: duration=5.023000 x360 video=mpeg4 audio=aac has_audio=True
+SYS : Length=1236377 B (1.18 MiB)
+---- [noaudio] ----
+UI  : UI=1.14 MiB/00:05/640x360/MPEG-4 Video/无音轨
+JSON: duration=5.000000 x360 video=mpeg4 audio= has_audio=False
+SYS : Length=1191118 B (1.14 MiB)
+判定：UI/JSON/系统三方一致（时长按 D-0017 floor 到秒；大小 1024 进制两位）
+--- [会话 A 收尾] 干净关闭
+closeA=True pid=32436
+exitedA=True
+leftoverA=0
+--- [P2D-005/B] override=missing-ffprobe.exe → 期望 FFPROBE_NOT_FOUND
+FAIL: ClipForge 窗口未找到
+FAIL: ClipForge 窗口未找到
+B_rc=1
+FAIL: ClipForge 窗口未找到
+You cannot call a method on a null-valued expression.
+At line:3 char:14
++ $id = $p.Id; $closed = $p.CloseMainWindow();
++              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvokeMethodOnNull
+ 
+close=
+Get-Process : Cannot bind argument to parameter 'Id' because it is null.
+At line:5 char:44
++ Write-Host "exited=$(-not (Get-Process -Id $id -ErrorAction SilentlyC ...
++                                            ~~~
+    + CategoryInfo          : InvalidData: (:) [Get-Process], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Commands.GetProcessC 
+   ommand
+ 
+exited=
+leftover=0
+--- [P2D-005/C] override=..\unlaunchable.dat → 期望 FFPROBE_START_FAILED
+FAIL: ClipForge 窗口未找到
+FAIL: ClipForge 窗口未找到
+C_rc=1
+FAIL: ClipForge 窗口未找到
+You cannot call a method on a null-valued expression.
+At line:3 char:14
++ $id = $p.Id; $closed = $p.CloseMainWindow();
++              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvokeMethodOnNull
+ 
+close=
+Get-Process : Cannot bind argument to parameter 'Id' because it is null.
+At line:5 char:44
++ Write-Host "exited=$(-not (Get-Process -Id $id -ErrorAction SilentlyC ...
++                                            ~~~
+    + CategoryInfo          : InvalidData: (:) [Get-Process], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Commands.GetProcessC 
+   ommand
+ 
+exited=
+leftover=0
+--- [P2D-005/D] override=fake-ffprobe-exit1.exe → 期望 FFPROBE_NONZERO_EXIT
+FAIL: ClipForge 窗口未找到
+FAIL: ClipForge 窗口未找到
+D_rc=1
+FAIL: ClipForge 窗口未找到
+You cannot call a method on a null-valued expression.
+At line:3 char:14
++ $id = $p.Id; $closed = $p.CloseMainWindow();
++              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvokeMethodOnNull
+ 
+close=
+Get-Process : Cannot bind argument to parameter 'Id' because it is null.
+At line:5 char:44
++ Write-Host "exited=$(-not (Get-Process -Id $id -ErrorAction SilentlyC ...
++                                            ~~~
+    + CategoryInfo          : InvalidData: (:) [Get-Process], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Commands.GetProcessC 
+   ommand
+ 
+exited=
+leftover=0
+--- [P2D-005/B] override=missing-ffprobe.exe 期望=FFPROBE_NOT_FOUND 2026-10-11T17:36:18.8973352+08:00
+window_pid=32032
+import=OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+probe_wait=OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv元数据读取失败（FFPROBE_NOT_FOUND）：未发现可用的 FFprobe（请安装 FFmpeg 或在后续阶段于设置中指定路径）重试]
+app_text_has_code=True
+app_exited=True leftover=0
+shutdown_line=[lifecycle] exit cleanup: cancelled=0 reaped=0 remaining=0 peak=0 elapsed_ms=0 errors=[]
+dev_exited=True
+P2D005_B=PASS
+--- [P2D-005/C] override=..\unlaunchable.dat 期望=FFPROBE_START_FAILED 2026-10-11T17:36:36.5440199+08:00
+window_pid=32420
+import=OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+probe_wait=FAIL: 界面未出现文本: FFPROBE_START_FAILED
+app_text_has_code=False
+app_exited=True leftover=0
+shutdown_line=[lifecycle] exit cleanup: cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+dev_exited=True
+P2D005_C=FAIL
+--- [P2D-005/D] override=fake-ffprobe-exit1.exe 期望=FFPROBE_NONZERO_EXIT 2026-10-11T17:37:18.9470283+08:00
+window_pid=28552
+import=OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+probe_wait=FAIL: 界面未出现文本: FFPROBE_NONZERO_EXIT
+app_text_has_code=False
+app_exited=True leftover=0
+shutdown_line=[lifecycle] exit cleanup: cancelled=0 reaped=0 remaining=0 peak=0 elapsed_ms=0 errors=[]
+dev_exited=True
+P2D005_D=FAIL
+--- [纪律记录] P2D-005 C/D 首次编排失败（bash 循环跨会话时间耦合：B 的退出窗口被 C 误认、Job 清理互扰），改用单会话模式重做
+--- [P2D-005/C2 重做] override=unlaunchable.dat（白名单合规）→ 期望 FFPROBE_START_FAILED
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv元数据读取失败（FFPROBE_START_FAILED）：无法启动 FFprobe（系统错误 193）：%1 不是有效的 Win32 应用程序。 (os error 193)重试]
+C2_rc=0
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv元数据读取失败（FFPROBE_START_FAILED）：无法启动 FFprobe（系统错误 193）：%1 不是有效的 Win32 应用程序。 (os error 193)重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: 重试
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+close=True
+exited=True
+leftover=0
+--- [P2D-005/D2 重做] override=exit1 替身 → 期望 FFPROBE_NONZERO_EXIT + 替身 stderr
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+FAIL: 界面未出现文本: FFPROBE_NONZERO_EXIT
+D2_rc=1
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv元数据读取失败（FFPROBE_NOT_FOUND）：未发现可用的 FFprobe（请安装 FFmpeg 或在后续阶段于设置中指定路径）重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: 重试
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Restore
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+close=True
+exited=True
+leftover=0
+--- [P2D-005/D3 重试] → 期望 FFPROBE_NONZERO_EXIT
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+FAIL: 界面未出现文本: FFPROBE_NONZERO_EXIT
+D3_rc=1
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv元数据读取失败（FFPROBE_NOT_FOUND）：未发现可用的 FFprobe（请安装 FFmpeg 或在后续阶段于设置中指定路径）重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: 重试
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+close=True
+exited=True
+--- [P2D-005/D4] override=target\debug 真实替身 → 期望 FFPROBE_NONZERO_EXIT
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：fake-ffprobe-exit1: simulated probe failure (controlled test double, exit=1)重试]
+D4_rc=0
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：fake-ffprobe-exit1: simulated probe failure (controlled test double, exit=1)重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: 重试
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+close=True
+exited=True
+--- [P2D-005/D5 诊断] override=根目录缺失路径 → 设计预期 FFPROBE_NOT_FOUND
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv元数据读取失败（FFPROBE_NOT_FOUND）：未发现可用的 FFprobe（请安装 FFmpeg 或在后续阶段于设置中指定路径）重试]
+D5_notfound_rc=0
+FAIL: 界面未出现文本: FFPROBE_START_FAILED
+D5_startfailed_rc=1
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv元数据读取失败（FFPROBE_NOT_FOUND）：未发现可用的 FFprobe（请安装 FFmpeg 或在后续阶段于设置中指定路径）重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: 重试
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+close=True
+exited=True
+--- [P2D-009/013] 超时（1500ms）→ 终止 → 重试 → 同因失败（状态机流转）
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv元数据读取失败（FFPROBE_TIMEOUT）：FFprobe 超时（>1500 ms，实际约 1528 ms），已终止子进程重试]
+timeout_rc=0
+child_after_timeout=0
+OK: 已点击第 0 个重试按钮（共 1 个）
+retry_rc=0
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv元数据读取失败（FFPROBE_TIMEOUT）：FFprobe 超时（>1500 ms，实际约 1515 ms），已终止子进程重试]
+retry_same_failure_rc=0
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv元数据读取失败（FFPROBE_TIMEOUT）：FFprobe 超时（>1500 ms，实际约 1515 ms），已终止子进程重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: 重试
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+close=True
+exited=True
+leftover=0
+switchable_residual=0
+--- [恢复验证] 覆盖清除（会话 E 后无覆盖）→ 真实 FFprobe 恢复
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+recovery_rc=0
+--- [P2D-012] 窗口关闭→重启→再关闭
+window1_responding=True
+close1=True time=2026-10-11T17:59:12.6294860+08:00
+exited1=True
+--- [P2D-012] 重启后窗口响应 + IPC（导入）
+window2_up=True responding=True
+OK: 导入流程完成 scenario=samplea ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [sample_src.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+ipc_after_restart_rc=0
+close2=True
+exited2=True
+leftover2=0
+--- [P2D-012] FFmpeg+FFprobe CLI 链路（Gate-0C 方法）
+cli_chain=PASS
+--- [P2D-013] 在途探测 + 关闭 → cancelled + 回收
+OK: 已点击导入视频
+OK: dialog name=[选择视频文件] class=[#32770] hwnd=6359870
+OK: 已设置文件名（ValuePattern(1148) attempt=1）场景=samplea
+InvokePattern (元素[Button] name=[打开(O)])
+OK: 已点击 打开
+OK: 对话框已关闭
+inflight_before_close=1
+close=True pid=14752 time=2026-10-11T18:01:10.8465177+08:00
+exited=True
+child_residual=0
+app_leftover=0
+[lifecycle] exit cleanup: cancelled=1 reaped=1 remaining=0 peak=1 elapsed_ms=45 errors=[]
+2026-10-11T10:01:10.902Z [lifecycle] task cancelled entry_id=0 code=FFPROBE_CANCELLED
+2026-10-11T10:01:10.911Z [lifecycle] shutdown cleanup cancelled=1 reaped=1 remaining=0 peak=1 elapsed_ms=45 errors=[]
+--- [P2D-007] JSON 单一来源审计（现行代码复核）
+—— 字段解析唯一入口 ——
+600:pub fn parse_probe_json(stdout: &[u8]) -> Result<ProbeMetadata, String> {
+602:        serde_json::from_slice(stdout).map_err(|err| format!("FFprobe 输出 JSON 解析失败：{err}"))?;
+604:    let format = value.get("format");
+621:    if let Some(streams) = value.get("streams").and_then(|s| s.as_array()) {
+1416:        assert!(value.get("sizeText").is_some());
+1417:        assert!(value.get("failureCode").is_some());
+—— stdout 用途（仅 JSON 解析）——
+396:    // 并发排空 stdout/stderr，避免管道缓冲导致子进程阻塞。
+399:    let stdout_reader = std::thread::spawn(move || {
+490:            parse_probe_json(&stdout).map_err(|parse_message| ProbeFailure {
+600:pub fn parse_probe_json(stdout: &[u8]) -> Result<ProbeMetadata, String> {
+—— stderr 用途（仅失败诊断，不入字段）——
+487:                    stderr_tail: non_empty_tail(&stderr),
+494:                stderr_tail: non_empty_tail(&stderr),
+520:                stderr_tail: non_empty_tail(&stderr),
+542:fn non_empty_tail(bytes: &[u8]) -> Option<String> {
+563:fn extract_readable_reason(stderr: &[u8]) -> Option<String> {
+579:    match extract_readable_reason(stderr) {
+—— 结论：字段唯一来源 parse_probe_json(stdout)→serde_json；stdout 不做文本匹配；stderr 仅诊断（8KiB 截断+首行原因），未进入任何字段。——
+11
+--- [Step 2] 资源检查
+subprocess_residual=0
+app_residual=0
+port1420=0
+port9333=0
+log_file: clipforge.log [6801 B]
+probe_task_remaining=0 (shutdown 摘要 remaining=0 × 全部会话)
+asset_dir_intact=True
+--- [Step 2] 文件句柄（关闭后重命名测试）
+file_handle_free=True（重命名往返成功）

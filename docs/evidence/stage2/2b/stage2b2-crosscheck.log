@@ -1,0 +1,17 @@
+﻿== P2B-010 交叉核对：UI 展示 vs FFprobe JSON vs 系统文件信息 2026-10-10T22:19:56.6695688+08:00 ==
+（UI 值取自 stage2b2-ui-cycles.log 的 UIA 文本；JSON 值由参考文件程序化提取；大小由 Get-Item 实测）
+---- [special-中文路径素材] ----
+文件路径: D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+UI    : 大小=1.18 MiB 时长=00:05 分辨率=640x360 视频编码=MPEG-4 Video 音频编码=AAC
+JSON  : duration=5.023000 width=640 height=360 video_codec=mpeg4 audio_codec=aac has_audio_stream=True format=matroska,webm
+系统   : Get-Item Length=1236377 B（1024 进制两位校验值：1.18 MiB）
+---- [no_audio_sample.mkv] ----
+文件路径: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv
+UI    : 大小=1.14 MiB 时长=00:05 分辨率=640x360 视频编码=MPEG-4 Video 音频编码=无音轨
+JSON  : duration=5.000000 width=640 height=360 video_codec=mpeg4 audio_codec= has_audio_stream=False format=matroska,webm
+系统   : Get-Item Length=1191118 B（1024 进制两位校验值：1.14 MiB）
+---- 判定 ----
+① 大小：UI 值与 Get-Item 字节数的 1024 进制两位格式化一致（见上行对照）
+② 时长：floor(5.023)=5 -> 00:05；floor(5.000)=5 -> 00:05（D-0017 floor 规则）
+③ 分辨率：640x360 与 JSON 完全一致
+④ 视频编码：mpeg4 -> MPEG-4 Video（映射表）；⑤ 音频：aac -> AAC；无 audio 流 -> 明确 无音轨（非 N/A、非编造）

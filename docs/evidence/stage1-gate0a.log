@@ -1,0 +1,14 @@
+﻿===== Gate-0A 2026-10-10T17:56:20.3970976+08:00 =====
+rustc: rustc 1.99.0 (b940084d7 2026-09-28)
+cargo: cargo 1.99.0 (5f94df478 2026-08-27)
+project: C:\Users\宋舜江\AppData\Local\Temp\clipforge-gate0a
+--- cargo build ---
+   Compiling clipforge-gate0a v0.1.0 (C:\Users\宋舜江\AppData\Local\Temp\clipforge-gate0a)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.32s
+BUILD_EXIT=0 DURATION_S=1.37
+--- cargo run ---
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.01s
+     Running `D:\cargo-target\debug\clipforge-gate0a.exe`
+Hello, world!
+RUN_EXIT=0
+EXE=D:\cargo-target\debug\clipforge-gate0a.exe SIZE=134656 MTIME=2026-10-10T17:56:25.2728852+08:00

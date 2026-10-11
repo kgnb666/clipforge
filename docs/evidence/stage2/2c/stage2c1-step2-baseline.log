@@ -1,0 +1,18 @@
+== Stage 2C-1 Step 2 开工基线 2026-10-11T14:04:57+08:00 ==
+72ec3c4c721912ae8993
+85a3d319d79df76eabf4
+ee4d3d9bd3996c10f541
+789a1387ba592a7865d6
+10cc68559711c14336a9
+f5bd42fbe1d145b51255
+6aafd96da0f055f2fd98
+f14f03cf4a66ed67dda9
+f4e450983bbc94f2c2b0
+bb6dc6fb736a3a18e1c1
+a13affc5c47017266e3c
+f2d6ddfbb6acecccc849
+
+tauri API 确认（registry 源码只读核对）:
+  App::run<F: FnMut(&AppHandle, RunEvent)>(self, callback) @ app.rs:1384
+  Builder::build(self, context) -> Result<App> @ app.rs:2408
+  RunEvent::Exit（Event loop is exiting）@ app.rs:220-222

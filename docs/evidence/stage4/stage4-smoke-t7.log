@@ -1,0 +1,69 @@
+﻿=== Stage 4 冒烟（第二轮，T7 中文特殊路径，修正版）===
+开始时间: 2026-10-11 23:51:36
+安装包 SHA256: 5B14DC7A884F2BDBC5C9EBE94930C6F3B6CEA84A110E05857BA2E966C1FDAB9F
+
+--- [1] 静默安装 + 安装体快核 ---
+安装器退出码: 0
+主程序: ClipForge.exe 4930048 B | ProductName=ClipForge | 版本=0.1.0 | CompanyName=ClipForge
+注册表: DisplayName=ClipForge | Publisher=ClipForge | MainBinaryName=ClipForge.exe
+
+--- [2] 启动应用 ---
+    OK: 主窗口就绪 name=[ClipForge] class=[Tauri Window]
+    [helper exit=0]
+
+--- [3] T7 导入（含路径核验）---
+    导入前 T7 目录已有输出: sample_converted.mp4, sample_converted_2.mp4, sample_converted_3.mp4, sample_converted_4.mp4, sample_converted_5.mp4, sample_converted_5_converted.webm
+    OK: 导入流程完成 scenario=t7 setvia=ValuePattern+verified dialog_closed=True
+    [helper exit=0]
+    OK: 界面已出现完整路径 [sample.mp4已导入（路径校验通过）D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4缩略图生成中…大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC转换MP4WebM]
+    [helper exit=0]
+    OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC转换MP4WebM]
+    [helper exit=0]
+    OK: 缩略图已结论 [视频缩略图]
+    [helper exit=0]
+    OK: shot-app D:\Cliporge\docs\evidence\stage4\stage4-release-main.png (SAVED(PrintWindow): 59341)
+    [helper exit=0]
+--- 点击 MP4 并等待收敛 ---
+    OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+    [helper exit=0]
+    OK: 转换已收敛（已结论条目=1 期望>=1 进行中=0）
+    [helper exit=0]
+    OK: shot-app D:\Cliporge\docs\evidence\stage4\stage4-release-converted.png (SAVED(PrintWindow): 60720)
+    [helper exit=0]
+    TXT: ClipForge
+    TXT: ClipForge - Web 内容
+    TXT: 本地视频导入 · 元数据 · 格式转换
+    TXT: 导入视频
+    TXT: 导入条目列表
+    TXT: sample.mp4已导入（路径校验通过）D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4大小532.41 KiB时长00:05分辨率640×360视频编码H.264 / AVC音频编码AAC已输出 MP4（490 KB）重新转换
+    TXT: D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4
+    TXT: 视频缩略图
+    TXT: 重新转换
+    TXT: System Menu Bar
+    TXT: System
+    TXT: Minimize
+    TXT: Maximize
+    TXT: Close
+    OK: read-app-text 完成
+    [helper exit=0]
+    断言通过：界面出现 [已输出 MP4] 结论
+
+--- [4] 关闭应用与进程复核 ---
+    OK: 已请求关闭主窗口(WindowPattern.Close)
+    [helper exit=0]
+应用进程已退出: True
+残留进程（clipforge/ffmpeg/ffprobe）: 0
+    2026-10-11T15:51:49.032Z [lifecycle] conv start entry_id=0
+    2026-10-11T15:51:49.445Z [lifecycle] conv complete entry_id=0 output_size=501946
+    2026-10-11T15:51:52.701Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+
+--- [5] T7 输出文件核验 ---
+    新增: sample_converted_6.mp4  501946 B  23:51:49
+    ffprobe: codec_name=h264; codec_type=video; width=640; height=360; codec_name=aac; codec_type=audio; format_name=mov,mp4,m4a,3gp,3g2,mj2; duration=5.000000
+
+--- [6] 静默卸载与清理核验 ---
+卸载器退出码: 0
+安装目录已删除: True | 注册表已删除: True | 快捷方式已删除: True
+
+=== 第二轮冒烟结束 ===
+结束时间: 2026-10-11 23:51:54

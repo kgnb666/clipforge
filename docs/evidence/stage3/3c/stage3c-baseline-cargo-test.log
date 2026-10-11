@@ -1,0 +1,98 @@
+﻿== Stage 3C 开工基线 cargo test START 2026-10-11T21:40:32.3622768+08:00 ==
+cargo :     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.43s
+所在位置 行:1 字符: 261
++ ... on 'D:\应聘项目zcode\clipforge\src-tauri'; $out = cargo test 2>&1 | Out-S ...
++                                                   ~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (    Finished `t...get(s) in 0.43s:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+     Running unittests src\lib.rs (D:\cargo-target\debug\deps\clipforge_lib-de19d4e672ce129c.exe)
+
+running 72 tests
+test import::tests::empty_path_fails_with_invalid_path ... ok
+test import::tests::duplicate_detection_is_case_insensitive_for_unresolvable_paths ... ok
+test logging::tests::log_line_never_panics ... ok
+test logging::tests::production_constants_match_d0020 ... ok
+test logging::tests::utc_format_known_timestamps ... ok
+test probe::tests::build_args_passes_input_as_single_osstring_verbatim ... ok
+test import::tests::directory_fails_with_not_a_file ... ok
+test probe::tests::default_timeout_is_30_seconds ... ok
+test probe::tests::discovery_override_replaces_search_and_missing_file_is_not_found ... ok
+test probe::tests::discovery_override_used_when_file_exists ... ok
+test probe::tests::discovery_common_dirs_last_resort ... ok
+test logging::tests::sanitize_replaces_newlines_and_caps_length ... ok
+test import::tests::nonexistent_path_fails_with_not_found ... ok
+test import::tests::failed_entry_is_not_replaced_on_repick ... ok
+test import::tests::special_character_paths_are_handled_verbatim ... ok
+test import::tests::duplicate_same_path_not_added_twice ... ok
+test probe::tests::discovery_path_env_strategy_hits_expected_entry ... ok
+test probe::tests::override_scenario_missing_file_is_not_found ... ignored, 闇€璁剧疆 CLIPFORGE_TEST_FFPROBE 鎸囧悜鏇胯韩鐩綍鍐呬笉瀛樺湪鐨勬枃浠?test probe::tests::override_scenario_nonzero_exit ... ignored, 闇€璁剧疆 CLIPFORGE_TEST_FFPROBE 鎸囧悜 fake-ffprobe-exit1 鏇胯韩
+test probe::tests::override_scenario_timeout_kills_child ... ignored, 闇€璁剧疆 CLIPFORGE_TEST_FFPROBE=寤惰繜鏇胯韩 涓?CLIPFORGE_TEST_PROBE_TIMEOUT_MS=1500
+test probe::tests::override_scenario_unlaunchable_start_failed ... ignored, 闇€璁剧疆 CLIPFORGE_TEST_FFPROBE 鎸囧悜鏇胯韩鐩綍鍐呬笉鍙惎鍔ㄦ枃浠?test probe::tests::discovery_returns_none_when_nothing_found ... ok
+test probe::tests::effective_timeout_defaults_without_override ... ok
+test probe::tests::parse_audio_stream_without_codec_name_keeps_distinct_semantics ... ok
+test probe::tests::parse_duration_as_number_and_string ... ok
+test probe::tests::parse_full_json_fields ... ok
+test probe::tests::parse_malformed_json_is_parse_failure ... ok
+test logging::tests::logging_global_init_paths ... ok
+test probe::tests::discovery_winget_packages_strategy_deep_scan ... ok
+test probe::tests::parse_missing_duration_is_none_not_zero ... ok
+test import::tests::fake_extension_is_not_judged_in_phase_2a ... ok
+test probe::tests::parse_no_audio_stream_semantics ... ok
+test probe::tests::parse_unknown_codec_preserved_verbatim ... ok
+test probe::tests::real_discovery_reports_strategy_and_path ... ignored, 闇€瑕佹湰鏈哄凡瀹夎 FFprobe锛堢湡鏈哄彂鐜伴獙璇侊級
+test probe::tests::real_probe_sample_metadata ... ignored, 闇€瑕佹湰鏈哄凡瀹夎 FFprobe锛堢湡鏈烘帰娴嬮獙璇侊級
+test probe::tests::real_probe_special_char_path ... ignored, 闇€瑕佹湰鏈哄凡瀹夎 FFprobe锛堜腑鏂囪矾寰勯獙璇侊級
+test probe::tests::tail_truncate_keeps_last_bytes_and_is_bounded ... ok
+test probe::tests_2b2::audio_text_semantics_three_states ... ok
+test probe::tests_2b2::build_view_failed_never_renders_as_success ... ok
+test probe::tests_2b2::build_view_missing_fields_stay_none_not_fabricated ... ok
+test probe::tests_2b2::build_view_ready_maps_all_fields ... ok
+test probe::tests_2b2::codec_mapping_known_and_unknown_verbatim ... ok
+test probe::tests_2b2::ensure_video_stream_classifies_no_video_media ... ok
+test probe::tests_2b2::extract_readable_reason_takes_first_nonempty_line ... ok
+test probe::tests_2b2::format_duration_floor_table ... ok
+test probe::tests_2b2::format_size_boundaries ... ok
+test probe::tests_2b2::nonzero_exit_message_includes_reason_when_available ... ok
+test probe::tests_2b2::probe_view_serializes_camel_case_for_ipc ... ok
+test probe_lifecycle::tests::cancel_token_propagates_through_clones ... ok
+test probe::tests_2b2::store_caches_and_guards_inflight ... ok
+test probe_lifecycle::tests::register_and_remove_task ... ok
+test probe_lifecycle::tests::shutdown_all_with_no_tasks_is_noop ... ok
+test probe_lifecycle::tests_2c2::status_model_transitions_and_terminal_protection ... ok
+test test_overrides::tests::validate_override_path_accepts_paths_inside_tools_dir ... ok
+test test_overrides::tests::validate_override_path_rejects_relative_missing_marker_and_parent_dir ... ok
+test test_overrides::tests::validate_timeout_override_bounds ... ok
+test thumbnail::tests::base64_known_vectors ... ok
+test thumbnail::tests::build_args_passes_paths_as_single_osstrings ... ok
+test thumbnail::tests::cache_key_is_deterministic_and_sensitive ... ok
+test thumbnail::tests::seek_attempts_dedups_fallbacks ... ok
+test thumbnail::tests::thumb_timeout_override_bounds ... ok
+test thumbnail::tests::seek_time_policy_table ... ok
+test import::tests::valid_file_imports_ready_and_source_untouched ... ok
+test thumbnail::tests::enforce_cache_limit_evicts_oldest_and_protects_new_file ... ok
+test probe_lifecycle::tests_2c2::t1_normal_completion_lifecycle ... ok
+test probe_lifecycle::tests_2c2::t2_failure_flow_preserves_error_code ... ok
+test probe_lifecycle::tests_2c2::t3_shutdown_cancel_lifecycle ... ok
+test logging::tests::logging_rotation_direct_state ... ok
+test probe_lifecycle::tests::shutdown_all_cancels_tasks_without_children ... ok
+test probe_lifecycle::tests_2c2::t4_retry_then_shutdown_no_duplicates ... ok
+test probe_lifecycle::tests::shutdown_all_waits_for_worker_convergence ... ok
+test probe_lifecycle::tests::shutdown_all_kills_and_reaps_multiple_children ... ok
+
+test result: ok. 65 passed; 0 failed; 7 ignored; 0 measured; 0 filtered out; finished in 0.36s
+
+     Running unittests src\main.rs (D:\cargo-target\debug\deps\clipforge-a3ceb963cc945cd2.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests clipforge_lib
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+EXIT=0 END 2026-10-11T21:40:33.6110595+08:00

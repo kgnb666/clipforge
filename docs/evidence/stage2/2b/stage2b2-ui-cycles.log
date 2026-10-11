@@ -1,0 +1,110 @@
+=== Phase 2B-2 UI 验收 2026-10-10T22:16:30+08:00 ===
+--- [D1] 导入 special（中文+空格+& 路径，含音轨）
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+rc=0
+OK: 条目已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+rc=0
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+rc=0
+OK: shot-app docs\evidence\stage2\2b\stage2b2-meta-special.png (29498 B)
+rc=0
+--- [D3] 导入 no_audio_sample（对照：应显示 无音轨）
+OK: 导入流程完成 scenario=noaudio ValuePattern attempt=1 InvokePattern dialog_closed=True
+rc=0
+OK: 条目已出现 [no_audio_sample.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv大小1.14 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码无音轨]
+rc=0
+OK: shot-app docs\evidence\stage2\2b\stage2b2-meta-noaudio-contrast.png (42580 B)
+rc=0
+--- [D4] 重复导入 special（应提示已在列表中，元数据保持）
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+rc=0
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 已在列表中：样本 视频 #1 (初版)'s.mkv
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: no_audio_sample.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv大小1.14 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码无音轨
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+rc=0
+OK: shot-app docs\evidence\stage2\2b\stage2b2-duplicate-metadata.png (44943 B)
+rc=0
+--- [D5] 展开完整路径（P2B-001 在 2B 上下文）
+OK: 已点击条目路径按钮 [D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv]
+rc=0
+OK: shot-app docs\evidence\stage2\2b\stage2b2-meta-expanded-path.png (45177 B)
+rc=0
+--- [D6] 失败条目注入（2A harness ghost）+ reload 后缓存恢复与隔离
+HARNESS_OK
+rc=0
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: no_audio_sample.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv大小1.14 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码无音轨
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv
+TXT: ghost-file.mp4导入失败D:\应聘项目zcode\docs\evidence\stage2\test-assets\ghost-file.mp4文件不存在或无法访问（NOT_FOUND）
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\ghost-file.mp4
+TXT: 文件不存在或无法访问
+TXT: （
+TXT: NOT_FOUND
+TXT: ）
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+rc=0
+OK: shot-app docs\evidence\stage2\2b\stage2b2-failed-isolation-reload.png (49447 B)
+rc=0
+--- [最终冒烟] 导入 samplea（sample_src.mkv）并核对元数据（即发即忘修订后代码）
+OK: 导入流程完成 scenario=samplea ValuePattern attempt=1 InvokePattern dialog_closed=True
+rc=0
+OK: 条目已出现 [sample_src.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+rc=0
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: sample_src.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC
+TXT: D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+rc=0

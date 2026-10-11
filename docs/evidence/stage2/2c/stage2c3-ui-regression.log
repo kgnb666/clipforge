@@ -1,0 +1,49 @@
+===== Stage 2C-3 Step 4：UI 全量回归（2A+2B）2026-10-11T15:20:16+08:00 =====
+--- [2A-1] 特殊字符路径导入 + [2B] 元数据
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+rc=0
+--- [2A-2] 重复导入（已在列表中）
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [已在列表中：样本 视频 #1 (初版)'s.mkv]
+rc=0
+--- [2B] 无音轨对照
+OK: 导入流程完成 scenario=noaudio ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [no_audio_sample.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv大小1.14 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码无音轨]
+rc=0
+--- [2B] 错误态（截断 MP4 → moov atom）
+OK: 导入流程完成 scenario=truncated ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [truncated_sample.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\truncated_sample.mp4元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：[mov,mp4,m4a,3gp,3g2,mj2 @ 000001f435b802c0] moov atom not found重试]
+rc=0
+--- [2B] 重试（点击重试 → 状态机流转 → 同因失败）
+OK: 已点击第 0 个重试按钮（共 1 个）
+retry_click_rc=0
+OK: 界面已出现 [truncated_sample.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\truncated_sample.mp4元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：[mov,mp4,m4a,3gp,3g2,mj2 @ 0000021aa75c0a00] moov atom not found重试]
+retry_back_rc=0
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: no_audio_sample.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv大小1.14 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码无音轨
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv
+TXT: truncated_sample.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\truncated_sample.mp4元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：[mov,mp4,m4a,3gp,3g2,mj2 @ 0000021aa75c0a00] moov atom not found重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\truncated_sample.mp4
+TXT: 重试
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+OK: shot-app docs\evidence\stage2\2c\stage2c3-regression-final.png (62464 B)
+shot_rc=0
+close=True
+exited=True
+leftover=0
+--- 退出清理：
+[lifecycle] exit cleanup: cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]

@@ -1,0 +1,21 @@
+== Stage 3C 收尾源码哈希核验 2026-10-11T22:15:32+08:00 ==
+（对照 Stage-3C-Baseline-Check.md §2 基线；前 16 位）
+  8d8f0d44b2592149  *src-tauri/src/converter.rs
+  8ebd21c7e5cc0f39  *src-tauri/src/thumbnail.rs
+  bee57a7c8e160556  *src-tauri/src/probe.rs
+  ee4d3d9bd3996c10  *src-tauri/src/import.rs
+  789a1387ba592a78  *src-tauri/src/picker.rs
+  c231c2bed3713a50  *src-tauri/src/probe_lifecycle.rs
+  b5c92f9fae3d818e  *src-tauri/src/logging.rs
+  a9bf518b930c1d53  *src-tauri/src/lib.rs
+  a2a7ed08898fa225  *src-tauri/src/main.rs
+  f9b9845494cb4d0a  *src/App.tsx
+  9b1b39db9c19791f  *src/importApi.ts
+  238a9fc71e846291  *src/App.css
+  10cc68559711c143  *src-tauri/Cargo.toml
+  f5bd42fbe1d145b5  *src-tauri/Cargo.lock
+  6aafd96da0f055f2  *package.json
+  f14f03cf4a66ed67  *package-lock.json
+  f4e450983bbc94f2  *src-tauri/capabilities/default.json
+  bb6dc6fb736a3a18  *src-tauri/tauri.conf.json
+（全部与基线一致 = 零源码改动）

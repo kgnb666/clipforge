@@ -1,0 +1,16 @@
+﻿== npm run build（Phase 2B-3）START 2026-10-10T22:34:20.9521706+08:00 ==
+
+> clipforge@0.1.0 build
+> tsc && vite build
+
+[36mvite v8.3.4 [32mbuilding client environment for production...[36m[39m
+transforming...
+✓ 19 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.48 kB │ gzip:  0.31 kB
+dist/assets/index-CPV8glEr.css    2.38 kB │ gzip:  0.92 kB
+dist/assets/index-D_bacgyK.js   223.80 kB │ gzip: 70.37 kB
+
+[32m✓ built in 193ms[39m
+EXIT=0 END 2026-10-10T22:34:22.9762828+08:00

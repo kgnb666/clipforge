@@ -1,0 +1,21 @@
+== Debug rlib��Ӧ��ȫ�����probe �ַ��� + �����ַ�����==
+  FFPROBE_NOT_FOUND         = True
+  CLIPFORGE_TEST_FFPROBE    = True
+  CLIPFORGE_TEST_PROBE_TIMEOUT_MS = True
+  test-tools marker         = True
+== Release rlib��probe Ӧ�ڡ����Ǳ��벻�ڣ�==
+  FFPROBE_NOT_FOUND         = True
+  CLIPFORGE_TEST_FFPROBE    = False
+  CLIPFORGE_TEST_PROBE_TIMEOUT_MS = False
+  test-tools marker         = False
+
+-- 方法学说明与判决（追加）--
+[1] 二进制级字符串检查（debug/release 的 clipforge.exe）：两者均不含 probe/覆盖字符串。
+    原因：Phase 2B-1 刻意未将 probe 接入运行时（IPC 接线属 2B-2），链接器将未被引用的库代码在两种
+    构建中都整体剔除 → 该检查在本阶段无法区分 debug/release（方法作废，如实记录，不作为判决依据）。
+[2] 编译产物级检查（rlib，本判决依据）：
+    Debug rlib：FFPROBE_NOT_FOUND=True 且 CLIPFORGE_TEST_FFPROBE=True、TIMEOUT_ENV=True、marker=True（4/4）
+    Release rlib：FFPROBE_NOT_FOUND=True（probe 代码在 Release 中保留），
+                  但 CLIPFORGE_TEST_FFPROBE=False、TIMEOUT_ENV=False、marker=False（覆盖全部剔除）
+[3] cargo build --release EXIT=0（4m37s，见 stage2b1-release-build.log）→ Release 配置编译路径无对被剔除模块的悬空引用。
+控制组结论：检测方法有效（Debug rlib 全阳性）；Debug-only 覆盖逻辑的编译剔除由 [2]+[3] 共同证明。

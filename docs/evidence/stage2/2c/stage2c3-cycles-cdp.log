@@ -1,0 +1,6 @@
+# ===== cycles run 2026-10-11T07:07:04.951Z files=120 waves=40 =====
+# created=120 duplicates=0
+# wave 1: cumulative ready=40 failed=0 ipcErrors=0
+# wave 2: cumulative ready=40 failed=40 ipcErrors=0
+# wave 3: cumulative ready=40 failed=80 ipcErrors=0
+# TALLY {"ready":40,"failed":80,"unresolved":0,"ipcErrors":0,"byCode":{"FFPROBE_NONZERO_EXIT":80}} elapsed_s=1.4

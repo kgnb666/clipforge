@@ -1,0 +1,4 @@
+﻿== fake-ffprobe 工具构建（含新 ok 替身）START 2026-10-11T14:33:54.4426567+08:00 ==
+   Compiling fake-ffprobe v0.1.0 (D:\应聘项目zcode\docs\evidence\stage2\test-tools\fake-ffprobe)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.42s
+EXIT=0 END 2026-10-11T14:33:54.9486562+08:00

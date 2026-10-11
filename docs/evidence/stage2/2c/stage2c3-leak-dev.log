@@ -1,0 +1,20 @@
+﻿== Leak check dev START 2026-10-11T15:12:36.9529680+08:00 ==
+
+> clipforge@0.1.0 tauri
+> tauri dev
+
+     Running BeforeDevCommand (`npm run dev`)
+
+> clipforge@0.1.0 dev
+> vite
+
+
+  [32m[1mVITE[22m v8.3.4[39m  [2mready in [0m[1m286[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m1420[22m/[39m
+     Running DevCommand (`cargo  run --no-default-features --color always --`)
+        Info Watching D:\应聘项目zcode\clipforge\src-tauri for changes...
+[1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 0.40s
+[1m[92m     Running[0m `D:\cargo-target\debug\clipforge.exe`
+[lifecycle] exit cleanup: cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+== EXITED 2026-10-11T15:18:12.6245701+08:00 ==

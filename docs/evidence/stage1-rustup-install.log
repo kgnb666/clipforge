@@ -1,0 +1,9 @@
+﻿== winget install Rustlang.Rustup START 2026-10-10T17:46:50.9142360+08:00 ==
+宸叉壘鍒?Rustup: the Rust toolchain installer [Rustlang.Rustup] 鐗堟湰 1.29.1
+姝ゅ簲鐢ㄧ▼搴忕敱鍏舵墍鏈夎€呮巿鏉冪粰浣犮€?
+Microsoft 瀵圭涓夋柟绋嬪簭鍖呮涓嶈礋璐ｏ紝涔熶笉鍚戠涓夋柟绋嬪簭鍖呮巿浜堜换浣曡鍙瘉銆?
+姝ｅ湪涓嬭浇 https://static.rust-lang.org/rustup/archive/1.29.1/x86_64-pc-windows-msvc/rustup-init.exe
+宸叉垚鍔熼獙璇佸畨瑁呯▼搴忓搱甯?
+姝ｅ湪鍚姩绋嬪簭鍖呭畨瑁?..
+宸叉垚鍔熷畨瑁?
+EXIT=0 END 2026-10-10T17:47:59.7637627+08:00

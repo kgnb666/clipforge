@@ -1,0 +1,52 @@
+== Stage 3C 基线检查 2026-10-11T21:41:11+08:00 ==
+
+[1] Git 状态
+  git: fatal: not a git repository (or any of the parent directories): .git
+  → 结论：非 Git 仓库，无工作区状态可查（如实记录，与 Stage 1..3B 一致）。
+
+[2] 关键源码 SHA256（前 16）
+  8d8f0d44b2592149  src-tauri/src/converter.rs
+  8ebd21c7e5cc0f39  src-tauri/src/thumbnail.rs
+  bee57a7c8e160556  src-tauri/src/probe.rs
+  ee4d3d9bd3996c10  src-tauri/src/import.rs
+  789a1387ba592a78  src-tauri/src/picker.rs
+  c231c2bed3713a50  src-tauri/src/probe_lifecycle.rs
+  b5c92f9fae3d818e  src-tauri/src/logging.rs
+  a9bf518b930c1d53  src-tauri/src/lib.rs
+  a2a7ed08898fa225  src-tauri/src/main.rs
+  f9b9845494cb4d0a  src/App.tsx
+  9b1b39db9c19791f  src/importApi.ts
+  238a9fc71e846291  src/App.css
+  10cc68559711c143  src-tauri/Cargo.toml
+  f5bd42fbe1d145b5  src-tauri/Cargo.lock
+  6aafd96da0f055f2  package.json
+  f14f03cf4a66ed67  package-lock.json
+  f4e450983bbc94f2  src-tauri/capabilities/default.json
+  bb6dc6fb736a3a18  src-tauri/tauri.conf.json
+
+[3] 进程残留
+  clipforge count=0
+  ffmpeg count=0
+  ffprobe count=0
+  node count=0
+
+[4] 端口 1420/9333
+  listening_count=0
+
+[5] CLIPFORGE_* 环境变量
+  count=0（环境干净；CLIPFORGE_TEST_CONV_TIMEOUT_MS / CLIPFORGE_TEST_THUMB_TIMEOUT_MS 均未设置）
+
+[6] FFmpeg/FFprobe 发现
+  ffmpeg=C:\Users\宋舜江\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffmpeg.exe
+  ffprobe=同上目录\ffprobe.exe
+  version=ffmpeg version 9.0.2-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers
+  encoders: libx264 / libvpx / libvorbis / aac 全部存在（ffmpeg -encoders 实测）
+
+[7] cargo test 基线
+  test result: ok. 65 passed; 0 failed; 7 ignored; 0 measured; 0 filtered out; finished in 0.36s
+  EXIT=0（见 stage3c-baseline-cargo-test.log）
+
+[8] npm run build 基线
+  EXIT=0（见 stage3c-baseline-npm-build.log）
+
+DONE

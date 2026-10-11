@@ -1,0 +1,15 @@
+﻿== winget install Gyan.FFmpeg START 2026-10-10T17:56:09.4252272+08:00 ==
+已找到 FFmpeg [Gyan.FFmpeg] 版本 9.0.2
+此应用程序由其所有者授权给你。
+Microsoft 对第三方程序包概不负责，也不向第三方程序包授予任何许可证。
+正在下载 https://github.com/GyanD/codexffmpeg/releases/download/9.0.2/ffmpeg-9.0.2-full_build.zip
+已成功验证安装程序哈希
+正在提取存档...
+已成功提取存档
+正在启动程序包安装...
+已修改路径环境变量；重启 shell 以使用新值。
+添加了命令行别名： "ffmpeg"
+添加了命令行别名： "ffplay"
+添加了命令行别名： "ffprobe"
+已成功安装
+EXIT=0 END 2026-10-10T17:57:38.2297823+08:00

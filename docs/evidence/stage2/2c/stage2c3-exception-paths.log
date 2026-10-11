@@ -1,0 +1,25 @@
+===== Stage 2C-3 Step 2C：异常路径（当前构建实测）2026-10-11T15:12:02+08:00 =====
+--- [超时] override=delay + 1500ms → 应显示 FFPROBE_TIMEOUT 且子进程被终止
+OK: 导入流程完成 scenario=samplea ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [sample_src.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv元数据读取失败（FFPROBE_TIMEOUT）：FFprobe 超时（>1500 ms，实际约 1530 ms），已终止子进程重试]
+timeout_rc=0
+child_after_timeout=0
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: sample_src.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv元数据读取失败（FFPROBE_TIMEOUT）：FFprobe 超时（>1500 ms，实际约 1530 ms），已终止子进程重试
+TXT: D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv
+TXT: 重试
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+close=True
+exited=True
+switchable_residual=0

@@ -1,0 +1,17 @@
+﻿== P2D-001 全链路源保护基线（导入前）2026-10-11T17:24:45.9480890+08:00 ==
+pre_chain_path=D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+pre_chain_sha256=5D511034DB9797594230CB483A8097A1078FEC4EA59A529225525F2D062192BB
+pre_chain_mtime=o
+pre_chain_dir_files=样本 视频 #1 (初版)'s.mkv
+pre_chain_mtime=2026-10-10T18:03:07.6337356+08:00
+post_chain_sha256=5D511034DB9797594230CB483A8097A1078FEC4EA59A529225525F2D062192BB
+post_chain_mtime=2026-10-10T18:03:07.6337356+08:00
+post_chain_dir_files=样本 视频 #1 (初版)'s.mkv
+compare_sha=True
+compare_mtime=True
+compare_dir=True
+pre_sha256=5D511034DB9797594230CB483A8097A1078FEC4EA59A529225525F2D062192BB
+post_sha256=5D511034DB9797594230CB483A8097A1078FEC4EA59A529225525F2D062192BB
+pre_mtime=2026-10-10T18:03:07.6337356+08:00
+post_mtime=2026-10-10T18:03:07.6337356+08:00
+RESULT=PASS: 全链路（导入→元数据）后源文件 SHA256/mtime 与源目录清单不变

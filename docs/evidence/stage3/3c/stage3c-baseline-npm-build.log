@@ -1,0 +1,17 @@
+﻿== Stage 3C 开工基线 npm run build START 2026-10-11T21:40:48.5434612+08:00 ==
+
+> clipforge@0.1.0 build
+> tsc && vite build
+
+[36mvite v8.3.4 [32mbuilding client environment for production...[36m[39m
+transforming...
+鉁?19 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.48 kB 鈹?gzip:  0.31 kB
+dist/assets/index-xjAwDVXx.css    3.30 kB 鈹?gzip:  1.09 kB
+dist/assets/index-CsrzyHkT.js   226.44 kB 鈹?gzip: 70.93 kB
+
+[32m鉁?built in 208ms[39m
+
+EXIT=0 END 2026-10-11T21:40:50.4962924+08:00

@@ -1,0 +1,136 @@
+﻿===== Round 1 (UseDelay=0 scenario=special) 2026-10-11T14:45:28.2189707+08:00 =====
+dev_launcher_pid=2980
+RESULT=FAIL: 窗口未出现（100s 超时）
+===== Round 2 (UseDelay=0 scenario=special) 2026-10-11T14:47:09.2807236+08:00 =====
+dev_launcher_pid=6704
+RESULT=FAIL: 窗口未出现（100s 超时）
+===== Round 1 (UseDelay=0 scenario=special) 2026-10-11T14:51:18.3472022+08:00 =====
+job_id=1
+window_pid=30028 title=[clipforge] responding=True
+import=OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+probe_wait=OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+close_sent=True app_pid=30028 time=2026-10-11T14:51:29.9493977+08:00
+app_exited=True
+clipforge_leftover=0
+ffprobe_residual=0 switchable_residual=0
+port1420_released=True
+shutdown_line=[lifecycle] exit cleanup: cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+dev_exited=True
+RESULT=PASS
+===== Round 2 (UseDelay=0 scenario=special) 2026-10-11T14:51:37.1602686+08:00 =====
+job_id=1
+window_pid=7984 title=[clipforge] responding=True
+import=OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+probe_wait=OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+close_sent=True app_pid=7984 time=2026-10-11T14:51:48.5473398+08:00
+app_exited=True
+clipforge_leftover=0
+ffprobe_residual=0 switchable_residual=0
+port1420_released=True
+shutdown_line=[lifecycle] exit cleanup: cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+dev_exited=True
+RESULT=PASS
+===== Round 3 (UseDelay=0 scenario=special) 2026-10-11T14:52:05.5284038+08:00 =====
+job_id=1
+window_pid=20800 title=[clipforge] responding=True
+import=OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+probe_wait=OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+close_sent=True app_pid=20800 time=2026-10-11T14:52:16.7270324+08:00
+app_exited=True
+clipforge_leftover=0
+ffprobe_residual=0 switchable_residual=0
+port1420_released=True
+shutdown_line=[lifecycle] exit cleanup: cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+dev_exited=True
+RESULT=PASS
+===== Round 4 (UseDelay=0 scenario=special) 2026-10-11T14:52:23.7949538+08:00 =====
+job_id=1
+window_pid=2140 title=[clipforge] responding=True
+import=OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+probe_wait=OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+close_sent=True app_pid=2140 time=2026-10-11T14:52:34.9586736+08:00
+app_exited=True
+clipforge_leftover=0
+ffprobe_residual=0 switchable_residual=0
+port1420_released=True
+shutdown_line=[lifecycle] exit cleanup: cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+dev_exited=True
+RESULT=PASS
+===== Round 5 (UseDelay=0 scenario=special) 2026-10-11T14:52:41.9930679+08:00 =====
+job_id=1
+window_pid=29868 title=[clipforge] responding=True
+import=OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+probe_wait=OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+close_sent=True app_pid=29868 time=2026-10-11T14:52:53.2325554+08:00
+app_exited=True
+clipforge_leftover=0
+ffprobe_residual=0 switchable_residual=0
+port1420_released=True
+shutdown_line=[lifecycle] exit cleanup: cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+dev_exited=True
+RESULT=PASS
+===== Round 6 (UseDelay=1 scenario=samplea) 2026-10-11T14:53:55.7198923+08:00 =====
+job_id=1
+window_pid=1664 title=[clipforge] responding=True
+import=OK: 导入流程完成 scenario=samplea ValuePattern attempt=1 InvokePattern dialog_closed=True
+probing_visible=True
+close_sent=True app_pid=1664 time=2026-10-11T14:54:08.9790344+08:00
+app_exited=True
+clipforge_leftover=0
+ffprobe_residual=0 switchable_residual=0
+port1420_released=True
+shutdown_line=[lifecycle] exit cleanup: cancelled=1 reaped=1 remaining=0 peak=1 elapsed_ms=32 errors=[]
+dev_exited=True
+RESULT=PASS
+===== Round 7 (UseDelay=1 scenario=samplea) 2026-10-11T14:54:15.9690209+08:00 =====
+job_id=1
+window_pid=17788 title=[clipforge] responding=True
+import=OK: 导入流程完成 scenario=samplea ValuePattern attempt=1 InvokePattern dialog_closed=True
+probing_visible=True
+close_sent=True app_pid=17788 time=2026-10-11T14:54:29.1204357+08:00
+app_exited=True
+clipforge_leftover=0
+ffprobe_residual=0 switchable_residual=0
+port1420_released=True
+shutdown_line=[lifecycle] exit cleanup: cancelled=1 reaped=1 remaining=0 peak=1 elapsed_ms=34 errors=[]
+dev_exited=True
+RESULT=PASS
+===== Round 8 (UseDelay=1 scenario=samplea) 2026-10-11T14:54:46.4174740+08:00 =====
+job_id=1
+window_pid=19552 title=[clipforge] responding=True
+import=OK: 导入流程完成 scenario=samplea ValuePattern attempt=1 InvokePattern dialog_closed=True
+probing_visible=True
+close_sent=True app_pid=19552 time=2026-10-11T14:54:59.5554026+08:00
+app_exited=True
+clipforge_leftover=0
+ffprobe_residual=0 switchable_residual=0
+port1420_released=True
+shutdown_line=[lifecycle] exit cleanup: cancelled=1 reaped=1 remaining=0 peak=1 elapsed_ms=11 errors=[]
+dev_exited=True
+RESULT=PASS
+===== Round 9 (UseDelay=1 scenario=samplea) 2026-10-11T14:55:06.7533580+08:00 =====
+job_id=1
+window_pid=10856 title=[clipforge] responding=True
+import=OK: 导入流程完成 scenario=samplea ValuePattern attempt=1 InvokePattern dialog_closed=True
+probing_visible=True
+close_sent=True app_pid=10856 time=2026-10-11T14:55:19.9208408+08:00
+app_exited=True
+clipforge_leftover=0
+ffprobe_residual=0 switchable_residual=0
+port1420_released=True
+shutdown_line=[lifecycle] exit cleanup: cancelled=1 reaped=1 remaining=0 peak=1 elapsed_ms=11 errors=[]
+dev_exited=True
+RESULT=PASS
+===== Round 10 (UseDelay=1 scenario=samplea) 2026-10-11T14:55:38.6852871+08:00 =====
+job_id=1
+window_pid=3392 title=[clipforge] responding=True
+import=OK: 导入流程完成 scenario=samplea ValuePattern attempt=1 InvokePattern dialog_closed=True
+probing_visible=True
+close_sent=True app_pid=3392 time=2026-10-11T14:55:51.7989423+08:00
+app_exited=True
+clipforge_leftover=0
+ffprobe_residual=0 switchable_residual=0
+port1420_released=True
+shutdown_line=[lifecycle] exit cleanup: cancelled=1 reaped=1 remaining=0 peak=1 elapsed_ms=44 errors=[]
+dev_exited=True
+RESULT=PASS

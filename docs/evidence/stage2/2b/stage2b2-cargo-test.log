@@ -1,0 +1,67 @@
+﻿== cargo test（Phase 2B-2）START 2026-10-10T22:12:51.9202725+08:00 ==
+   Compiling clipforge v0.1.0 (D:\应聘项目zcode\clipforge\src-tauri)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 15.59s
+     Running unittests src\lib.rs (D:\cargo-target\debug\deps\clipforge_lib-de19d4e672ce129c.exe)
+
+running 45 tests
+test probe::tests::default_timeout_is_30_seconds ... ok
+test import::tests::empty_path_fails_with_invalid_path ... ok
+test import::tests::duplicate_detection_is_case_insensitive_for_unresolvable_paths ... ok
+test probe::tests::build_args_passes_input_as_single_osstring_verbatim ... ok
+test probe::tests::discovery_override_replaces_search_and_missing_file_is_not_found ... ok
+test probe::tests::discovery_common_dirs_last_resort ... ok
+test probe::tests::discovery_path_env_strategy_hits_expected_entry ... ok
+test probe::tests::discovery_override_used_when_file_exists ... ok
+test import::tests::nonexistent_path_fails_with_not_found ... ok
+test import::tests::failed_entry_is_not_replaced_on_repick ... ok
+test import::tests::special_character_paths_are_handled_verbatim ... ok
+test probe::tests::discovery_returns_none_when_nothing_found ... ok
+test probe::tests::override_scenario_missing_file_is_not_found ... ignored, 需设置 CLIPFORGE_TEST_FFPROBE 指向替身目录内不存在的文件
+test probe::tests::override_scenario_nonzero_exit ... ignored, 需设置 CLIPFORGE_TEST_FFPROBE 指向 fake-ffprobe-exit1 替身
+test probe::tests::effective_timeout_defaults_without_override ... ok
+test probe::tests::override_scenario_timeout_kills_child ... ignored, 需设置 CLIPFORGE_TEST_FFPROBE=延迟替身 且 CLIPFORGE_TEST_PROBE_TIMEOUT_MS=1500
+test probe::tests::override_scenario_unlaunchable_start_failed ... ignored, 需设置 CLIPFORGE_TEST_FFPROBE 指向替身目录内不可启动文件
+test import::tests::directory_fails_with_not_a_file ... ok
+test probe::tests::parse_duration_as_number_and_string ... ok
+test probe::tests::parse_audio_stream_without_codec_name_keeps_distinct_semantics ... ok
+test probe::tests::parse_full_json_fields ... ok
+test probe::tests::discovery_winget_packages_strategy_deep_scan ... ok
+test probe::tests::parse_malformed_json_is_parse_failure ... ok
+test probe::tests::parse_missing_duration_is_none_not_zero ... ok
+test probe::tests::real_discovery_reports_strategy_and_path ... ignored, 需要本机已安装 FFprobe（真机发现验证）
+test probe::tests::parse_no_audio_stream_semantics ... ok
+test probe::tests::real_probe_sample_metadata ... ignored, 需要本机已安装 FFprobe（真机探测验证）
+test import::tests::duplicate_same_path_not_added_twice ... ok
+test probe::tests::real_probe_special_char_path ... ignored, 需要本机已安装 FFprobe（中文路径验证）
+test probe::tests::parse_unknown_codec_preserved_verbatim ... ok
+test probe::tests::tail_truncate_keeps_last_bytes_and_is_bounded ... ok
+test probe::tests_2b2::audio_text_semantics_three_states ... ok
+test probe::tests_2b2::build_view_failed_never_renders_as_success ... ok
+test probe::tests_2b2::build_view_missing_fields_stay_none_not_fabricated ... ok
+test probe::tests_2b2::build_view_ready_maps_all_fields ... ok
+test probe::tests_2b2::codec_mapping_known_and_unknown_verbatim ... ok
+test probe::tests_2b2::format_duration_floor_table ... ok
+test probe::tests_2b2::format_size_boundaries ... ok
+test probe::tests_2b2::probe_view_serializes_camel_case_for_ipc ... ok
+test probe::tests_2b2::store_caches_and_guards_inflight ... ok
+test test_overrides::tests::validate_override_path_accepts_paths_inside_tools_dir ... ok
+test test_overrides::tests::validate_override_path_rejects_relative_missing_marker_and_parent_dir ... ok
+test test_overrides::tests::validate_timeout_override_bounds ... ok
+test import::tests::valid_file_imports_ready_and_source_untouched ... ok
+test import::tests::fake_extension_is_not_judged_in_phase_2a ... ok
+
+test result: ok. 38 passed; 0 failed; 7 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\main.rs (D:\cargo-target\debug\deps\clipforge-a3ceb963cc945cd2.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests clipforge_lib
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+EXIT=0 END 2026-10-10T22:13:08.1208846+08:00

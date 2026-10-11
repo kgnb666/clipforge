@@ -1,0 +1,36 @@
+===== Stage 2C-1 Step 2 孤儿回归（复现原 S6b 场景）2026-10-11T14:13:32+08:00 =====
+[1] 启动：dev（override=switchable-ffprobe=delay 副本）；窗口 PID 见 dev.log
+OK: 导入流程完成 scenario=samplea ValuePattern attempt=1 InvokePattern dialog_closed=True
+import_rc=0
+OK: 界面已出现 [sample_src.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv元数据解析中…]
+probing_rc=0
+[2] 关闭前进程清单（在途子进程应存在） 2026-10-11T14:13:37+08:00
+switchable_count=1
+  PID=24012 start=2026-10-11T14:13:36.3586700+08:00
+switchable_count=1
+  PID=24012 start=2026-10-11T14:13:36.3586700+08:00
+[3] 关闭窗口（CloseMainWindow） 2026-10-11T14:13:37+08:00
+close_sent=True app_pid=19732 time=2026-10-11T14:13:37.9512714+08:00
+app_exited=True
+app_related_leftover=0
+[4] 关闭后进程清单（目标：0 = 无孤儿） 2026-10-11T14:13:44+08:00
+switchable_count=0
+switchable_count=0
+[5] dev 日志中的退出清理记录
+[lifecycle] exit cleanup: cancelled=1 reaped=1 remaining=0 elapsed_ms=33 errors=[]
+[lifecycle] exit cleanup: cancelled=1 reaped=1 remaining=0 elapsed_ms=33 errors=[]
+== dev EXITED 2026-10-11T14:13:38.8487987+08:00 ==
+===== 正常关闭回归（真实 FFprobe）2026-10-11T14:15:04+08:00 =====
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+import_rc=0
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+metadata_rc=0
+OK: shot-app docs\evidence\stage2\2c\stage2c1-normal-regression.png (60476 B)
+shot_rc=0
+normal_close_sent=True app_pid=23732 time=2026-10-11T14:15:11.5443914+08:00
+normal_app_exited=True
+normal_leftover=0
+[正常回归] 退出清理记录：
+[lifecycle] exit cleanup: cancelled=0 reaped=0 remaining=0 elapsed_ms=0 errors=[]
+[lifecycle] exit cleanup: cancelled=0 reaped=0 remaining=0 elapsed_ms=0 errors=[]
+== dev EXITED 2026-10-11T14:15:12.4019029+08:00 ==

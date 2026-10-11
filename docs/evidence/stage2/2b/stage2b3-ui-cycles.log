@@ -1,0 +1,322 @@
+=== Phase 2B-3 UI 验收 2026-10-10T22:39:06+08:00 ===
+--- [S1] 真实环境批量导入（大文件→无扩展名→伪装扩展名→文本→截断→裸流→音频-only）
+OK: 导入流程完成 scenario=largefile ValuePattern attempt=1 InvokePattern dialog_closed=True
+LARGE_IMPORT_TO_DIALOG_DONE_S=4.7
+LARGE_METADATA_VISIBLE_AFTER_S=0.8
+--- [S1] import noext
+OK: 导入流程完成 scenario=noext ValuePattern attempt=1 InvokePattern dialog_closed=True
+rc=0
+--- [S1] import fake
+OK: 导入流程完成 scenario=fake ValuePattern attempt=1 InvokePattern dialog_closed=True
+rc=0
+--- [S1] import note
+OK: 导入流程完成 scenario=note ValuePattern attempt=1 InvokePattern dialog_closed=True
+rc=0
+--- [S1] import truncated
+OK: 导入流程完成 scenario=truncated ValuePattern attempt=1 InvokePattern dialog_closed=True
+rc=0
+--- [S1] import rawstream
+OK: 导入流程完成 scenario=rawstream ValuePattern attempt=1 InvokePattern dialog_closed=True
+rc=0
+--- [S1] import audioonly
+OK: 导入流程完成 scenario=audioonly ValuePattern attempt=1 InvokePattern dialog_closed=True
+rc=0
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: large_sample.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\large_sample.mkv大小471.26 MiB时长33:29分辨率640×360视频编码MPEG-4 Video音频编码AAC
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\large_sample.mkv
+TXT: no_extension_sample已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_extension_sample
+TXT: fake_text.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：[mov,mp4,m4a,3gp,3g2,mj2 @ 000001e91a500200] moov atom not found重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\fake_text.mp4
+TXT: 重试
+TXT: plain_note.txt已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\plain_note.txt元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：D:\应聘项目zcode\docs\evidence\stage2\test-assets\plain_note.txt: Invalid data found when processing input重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\plain_note.txt
+TXT: truncated_sample.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\truncated_sample.mp4元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：[mov,mp4,m4a,3gp,3g2,mj2 @ 0000012b651a5480] moov atom not found重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\truncated_sample.mp4
+TXT: raw_stream.h264已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\raw_stream.h264大小1.16 MiB时长N/A分辨率640×360视频编码H.264 / AVC音频编码无音轨
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\raw_stream.h264
+TXT: audio_only_sample.m4a已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\audio_only_sample.m4a元数据读取失败（MEDIA_UNSUPPORTED）：文件中未发现视频流（可能为音频或其他非视频媒体）重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\audio_only_sample.m4a
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+read_rc=0
+OK: shot-app docs\evidence\stage2\2b\stage2b3-s1-states-top.png (74175 B)
+rc=0
+Cannot convert value "-120" to type "System.UInt32". Error: "Value was either too large or too small for a UInt32."
+At line:19 char:32
++ ...  8; $i++) { [WheelSc]::mouse_event(0x0800, 0, 0, [uint32](-120), [UIn ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvalidCastIConvertible
+ 
+Cannot convert value "-120" to type "System.UInt32". Error: "Value was either too large or too small for a UInt32."
+At line:19 char:32
++ ...  8; $i++) { [WheelSc]::mouse_event(0x0800, 0, 0, [uint32](-120), [UIn ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvalidCastIConvertible
+ 
+Cannot convert value "-120" to type "System.UInt32". Error: "Value was either too large or too small for a UInt32."
+At line:19 char:32
++ ...  8; $i++) { [WheelSc]::mouse_event(0x0800, 0, 0, [uint32](-120), [UIn ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvalidCastIConvertible
+ 
+Cannot convert value "-120" to type "System.UInt32". Error: "Value was either too large or too small for a UInt32."
+At line:19 char:32
++ ...  8; $i++) { [WheelSc]::mouse_event(0x0800, 0, 0, [uint32](-120), [UIn ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvalidCastIConvertible
+ 
+Cannot convert value "-120" to type "System.UInt32". Error: "Value was either too large or too small for a UInt32."
+At line:19 char:32
++ ...  8; $i++) { [WheelSc]::mouse_event(0x0800, 0, 0, [uint32](-120), [UIn ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvalidCastIConvertible
+ 
+Cannot convert value "-120" to type "System.UInt32". Error: "Value was either too large or too small for a UInt32."
+At line:19 char:32
++ ...  8; $i++) { [WheelSc]::mouse_event(0x0800, 0, 0, [uint32](-120), [UIn ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvalidCastIConvertible
+ 
+Cannot convert value "-120" to type "System.UInt32". Error: "Value was either too large or too small for a UInt32."
+At line:19 char:32
++ ...  8; $i++) { [WheelSc]::mouse_event(0x0800, 0, 0, [uint32](-120), [UIn ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvalidCastIConvertible
+ 
+Cannot convert value "-120" to type "System.UInt32". Error: "Value was either too large or too small for a UInt32."
+At line:19 char:32
++ ...  8; $i++) { [WheelSc]::mouse_event(0x0800, 0, 0, [uint32](-120), [UIn ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvalidCastIConvertible
+ 
+scrolled_down_8_notches
+OK: shot-app docs\evidence\stage2\2b\stage2b3-s1-states-bottom.png (74175 B)
+rc=0
+s1_close_sent=True
+s1_exited=True
+s1_leftover=0
+--- [S2] override=missing：应为 FFPROBE_NOT_FOUND
+OK: 导入流程完成 scenario=samplea ValuePattern attempt=1 InvokePattern dialog_closed=True
+rc=0
+OK: 界面已出现 [sample_src.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv元数据读取失败（FFPROBE_NOT_FOUND）：未发现可用的 FFprobe（请安装 FFmpeg 或在后续阶段于设置中指定路径）重试]
+rc=0
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: sample_src.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv元数据读取失败（FFPROBE_NOT_FOUND）：未发现可用的 FFprobe（请安装 FFmpeg 或在后续阶段于设置中指定路径）重试
+TXT: D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv
+TXT: 重试
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+OK: shot-app docs\evidence\stage2\2b\stage2b3-s2-missing.png (33013 B)
+rc=0
+s2_close=True
+s2_exited=True
+s2_leftover=0
+--- [S3] override=unlaunchable：应为 FFPROBE_START_FAILED
+OK: 导入流程完成 scenario=samplea ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [sample_src.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv元数据读取失败（FFPROBE_START_FAILED）：无法启动 FFprobe（系统错误 193）：%1 不是有效的 Win32 应用程序。 (os error 193)重试]
+rc=0
+OK: shot-app docs\evidence\stage2\2b\stage2b3-s3-unlaunchable.png (30418 B)
+rc=0
+s3_close=True
+s3_exited=True
+s3_leftover=0
+--- [S4] override=exit1 替身：应为 FFPROBE_NONZERO_EXIT + 替身 stderr 原因
+OK: 导入流程完成 scenario=samplea ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [sample_src.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：fake-ffprobe-exit1: simulated probe failure (controlled test double, exit=1)重试]
+rc=0
+OK: shot-app docs\evidence\stage2\2b\stage2b3-s4-exit1.png (30013 B)
+rc=0
+s4_close=True
+s4_exited=True
+s4_leftover=0
+--- [S5-1] 导入 noaudio(A) 与 special(B)：双双超时（1500ms）
+OK: 导入流程完成 scenario=noaudio ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [no_audio_sample.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv元数据读取失败（FFPROBE_TIMEOUT）：FFprobe 超时（>1500 ms，实际约 1530 ms），已终止子进程重试]
+rc=0
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: no_audio_sample.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv元数据读取失败（FFPROBE_TIMEOUT）：FFprobe 超时（>1500 ms，实际约 1530 ms），已终止子进程重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv
+TXT: 重试
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv元数据读取失败（FFPROBE_TIMEOUT）：FFprobe 超时（>1500 ms，实际约 1532 ms），已终止子进程重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+--- [S5-2] 超时后进程残留检查（替换替身应已被终止）---
+switchable_processes_after_timeout=0
+OK: shot-app docs\evidence\stage2\2b\stage2b3-s5-timeouts.png (47565 B)
+rc=0
+--- [S5-3] 替换替身：switchable = 真实 FFprobe 的副本（原安装不动）---
+swapped_to_real_copy=True
+--- [S5-4] 重试 A（noaudio）：应成功并更新为 无音轨 ---
+OK: 已点击第 0 个重试按钮（共 2 个）
+rc=0
+OK: 界面已出现 [no_audio_sample.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv大小1.14 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码无音轨]
+rc=0
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: no_audio_sample.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv大小1.14 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码无音轨
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv元数据读取失败（FFPROBE_TIMEOUT）：FFprobe 超时（>1500 ms，实际约 1532 ms），已终止子进程重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: 重试
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+OK: shot-app docs\evidence\stage2\2b\stage2b3-s5-retry-A-success.png (46373 B)
+rc=0
+--- [S5-5] 重试 B（special）：应成功（1.18 MiB / AAC）---
+OK: 已点击第 0 个重试按钮（共 1 个）
+rc=0
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+rc=0
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: no_audio_sample.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv大小1.14 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码无音轨
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\no_audio_sample.mkv
+TXT: 样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC
+TXT: D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+OK: shot-app docs\evidence\stage2\2b\stage2b3-s5-final-both-success.png (45800 B)
+rc=0
+s5_close=True
+s5_exited=True
+s5_leftover=0
+switchable_after_close=0
+--- [S6-1] 导入 samplea（在途探测，预期显示 解析中；默认 30s 不设覆盖）
+OK: 导入流程完成 scenario=samplea ValuePattern attempt=1 InvokePattern dialog_closed=True
+rc=0
+OK: 界面已出现 [sample_src.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv元数据解析中…]
+rc=0
+--- [S6-2] 在途期间交互（第二次读取界面文本）与按钮隐藏检查 ---
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: sample_src.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv元数据解析中…
+TXT: D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+FAIL: 重试按钮不足: 需要 index=0 实际=0
+click_retry_rc=1（预期 1：解析中无重试按钮）
+OK: shot-app docs\evidence\stage2\2b\stage2b3-s6-probing.png (29825 B)
+rc=0
+switchable_during_probe=1（在途子进程存在，符合预期）
+--- [S6-3] 在途探测期间关闭窗口 → 应用退出；检查子进程（预期成为孤儿：Windows 不级联终止）---
+s6_close_sent=True time=2026-10-10T22:53:33.7331011+08:00
+s6_app_exited=True
+s6_app_leftover=0
+orphan_switchable_after_close=0���۲��Ӧ���˳���������ֹ��;�ӽ��̣�
+--- [S6-4] 清理我方测试替身孤儿进程（仅限 switchable-ffprobe，属本次测试启动）---
+switchable_after_cleanup=0
+--- [S6b] 导入后立即（约 12s 内，<30s 超时窗口）在途关闭 ---
+OK: 导入流程完成 scenario=samplea ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [sample_src.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv元数据解析中…]
+switchable_before_close=1（在途子进程，应为 1）
+s6b_close_sent=True time=2026-10-10T22:55:41.3402327+08:00
+s6b_app_exited=True
+s6b_app_leftover=0
+orphan_switchable_after_close=1
+  orphan_pid=32668
+--- [S6b-2] 清理孤儿（我方测试替身）---
+switchable_after_cleanup=0
+--- [S7-1] 覆盖已清除：真实 FFprobe 恢复验证（导入 samplea/truncated/rawstream/audioonly）---
+OK: 导入流程完成 scenario=samplea ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 导入流程完成 scenario=truncated ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 导入流程完成 scenario=rawstream ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 导入流程完成 scenario=audioonly ValuePattern attempt=1 InvokePattern dialog_closed=True
+TXT: Tauri + React + Typescript
+TXT: Tauri + React + Typescript - Web 内容
+TXT: ClipForge
+TXT: Stage 2B · 元数据展示
+TXT: 导入视频
+TXT: 导入条目列表
+TXT: sample_src.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC
+TXT: D:\应聘项目zcode\docs\evidence\gate0c-media\sample_src.mkv
+TXT: truncated_sample.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\truncated_sample.mp4元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：[mov,mp4,m4a,3gp,3g2,mj2 @ 0000028420101140] moov atom not found重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\truncated_sample.mp4
+TXT: 重试
+TXT: raw_stream.h264已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\raw_stream.h264大小1.16 MiB时长N/A分辨率640×360视频编码H.264 / AVC音频编码无音轨
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\raw_stream.h264
+TXT: audio_only_sample.m4a已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\audio_only_sample.m4a元数据读取失败（MEDIA_UNSUPPORTED）：文件中未发现视频流（可能为音频或其他非视频媒体）重试
+TXT: D:\应聘项目zcode\docs\evidence\stage2\test-assets\audio_only_sample.m4a
+TXT: clipforge
+TXT: System Menu Bar
+TXT: System
+TXT: Minimize
+TXT: Maximize
+TXT: Close
+OK: read-app-text 完成
+read_rc=0
+OK: shot-app docs\evidence\stage2\2b\stage2b3-s7-top.png (70451 B)
+top_rc=0
+wheel_scrolled=10
+OK: shot-app docs\evidence\stage2\2b\stage2b3-s7-bottom.png (66810 B)
+bottom_rc=0
+s7_close=True
+s7_exited=True
+s7_leftover=0

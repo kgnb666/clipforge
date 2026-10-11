@@ -1,0 +1,12 @@
+===== Stage 2C-3 Step 2A：120 周期长稳测试（真实 FFprobe）2026-10-11T15:07:04+08:00 =====
+CYCLES_OK total=120 ready=40 failed=80 ipcErrors=0 elapsed_s=1.4
+post_run_responding=True
+ffprobe_after_cycles=0
+8
+close=True pid=14856 time=2026-10-11T15:07:35.1086673+08:00
+app_exited=True
+leftover=0
+ffprobe_residual=0
+port1420=0
+--- [2A] 退出清理：
+[lifecycle] exit cleanup: cancelled=0 reaped=0 remaining=0 peak=40 elapsed_ms=0 errors=[]

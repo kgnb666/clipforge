@@ -1,0 +1,9 @@
+﻿== P2A-003 导入后复核（修正版）2026-10-10T20:32:45.3544288+08:00 ==
+special_path=D:\应聘项目zcode\docs\evidence\stage2\test-assets\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv
+baseline_sha256=5D511034DB9797594230CB483A8097A1078FEC4EA59A529225525F2D062192BB
+current_sha256=5D511034DB9797594230CB483A8097A1078FEC4EA59A529225525F2D062192BB
+baseline_mtime=2026-10-10T18:03:07.6337356+08:00
+current_mtime=2026-10-10T18:03:07.6337356+08:00
+hash_match=True
+mtime_match=True
+RESULT=PASS: 经真实对话框导入后，源文件 SHA256 与 mtime 均未变

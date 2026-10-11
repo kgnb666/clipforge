@@ -1,0 +1,51 @@
+===== Stage 2D-1-A 行为回归重做（分步驱动）2026-10-11T16:07:44+08:00 =====
+OK: 已点击导入视频
+OK: dialog name=[选择视频文件] class=[#32770] hwnd=2361246
+OK: 已设置文件名（ValuePattern(1148) attempt=1）场景=special
+InvokePattern (元素[Button] name=[打开(O)])
+OK: 已点击 打开
+OK: 对话框已关闭
+OK: 界面已出现 [样本 视频 #1 (初版)'s.mkv已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\…s\测试 目录 & 素材 #1 (终版)'s\样本 视频 #1 (初版)'s.mkv大小1.18 MiB时长00:05分辨率640×360视频编码MPEG-4 Video音频编码AAC]
+metadata_rc=0
+OK: 导入流程完成 scenario=special ValuePattern attempt=1 InvokePattern dialog_closed=True
+OK: 界面已出现 [已在列表中：样本 视频 #1 (初版)'s.mkv]
+dup_rc=0
+close=True pid=7948 time=2026-10-11T16:08:20.2556975+08:00
+exited=True
+leftover=0
+--- [2B] 失败态（截断 MP4）→ failed 事件
+OK: 已点击导入视频
+OK: dialog name=[选择视频文件] class=[#32770] hwnd=1706776
+FAIL: 未知场景: truncated
+failed_state_rc=1
+close=True
+exited=True
+--- [2B] 失败态重做（truncated → failed 事件）
+OK: 已点击导入视频
+OK: dialog name=[选择视频文件] class=[#32770] hwnd=2165214
+OK: 已设置文件名（ValuePattern(1148) attempt=1）场景=truncated
+InvokePattern (元素[Button] name=[打开(O)])
+OK: 已点击 打开
+OK: 对话框已关闭
+OK: 界面已出现 [truncated_sample.mp4已导入（路径校验通过）D:\应聘项目zcode\docs\evidence\stage2\test-assets\truncated_sample.mp4元数据读取失败（FFPROBE_NONZERO_EXIT）：FFprobe 以非零退出码结束（1）：[mov,mp4,m4a,3gp,3g2,mj2 @ 000002947d31efc0] moov atom not found重试]
+failed_state_rc=0
+close=True
+exited=True
+--- [2C] 在途关闭 → cancelled 事件
+OK: 已点击导入视频
+OK: dialog name=[选择视频文件] class=[#32770] hwnd=2034326
+FAIL: 未知场景: samplea
+app_closed=True
+leftover=0
+--- [2C] 在途关闭重做（samplea → cancelled 事件）
+OK: 已点击导入视频
+OK: dialog name=[选择视频文件] class=[#32770] hwnd=5965752
+OK: 已设置文件名（ValuePattern(1148) attempt=1）场景=samplea
+InvokePattern (元素[Button] name=[打开(O)])
+OK: 已点击 打开
+OK: 对话框已关闭
+1
+inflight_before_close=1
+close=True
+exited=True
+switchable_residual=0

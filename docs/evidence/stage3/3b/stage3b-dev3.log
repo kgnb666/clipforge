@@ -1,0 +1,28 @@
+﻿== Stage 3B dev3（CDP WebM）START 2026-10-11T20:44:08.8002501+08:00 ==
+
+> clipforge@0.1.0 tauri
+> tauri dev
+
+     Running BeforeDevCommand (`npm run dev`)
+     Running DevCommand (`cargo  run --no-default-features --color always --`)
+        Info Watching D:\应聘项目zcode\clipforge\src-tauri for changes...
+
+> clipforge@0.1.0 dev
+> vite
+
+[1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 0.49s
+[1m[92m     Running[0m `D:\cargo-target\debug\clipforge.exe`
+[logging] initialized at C:\Users\宋舜江\AppData\Local\com.clipforge.app\logs
+System.Management.Automation.RemoteException
+thread 'main' (31072) panicked at C:\Users\宋舜江\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tauri-2.12.2\src\app.rs:1444:11:
+Failed to setup app: runtime error: failed to create webview: WebView2 error: WindowsError(Error { code: HRESULT(0x8007139F), message: "组或资源的状态不是执行请求操作的正确状态。" })
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+[31merror when starting dev server:
+Error: Port 1420 is already in use
+    at httpServerStart (file:///D:/%E5%BA%94%E8%81%98%E9%A1%B9%E7%9B%AEzcode/clipforge/node_modules/vite/dist/node/chunks/node.js:14706:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async startServer (file:///D:/%E5%BA%94%E8%81%98%E9%A1%B9%E7%9B%AEzcode/clipforge/node_modules/vite/dist/node/chunks/node.js:25156:30)
+    at async Object.listen (file:///D:/%E5%BA%94%E8%81%98%E9%A1%B9%E7%9B%AEzcode/clipforge/node_modules/vite/dist/node/chunks/node.js:24962:4)
+    at async CAC.<anonymous> (file:///D:/%E5%BA%94%E8%81%98%E9%A1%B9%E7%9B%AEzcode/clipforge/node_modules/vite/dist/node/cli.js:725:3)[39m
+       Error The "beforeDevCommand" terminated with a non-zero status code.
+== EXITED 2026-10-11T20:44:10.4272519+08:00 ==

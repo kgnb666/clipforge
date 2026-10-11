@@ -1,0 +1,6 @@
+﻿D:\ӦƸ��Ŀzcode\docs\evidence\stage2\test-assets\acl-test-copy.mkv BUILTIN\Administrators:(I)(F)
+                                                                NT AUTHORITY\SYSTEM:(I)(F)
+                                                                NT AUTHORITY\Authenticated Users:(I)(M)
+                                                                BUILTIN\Users:(I)(RX)
+
+Successfully processed 1 files; Failed processing 0 files

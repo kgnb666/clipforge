@@ -1,0 +1,25 @@
+﻿
+> clipforge@0.1.0 tauri
+> tauri dev
+
+node.exe :      Running BeforeDevCommand (`npm run dev`)
+所在位置 行:1 字符: 1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (     Running Be...(`npm run dev`):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+> clipforge@0.1.0 dev
+> vite
+
+
+  [32m[1mVITE[22m v8.3.4[39m  [2mready in [0m[1m278[22m[2m[0m ms[22m
+
+  [32m鉃?[39m  [1mLocal[22m:   [36mhttp://localhost:[1m1420[22m/[39m
+     Running DevCommand (`cargo  run --no-default-features --color always --`)
+        Info Watching D:\搴旇仒椤圭洰zcode\clipforge\src-tauri for changes...
+[1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 0.41s
+[1m[92m     Running[0m `D:\cargo-target\debug\clipforge.exe`
+[lifecycle] exit cleanup: cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+== ROUND DEV EXITED ==

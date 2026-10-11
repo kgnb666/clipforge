@@ -1,0 +1,32 @@
+﻿=== Stage 4 Demo GIF 录制 ===
+开始时间: 2026-10-12 00:02:02
+release 可执行文件: D:\cargo-target\release\ClipForge.exe  存在=True
+--- 启动采集器（24s）---
+--- 启动应用 ---
+    OK: 主窗口就绪 name=[ClipForge] class=[Tauri Window]
+    [helper exit=0]
+--- 导入 Big Buck Bunny 720p (HEVC) ---
+    OK: 导入流程完成 scenario=bbb setvia=ValuePattern+verified dialog_closed=True
+    [helper exit=0]
+    OK: 界面已出现完整路径 [Big_Buck_Bunny_720p_h265.mp4已导入（路径校验通过）D:\Cliporge\test-assets\real-world\Big_Buck_Bunny_720p_h265.mp4大小1.01 MiB时长00:10分辨率1280×720视频编码H.265 / HEVC音频编码无音轨转换MP4WebM]
+    [helper exit=0]
+    OK: 元数据已结论 [Big_Buck_Bunny_720p_h265.mp4已导入（路径校验通过）D:\Cliporge\test-assets\real-world\Big_Buck_Bunny_720p_h265.mp4大小1.01 MiB时长00:10分辨率1280×720视频编码H.265 / HEVC音频编码无音轨转换MP4WebM]
+    [helper exit=0]
+--- 点击 MP4 转换 ---
+    OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+    [helper exit=0]
+    OK: 转换已收敛（已结论条目=1 期望>=1 进行中=0）
+    [helper exit=0]
+--- 关闭应用 ---
+    OK: 已请求关闭主窗口(WindowPattern.Close)
+    [helper exit=0]
+--- 等待采集器结束 ---
+采集帧数: 119
+--- ffmpeg 编码 GIF（palettegen + paletteuse，按实际采集速率=实时）---
+    实际采集速率: 4.958 fps（帧数/采集时长）
+        Metadata:
+          encoder         : Lavc63.1.102 gif
+    [out#0/gif @ 000002cc550dac80] video:133KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.014686%
+    frame=  119 fps=0.0 q=-0.0 Lsize=     133KiB time=00:00:24.00 bitrate=  45.4kbits/s speed=  31x elapsed=0:00:00.77    
+GIF: D:\Cliporge\docs\evidence\stage4\stage4-demo.gif  0.13 MB  136201 B
+结束时间: 2026-10-12 00:02:28

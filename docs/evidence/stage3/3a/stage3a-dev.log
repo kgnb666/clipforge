@@ -1,0 +1,33 @@
+﻿== Stage 3A dev（缩略图实机验证）START 2026-10-11T19:53:27.8355432+08:00 ==
+
+> clipforge@0.1.0 tauri
+> tauri dev
+
+     Running BeforeDevCommand (`npm run dev`)
+
+> clipforge@0.1.0 dev
+> vite
+
+
+  [32m[1mVITE[22m v8.3.4[39m  [2mready in [0m[1m282[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m1420[22m/[39m
+     Running DevCommand (`cargo  run --no-default-features --color always --`)
+        Info Watching D:\应聘项目zcode\clipforge\src-tauri for changes...
+[1m[92m   Compiling[0m clipforge v0.1.0 (D:\应聘项目zcode\clipforge\src-tauri)
+[1m[96m    Building[0m [=======================> ] 359/360: clipfor…
+                                                            
+[1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 2.13s
+[1m[92m     Running[0m `D:\cargo-target\debug\clipforge.exe`
+[logging] initialized at C:\Users\宋舜江\AppData\Local\com.clipforge.app\logs
+        Info File src-tauri\src\thumbnail.rs changed. Rebuilding application...
+     Running DevCommand (`cargo  run --no-default-features --color always --`)
+[1m[92m    Blocking[0m waiting for file lock on build directory
+[1m[92m   Compiling[0m clipforge v0.1.0 (D:\应聘项目zcode\clipforge\src-tauri)
+[1m[96m    Building[0m [=======================> ] 359/360: clipfor…
+                                                            
+[1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 9.65s
+[1m[92m     Running[0m `D:\cargo-target\debug\clipforge.exe`
+[logging] initialized at C:\Users\宋舜江\AppData\Local\com.clipforge.app\logs
+[lifecycle] exit cleanup: cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+== dev EXITED 2026-10-11T19:59:39.5919204+08:00 ==

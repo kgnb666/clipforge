@@ -1,0 +1,14 @@
+﻿
+> clipforge@0.1.0 build
+> tsc && vite build
+
+[36mvite v8.3.4 [32mbuilding client environment for production...[36m[39m
+transforming...
+鉁?19 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.48 kB 鈹?gzip:  0.31 kB
+dist/assets/index-xjAwDVXx.css    3.30 kB 鈹?gzip:  1.09 kB
+dist/assets/index-p5YNrqmd.js   226.46 kB 鈹?gzip: 70.93 kB
+
+[32m鉁?built in 192ms[39m

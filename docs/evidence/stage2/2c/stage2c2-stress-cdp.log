@@ -1,0 +1,50 @@
+# ===== stress create-and-probe 2026-10-11T06:39:28.193Z files=40 =====
+# ===== stress create-and-probe 2026-10-11T06:40:41.173Z files=40 =====
+# browser=Edg/154.0.4258.62
+# created=40 duplicates=0
+PROBE id=2 file=noaudio_03.mkv state=ready size=1.14 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=无音轨
+PROBE id=6 file=noaudio_07.mkv state=ready size=1.14 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=无音轨
+PROBE id=5 file=noaudio_06.mkv state=ready size=1.14 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=无音轨
+PROBE id=4 file=noaudio_05.mkv state=ready size=1.14 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=无音轨
+PROBE id=3 file=noaudio_04.mkv state=ready size=1.14 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=无音轨
+PROBE id=11 file=normal_04.mkv state=ready size=1.18 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=AAC
+PROBE id=9 file=normal_02.mkv state=ready size=1.18 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=AAC
+PROBE id=0 file=noaudio_01.mkv state=ready size=1.14 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=无音轨
+PROBE id=1 file=noaudio_02.mkv state=ready size=1.14 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=无音轨
+PROBE id=12 file=normal_05.mkv state=ready size=1.18 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=AAC
+PROBE id=10 file=normal_03.mkv state=ready size=1.18 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=AAC
+PROBE id=7 file=noaudio_08.mkv state=ready size=1.14 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=无音轨
+PROBE id=15 file=normal_08.mkv state=ready size=1.18 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=AAC
+PROBE id=16 file=normal_09.mkv state=ready size=1.18 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=AAC
+PROBE id=8 file=normal_01.mkv state=ready size=1.18 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=AAC
+PROBE id=18 file=normal_11.mkv state=ready size=1.18 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=AAC
+PROBE id=17 file=normal_10.mkv state=ready size=1.18 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=AAC
+PROBE id=13 file=normal_06.mkv state=ready size=1.18 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=AAC
+PROBE id=19 file=normal_12.mkv state=ready size=1.18 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=AAC
+PROBE id=22 file=normal_15.mkv state=ready size=1.18 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=AAC
+PROBE id=24 file=text_01.txt state=failed code=FFPROBE_NONZERO_EXIT
+PROBE id=14 file=normal_07.mkv state=ready size=1.18 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=AAC
+PROBE id=26 file=text_03.txt state=failed code=FFPROBE_NONZERO_EXIT
+PROBE id=23 file=normal_16.mkv state=ready size=1.18 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=AAC
+PROBE id=21 file=normal_14.mkv state=ready size=1.18 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=AAC
+PROBE id=25 file=text_02.txt state=failed code=FFPROBE_NONZERO_EXIT
+PROBE id=28 file=text_05.txt state=failed code=FFPROBE_NONZERO_EXIT
+PROBE id=20 file=normal_13.mkv state=ready size=1.18 MiB dur=00:05 res=640×360 v=MPEG-4 Video a=AAC
+PROBE id=27 file=text_04.txt state=failed code=FFPROBE_NONZERO_EXIT
+PROBE id=30 file=text_07.txt state=failed code=FFPROBE_NONZERO_EXIT
+PROBE id=31 file=text_08.txt state=failed code=FFPROBE_NONZERO_EXIT
+PROBE id=32 file=trunc_01.mp4 state=failed code=FFPROBE_NONZERO_EXIT
+PROBE id=34 file=trunc_03.mp4 state=failed code=FFPROBE_NONZERO_EXIT
+PROBE id=29 file=text_06.txt state=failed code=FFPROBE_NONZERO_EXIT
+PROBE id=33 file=trunc_02.mp4 state=failed code=FFPROBE_NONZERO_EXIT
+PROBE id=36 file=trunc_05.mp4 state=failed code=FFPROBE_NONZERO_EXIT
+PROBE id=35 file=trunc_04.mp4 state=failed code=FFPROBE_NONZERO_EXIT
+PROBE id=37 file=trunc_06.mp4 state=failed code=FFPROBE_NONZERO_EXIT
+PROBE id=39 file=trunc_08.mp4 state=failed code=FFPROBE_NONZERO_EXIT
+PROBE id=38 file=trunc_07.mp4 state=failed code=FFPROBE_NONZERO_EXIT
+# TALLY {"ready":24,"failed":16,"byCode":{"FFPROBE_NONZERO_EXIT":16},"unresolved":0,"ipcErrors":0}
+# ===== stress fire-and-exit 2026-10-11T06:42:42.782Z files=10 =====
+# browser=Edg/154.0.4258.62
+# created=10 duplicates=0
+# fired=10 (not awaited)
+# TALLY {"ready":0,"failed":0,"byCode":{},"unresolved":0,"ipcErrors":0}

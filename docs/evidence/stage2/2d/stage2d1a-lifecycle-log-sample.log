@@ -1,0 +1,51 @@
+2026-10-11T08:03:25.813Z [app] application start
+2026-10-11T08:05:36.676Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=0 elapsed_ms=0 errors=[]
+2026-10-11T08:06:51.136Z [app] application start
+2026-10-11T08:07:49.604Z [lifecycle] task register entry_id=0
+2026-10-11T08:07:49.612Z [lifecycle] task start entry_id=0
+2026-10-11T08:07:49.714Z [lifecycle] task complete entry_id=0
+2026-10-11T08:08:20.282Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+2026-10-11T08:03:25.813Z [app] application start
+2026-10-11T08:05:36.676Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=0 elapsed_ms=0 errors=[]
+2026-10-11T08:06:51.136Z [app] application start
+2026-10-11T08:07:49.604Z [lifecycle] task register entry_id=0
+2026-10-11T08:07:49.612Z [lifecycle] task start entry_id=0
+2026-10-11T08:07:49.714Z [lifecycle] task complete entry_id=0
+2026-10-11T08:08:20.282Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+2026-10-11T08:08:56.928Z [app] application start
+2026-10-11T08:09:51.942Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=0 elapsed_ms=0 errors=[]
+2026-10-11T08:03:25.813Z [app] application start
+2026-10-11T08:05:36.676Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=0 elapsed_ms=0 errors=[]
+2026-10-11T08:06:51.136Z [app] application start
+2026-10-11T08:07:49.604Z [lifecycle] task register entry_id=0
+2026-10-11T08:07:49.612Z [lifecycle] task start entry_id=0
+2026-10-11T08:07:49.714Z [lifecycle] task complete entry_id=0
+2026-10-11T08:08:20.282Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+2026-10-11T08:08:56.928Z [app] application start
+2026-10-11T08:09:51.942Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=0 elapsed_ms=0 errors=[]
+2026-10-11T08:11:04.978Z [app] application start
+2026-10-11T08:12:04.122Z [lifecycle] task register entry_id=0
+2026-10-11T08:12:04.129Z [lifecycle] task start entry_id=0
+2026-10-11T08:12:04.181Z [lifecycle] task failed entry_id=0 code=FFPROBE_NONZERO_EXIT
+2026-10-11T08:12:06.007Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+2026-10-11T08:03:25.813Z [app] application start
+2026-10-11T08:05:36.676Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=0 elapsed_ms=0 errors=[]
+2026-10-11T08:06:51.136Z [app] application start
+2026-10-11T08:07:49.604Z [lifecycle] task register entry_id=0
+2026-10-11T08:07:49.612Z [lifecycle] task start entry_id=0
+2026-10-11T08:07:49.714Z [lifecycle] task complete entry_id=0
+2026-10-11T08:08:20.282Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+2026-10-11T08:08:56.928Z [app] application start
+2026-10-11T08:09:51.942Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=0 elapsed_ms=0 errors=[]
+2026-10-11T08:11:04.978Z [app] application start
+2026-10-11T08:12:04.122Z [lifecycle] task register entry_id=0
+2026-10-11T08:12:04.129Z [lifecycle] task start entry_id=0
+2026-10-11T08:12:04.181Z [lifecycle] task failed entry_id=0 code=FFPROBE_NONZERO_EXIT
+2026-10-11T08:12:06.007Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+2026-10-11T08:12:38.391Z [app] application start
+2026-10-11T08:14:27.179Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=0 elapsed_ms=0 errors=[]
+2026-10-11T08:14:53.264Z [app] application start
+2026-10-11T08:16:10.129Z [lifecycle] task register entry_id=0
+2026-10-11T08:16:10.135Z [lifecycle] task start entry_id=0
+2026-10-11T08:16:13.081Z [lifecycle] task cancelled entry_id=0 code=FFPROBE_CANCELLED
+2026-10-11T08:16:13.092Z [lifecycle] shutdown cleanup cancelled=1 reaped=1 remaining=0 peak=1 elapsed_ms=33 errors=[]

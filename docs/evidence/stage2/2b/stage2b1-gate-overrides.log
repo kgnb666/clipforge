@@ -1,0 +1,97 @@
+﻿== 受控场景与恢复验证（Phase 2B-1）START 2026-10-10T21:46:40.7370531+08:00 ==
+--- [O-a] 工具文件不存在 ---
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.42s
+     Running unittests src\lib.rs (D:\cargo-target\debug\deps\clipforge_lib-de19d4e672ce129c.exe)
+
+running 1 test
+OVERRIDE missing => None
+OVERRIDE missing probe => code=FFPROBE_NOT_FOUND message=未发现可用的 FFprobe（请安装 FFmpeg 或在后续阶段于设置中指定路径）
+test probe::tests::override_scenario_missing_file_is_not_found ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 35 filtered out; finished in 0.00s
+
+     Running unittests src\main.rs (D:\cargo-target\debug\deps\clipforge-a3ceb963cc945cd2.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+O-A_EXIT=0
+--- [O-b] 存在但不可启动 ---
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.42s
+     Running unittests src\lib.rs (D:\cargo-target\debug\deps\clipforge_lib-de19d4e672ce129c.exe)
+
+running 1 test
+OVERRIDE unlaunchable => code=FFPROBE_START_FAILED message=无法启动 FFprobe（系统错误 193）：%1 不是有效的 Win32 应用程序。 (os error 193)
+test probe::tests::override_scenario_unlaunchable_start_failed ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 35 filtered out; finished in 0.00s
+
+     Running unittests src\main.rs (D:\cargo-target\debug\deps\clipforge-a3ceb963cc945cd2.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+O-B_EXIT=0
+--- [O-c] 非零退出替身 ---
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.42s
+     Running unittests src\lib.rs (D:\cargo-target\debug\deps\clipforge_lib-de19d4e672ce129c.exe)
+
+running 1 test
+OVERRIDE exit1 => code=FFPROBE_NONZERO_EXIT exit_code=Some(1) stderr_tail=Some("fake-ffprobe-exit1: simulated probe failure (controlled test double, exit=1)")
+test probe::tests::override_scenario_nonzero_exit ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 35 filtered out; finished in 0.06s
+
+     Running unittests src\main.rs (D:\cargo-target\debug\deps\clipforge-a3ceb963cc945cd2.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+O-C_EXIT=0
+--- [O-d] 超时终止（短超时 1500ms + 延迟替身）---
+residual_before=0
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.42s
+     Running unittests src\lib.rs (D:\cargo-target\debug\deps\clipforge_lib-de19d4e672ce129c.exe)
+
+running 1 test
+OVERRIDE timeout_ms_effective=1500
+OVERRIDE timeout => code=FFPROBE_TIMEOUT elapsed_ms=1531 message=FFprobe 超时（>1500 ms，实际约 1530 ms），已终止子进程
+test probe::tests::override_scenario_timeout_kills_child ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 35 filtered out; finished in 1.53s
+
+     Running unittests src\main.rs (D:\cargo-target\debug\deps\clipforge-a3ceb963cc945cd2.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+O-D_EXIT=0
+residual_after=0
+--- [O-clean] 覆盖清除确认（进程作用域）---
+env_now CLIPFORGE_TEST_FFPROBE=[] TIMEOUT=[]
+--- [R2] 清除覆盖后的真实恢复验证 ---
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.43s
+     Running unittests src\lib.rs (D:\cargo-target\debug\deps\clipforge_lib-de19d4e672ce129c.exe)
+
+running 3 tests
+DISCOVERY strategy=path_env path=C:\Users\宋舜江\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffprobe.exe
+test probe::tests::real_discovery_reports_strategy_and_path ... ok
+PROBE sample_src.mkv => ProbeMetadata { duration_secs: Some(5.023), width: Some(640), height: Some(360), video_codec: Some("mpeg4"), has_audio: true, audio_codec: Some("aac"), container: Some("matroska,webm") }
+test probe::tests::real_probe_sample_metadata ... ok
+PROBE special-char path => ProbeMetadata { duration_secs: Some(5.023), width: Some(640), height: Some(360), video_codec: Some("mpeg4"), has_audio: true, audio_codec: Some("aac"), container: Some("matroska,webm") }
+test probe::tests::real_probe_special_char_path ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 33 filtered out; finished in 0.07s
+
+     Running unittests src\main.rs (D:\cargo-target\debug\deps\clipforge-a3ceb963cc945cd2.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+R2_EXIT=0
+== END 2026-10-10T21:46:45.0523158+08:00 ==

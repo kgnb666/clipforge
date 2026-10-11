@@ -1,0 +1,25 @@
+# ===== CDP harness run 2026-10-10T13:06:14.743Z port=9333 scenarios=ghost,longpath,acl,noext =====
+# browser=Edg/154.0.4258.62 protocol=1.3
+# target id=D9DA6854CF87BE0217359DFEB161B771 url=http://localhost:1420/
+INJECT scenario=ghost
+  path_len=60
+  result={"outcome":"created","entry":{"id":0,"fileName":"ghost-file.mp4","path":"D:\\应聘项目zcode\\docs\\evidence\\stage2\\test-assets\\ghost-file.mp4","status":"failed","errorCode":"NOT_FOUND","errorMessage":"文件不存在或无法访问"}}
+INJECT scenario=longpath
+  path_len=270
+  result={"outcome":"created","entry":{"id":1,"fileName":"deep-file.mkv","path":"D:\\应聘项目zcode\\docs\\evidence\\stage2\\test-assets\\lp\\seg01xxxxxxxxxxxxxxxxxxxx\\seg02xxxxxxxxxxxxxxxxxxxx\\seg03xxxxxxxxxxxxxxxxxxxx\\seg04xxxxxxxxxxxxxxxxxxxx\\seg05xxxxxxxxxxxxxxxxxxxx\\seg06xxxxxxxxxxxxxxxxxxxx\\seg07xxxxxxxxxxxxxxxxxxxx\\seg08xxxxxxxxxxxxxxxxxxxx\\deep-file.mkv","status":"ready","errorCode":null,"errorMessage":null}}
+INJECT scenario=acl
+  path_len=63
+  result={"outcome":"created","entry":{"id":2,"fileName":"acl-test-copy.mkv","path":"D:\\应聘项目zcode\\docs\\evidence\\stage2\\test-assets\\acl-test-copy.mkv","status":"failed","errorCode":"PERMISSION_DENIED","errorMessage":"权限不足：无法读取所选文件"}}
+INJECT scenario=noext
+  path_len=65
+  result={"outcome":"created","entry":{"id":3,"fileName":"no_extension_sample","path":"D:\\应聘项目zcode\\docs\\evidence\\stage2\\test-assets\\no_extension_sample","status":"ready","errorCode":null,"errorMessage":null}}
+RELOAD="reload-triggered"
+# harness done 2026-10-10T13:06:16.834Z
+# ===== CDP harness run 2026-10-10T14:17:40.807Z port=9333 scenarios=ghost =====
+# browser=Edg/154.0.4258.62 protocol=1.3
+# target id=790B27B0D1F21EC38CD3037CE48882DE url=http://localhost:1420/
+INJECT scenario=ghost
+  path_len=60
+  result={"outcome":"created","entry":{"id":2,"fileName":"ghost-file.mp4","path":"D:\\应聘项目zcode\\docs\\evidence\\stage2\\test-assets\\ghost-file.mp4","status":"failed","errorCode":"NOT_FOUND","errorMessage":"文件不存在或无法访问"}}
+RELOAD="reload-triggered"
+# harness done 2026-10-10T14:17:42.897Z

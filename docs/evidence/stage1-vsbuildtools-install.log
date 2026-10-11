@@ -1,0 +1,9 @@
+﻿== winget install Microsoft.VisualStudio.2022.BuildTools START 2026-10-10T17:49:56.1104506+08:00 ==
+已找到 Visual Studio BuildTools 2022 [Microsoft.VisualStudio.2022.BuildTools] 版本 17.14.41
+此应用程序由其所有者授权给你。
+Microsoft 对第三方程序包概不负责，也不向第三方程序包授予任何许可证。
+正在下载 https://download.visualstudio.microsoft.com/download/pr/bc92e2cb-33de-4a0c-995d-efa817f16b16/37bb0fb429d163ecebd272a865d11a37b906d152bef960da2ddb29c2e2fd6eeb/vs_BuildTools.exe
+已成功验证安装程序哈希
+正在启动程序包安装...
+已成功安装
+EXIT=0 END 2026-10-10T17:54:34.0493995+08:00

@@ -1,0 +1,287 @@
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Microsoft YaHei", system-ui, sans-serif;
+  background: #f6f7f9;
+  color: #1f2328;
+}
+
+.app {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 20px 24px 32px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  border-bottom: 1px solid #e2e5e9;
+  padding-bottom: 12px;
+}
+
+.toolbar h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.subtitle {
+  flex: 1;
+  color: #6a737d;
+  font-size: 13px;
+}
+
+button.primary {
+  border: none;
+  border-radius: 6px;
+  background: #2f6fed;
+  color: #ffffff;
+  padding: 9px 18px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button.primary:hover {
+  background: #2a63d4;
+}
+
+.notice {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border: 1px solid #f0c36d;
+  border-radius: 6px;
+  background: #fff8e6;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.list-area {
+  margin-top: 18px;
+}
+
+.empty {
+  color: #8a929b;
+  font-size: 14px;
+}
+
+.entry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.entry {
+  border: 1px solid #e2e5e9;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 12px 14px;
+}
+
+.entry-failed {
+  border-color: #f1b0b7;
+  background: #fff7f8;
+}
+
+.entry-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.entry-name {
+  font-size: 14px;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.badge {
+  border-radius: 10px;
+  padding: 2px 8px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.badge-ready {
+  background: #e6f4ea;
+  color: #1a7f37;
+}
+
+.badge-failed {
+  background: #fde8ea;
+  color: #c0392b;
+}
+
+.entry-path {
+  display: block;
+  margin-top: 6px;
+  border: none;
+  background: none;
+  padding: 0;
+  color: #57606a;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+  word-break: break-all;
+}
+
+.entry-path:hover {
+  color: #2f6fed;
+  text-decoration: underline;
+}
+
+.entry-error {
+  margin-top: 6px;
+  color: #c0392b;
+  font-size: 13px;
+}
+
+.entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: #f4f6f8;
+  border: 1px solid #e6e9ed;
+  font-size: 13px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.meta-label {
+  color: #6a737d;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.meta-value {
+  color: #1f2328;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.meta-pending {
+  color: #8a929b;
+  font-size: 13px;
+  font-style: normal;
+}
+
+.meta-error {
+  color: #c0392b;
+  font-size: 13px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+button.meta-retry {
+  border: 1px solid #c0392b;
+  border-radius: 5px;
+  background: #ffffff;
+  color: #c0392b;
+  padding: 3px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+button.meta-retry:hover {
+  background: #fde8ea;
+}
+
+.thumb {
+  display: block;
+  width: 200px;
+  max-height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #e2e5e9;
+  margin-top: 10px;
+}
+
+.thumb-slot {
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.thumb-pending {
+  color: #8a929b;
+}
+
+.thumb-error {
+  color: #c0392b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  line-height: 1.5;
+}
+
+.conv-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #f0f4ff;
+  border: 1px solid #d4dcf0;
+  font-size: 13px;
+}
+
+.conv-label {
+  color: #4a5568;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.conv-btn {
+  border: 1px solid #2f6fed;
+  border-radius: 5px;
+  background: #ffffff;
+  color: #2f6fed;
+  padding: 3px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.conv-btn:hover {
+  background: #e8f0fe;
+}
+
+.conv-pending {
+  color: #6a737d;
+  font-style: italic;
+}
+
+.conv-ok {
+  border-color: #d4edd8;
+  background: #f0fff4;
+}
+
+.conv-error {
+  color: #c0392b;
+  border-color: #f1b0b7;
+  background: #fff7f8;
+  display: flex;
+  justify-content: space-between;
+}
