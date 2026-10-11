@@ -282,3 +282,18 @@
 - 影响范围：`clipforge/src-tauri/tauri.conf.json`、`clipforge/index.html`、`clipforge/src-tauri/icons/**`（全量重生成）、`clipforge/public/**`；证据 `docs/evidence/stage4/`（图标脚本与日志、`tauri icon` 日志、回归日志、打包日志）。
 - 批准状态：**已获用户批准（2026-10-11，用户指令"改成 ClipForge，图标要有特色的 / 继续"）**。
 - 实施状态：**已实施**——回归通过（`cargo test` 65/0/7 EXIT=0；`npm run build` EXIT=0）；NSIS 打包 2 轮迭代后成功（首轮 NSIS 工具链从 GitHub 下载被阻断 → 使用官方镜像开关 `TAURI_BUNDLER_TOOLS_GITHUB_MIRROR=https://gh-proxy.com`，下载物 SHA1 与内置校验值一致）；安装/启动/核心链路（含 T7 中文特殊路径）/卸载验收通过（第 2 轮全绿，证据 `stage4-smoke-t7.log`；第 1 轮发现的"对话框路径注入未核验"问题与修正见 `stage4-acceptance.log` 与交付报告 §5）；二轮补修 `mainBinaryName`/`bundle.publisher` 使安装体完全一致为 ClipForge。详见 `docs/Stage-4-Delivery-Report.md`。
+
+## D-0030 | 2026-10-12 | Stage 5 功能优化：格式切换、元数据扩展（P2B-012）、打开输出文件夹、转换进度
+
+- 背景：用户询问"第三点（自己按想法做一些优化）能做一些**功能上**的优化吗"。既有优化集中在可靠性与工程侧（错误码、生命周期、日志、测试基础设施），缺少"功能可见"的改进。经评估，选定四项**范围内**优化（题面明确不做的批量转换/播放器/字幕/AI 一律不做）：其中 A 是项目自己登记的欠账（3B 报告 §6-2"转换完成后仅提供同格式重新转换"，3C 报告 §8-3 复述），B 是规格中**已批准但未实施的 P1 可选字段**（D-0019 / 规格 P2B-012）。
+- 决策（用户指令："第三点能做一些功能上的优化吗"）：
+  1. **A 格式切换**：转换完成态由"仅重新转换"扩展为 **[重新转换] + [转 WebM/转 MP4] + [打开所在文件夹]**；失败态由"仅重试"扩展为 **[重试] + [改用 WebM/MP4]**（失败若源于格式本身，切换即是最短路修复路径）。条目仍仅保留最近一次转换结果（沿用既有 `ConversionStore` 单记录语义，不新增多结果模型）。
+  2. **B 元数据扩展（P2B-012）**：新增展示 **帧率**（ffprobe `r_frame_rate` 换算，"30/1"→"30 fps"，非整数保留 2 位小数）、**比特率**（`format.bit_rate` 换算，≥1Mbps→"x.xx Mbps"/≥1kbps→"x kbps"/否则 bps）、**容器**（`format.format_name` **原值**直显）。缺失一律 N/A、不猜测；换算舍入规则以 FFprobe JSON 对照表存档（P2B-010 规则）。
+  3. **C 打开输出所在文件夹**：新增 IPC `reveal_conversion_output(entry_id)` —— **仅接受条目 ID**，路径取自转换结果存储（WebView 无法传入任意路径），`explorer /select,<path>` 单参数调用；**零新依赖、零能力（capability）新增**。
+  4. **D 转换进度**：FFmpeg 增加 `-nostats -progress pipe:1`，stdout 逐行解析 `out_time_us`（与 `out_time_ms` 同为微秒语义），按**元数据总时长**换算百分比并 clamp 到 [0,100]，经 Tauri 事件 `conv-progress` 推送；**总时长未知（N/A）时不显示进度**（不造假进度，遵守 ARCH-006）。顺带加固：`-nostats` 使 stderr 只保留真实错误文本。
+  5. 版本号 0.1.0 → **0.1.1**（`tauri.conf.json` / `Cargo.toml` / `package.json` 三处一致）。
+  6. 新增单测：converter.rs 首次补齐单测（参数构造/输出路径冲突/进度解析/存储行为，7 项）；probe.rs 新增 3 项（帧率与比特率格式化表、解析存在与缺失）。
+- 理由：四项均为"给人用"（题面第 7 条）与"功能完整度"（第 3 条）的**低成本高可见**改进，且不引入新依赖、不触碰既有错误分类与生命周期语义（核心路径回归 + 真实 UI 验收覆盖）。
+- 影响范围：`converter.rs`（进度参数/解析/事件/reveal 命令/单测）、`probe.rs`（新字段/格式化/视图/单测）、`lib.rs`（命令注册）、`App.tsx`/`importApi.ts`/`App.css`（UI）、`tauri.conf.json`+`Cargo.toml`+`package.json`（版本）；证据 `docs/evidence/stage5/`。
+- 批准状态：**已获用户批准（2026-10-12，用户指令"第三点能做一些功能上的优化吗"）**。
+- 实施状态：**已实施**——回归 cargo **75/0/7**（+10 新单测；两轮一致）、npm build EXIT=0；release v0.1.1 打包成功；四项功能实机验收全部通过：A 切换格式（新增 WEBM 输出、按钮翻转）、B 元数据对照（UI↔FFprobe 逐项一致，见报告 §5.1）、C 打开所在文件夹（窗口 +1、日志证据行 +1）、D 进度条（DOM 实测 `转换中…18%`）+ **CONV_CANCELLED 首次实机触发**（转换中关闭：`code=CONV_CANCELLED`、`cancelled=1 reaped=1 remaining=0`、无半成品）。方法学补充：WebView2 UIA 不暴露绝对定位百分比 span → 进度验证改用 CDP DOM 读数（`cdp-eval.js`）。详见 `docs/Stage-5-Feature-Polish-Report.md`。

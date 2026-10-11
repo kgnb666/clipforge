@@ -273,6 +273,35 @@ button.meta-retry:hover {
   font-style: italic;
 }
 
+/* 转换进度条（Stage 5）：仅在总时长已知时显示（未知时长不显示假进度）。 */
+.conv-progress {
+  position: relative;
+  flex: 1;
+  min-width: 180px;
+  height: 18px;
+  background: #e6e9ed;
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.conv-progress-fill {
+  height: 100%;
+  background: #2f6fd0;
+  border-radius: 9px 0 0 9px;
+  transition: width 0.15s linear;
+}
+
+.conv-progress-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-style: normal;
+  color: #1f2328;
+}
+
 .conv-ok {
   border-color: #d4edd8;
   background: #f0fff4;

@@ -35,7 +35,8 @@ pub fn run() {
             probe::list_probe_results,
             thumbnail::generate_thumbnail,
             converter::convert_video,
-            converter::list_conversion_results
+            converter::list_conversion_results,
+            converter::reveal_conversion_output
         ])
         .build(tauri::generate_context!())
         .expect("error while building tauri application");

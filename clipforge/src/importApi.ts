@@ -62,6 +62,10 @@ export interface ProbeView {
   resolutionText: string | null;
   videoCodecText: string | null;
   audioText: string | null;
+  /** P2B-012 可选字段（D-0019）：帧率/比特率/容器格式；缺失为 null（N/A）。 */
+  frameRateText: string | null;
+  bitRateText: string | null;
+  containerText: string | null;
   failureCode: string | null;
   failureMessage: string | null;
 }
@@ -123,4 +127,18 @@ export function convertVideo(entryId: number, format: string): Promise<Conversio
 /** 全部转换结果（挂载时恢复状态）。 */
 export function listConversionResults(): Promise<ConversionView[]> {
   return invoke<ConversionView[]>("list_conversion_results");
+}
+
+/** 转换进度事件负载（Rust `ConvProgress`；事件名 "conv-progress"，percent ∈ [0,100]）。 */
+export interface ConvProgress {
+  entryId: number;
+  percent: number;
+}
+
+/**
+ * 打开该条目最近一次转换输出所在文件夹（资源管理器 `/select` 选中该文件）。
+ * 仅接受条目 ID——路径取自 Rust 侧转换结果存储，前端无法指定任意路径。
+ */
+export function revealConversionOutput(entryId: number): Promise<string> {
+  return invoke<string>("reveal_conversion_output", { entryId });
 }

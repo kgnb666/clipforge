@@ -1,0 +1,8 @@
+﻿=== Stage 5 Demo GIF 录制 ===
+开始: 02:05:32
+采集帧数: 117
+实际采集速率: 5.85 fps
+    [out#0/gif @ 000001c682cd6e80] video:138KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.014170%
+    frame=  117 fps=0.0 q=-0.0 Lsize=     138KiB time=00:00:20.00 bitrate=  56.5kbits/s speed=  27x elapsed=0:00:00.74    
+GIF: D:\Cliporge\docs\evidence\stage5\stage5-demo.gif  141167 B
+结束: 02:05:54

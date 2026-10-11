@@ -1,0 +1,37 @@
+=== P2B-012 交叉核对：UI 展示值 ↔ FFprobe 原始 JSON ===
+素材: test-assets/stage3c/测试 & 视频 #1 (终版)'s/sample.mp4
+
+--- ffprobe 关键字段（原始值）---
+{
+    "programs": [
+
+    ],
+    "stream_groups": [
+
+    ],
+    "streams": [
+        {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 640,
+            "height": 360,
+            "r_frame_rate": "30/1"
+        },
+        {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "r_frame_rate": "0/0"
+        }
+    ],
+    "format": {
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "duration": "5.000000",
+        "bit_rate": "872302"
+    }
+}
+
+--- 素材2: surviving_720p_h264_aac.mp4（用于 UI 值第二组对照）---
+format_name = mov,mp4,m4a,3gp,3g2,mj2
+duration    = 183.125000
+bit_rate    = 3134606
+video       = h264 1280 x 720 r_frame_rate = 24000/1001

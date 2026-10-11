@@ -18,6 +18,7 @@ use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 use std::sync::{Arc, Mutex, MutexGuard};
 use std::time::{Duration, Instant};
+use tauri::Emitter;
 
 /// 转换默认硬超时：300 秒（5 分钟；覆盖 3B 测试与一般短视频场景）。
 pub const CONV_TIMEOUT_DEFAULT_MS: u64 = 300_000;
@@ -58,10 +59,15 @@ impl ConversionFormat {
 }
 
 /// 构造 FFmpeg 转码参数（全 OsString；输入/输出单参数原样传递）。
+/// `-progress pipe:1 -nostats`：进度以 key=value 行写入 stdout（供进度条解析），
+/// 并关闭默认 stderr 统计行，保证 stderr 只保留真实错误文本。
 pub fn build_convert_args(input: &Path, output: &Path, format: ConversionFormat) -> Vec<OsString> {
     let mut args: Vec<OsString> = vec![
         OsString::from("-v"),
         OsString::from("error"),
+        OsString::from("-nostats"),
+        OsString::from("-progress"),
+        OsString::from("pipe:1"),
         OsString::from("-i"),
         input.as_os_str().to_os_string(),
     ];
@@ -114,6 +120,48 @@ pub fn compute_output_path(source: &str, format: ConversionFormat) -> PathBuf {
         counter += 1;
     }
     candidate
+}
+
+// ---------------- 进度（Stage 5） ----------------
+
+/// 进度上报器：总时长（微秒）+ 回调（百分比 0–100）。
+#[derive(Clone)]
+pub struct ProgressReporter {
+    pub duration_us: u64,
+    pub sink: Arc<dyn Fn(f64) + Send + Sync>,
+}
+
+/// 进度事件负载（WebView 侧 `listen("conv-progress")`）。
+#[derive(Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ConvProgress {
+    pub entry_id: u64,
+    pub percent: f64,
+}
+
+/// 解析 FFmpeg `-progress` 输出的时间戳行（微秒）。
+/// 说明：ffmpeg 的 `out_time_us` 与 `out_time_ms` 语义同为微秒（历史命名），二者等价；
+/// 其余键（frame/fps/bitrate/progress=…）与无法解析的行一律返回 None（不猜测）。
+pub fn parse_progress_us(line: &str) -> Option<u64> {
+    let (key, value) = line.split_once('=')?;
+    match key.trim() {
+        "out_time_us" | "out_time_ms" => value
+            .trim()
+            .parse::<i64>()
+            .ok()
+            .filter(|v| *v >= 0)
+            .map(|v| v as u64),
+        _ => None,
+    }
+}
+
+/// 进度百分比：总时长已知（>0）时计算并钳制到 [0,100]；未知总时长返回 None（不显示假进度）。
+pub fn progress_percent(current_us: u64, duration_us: u64) -> Option<f64> {
+    if duration_us == 0 {
+        return None;
+    }
+    let pct = (current_us as f64 / duration_us as f64) * 100.0;
+    Some(pct.clamp(0.0, 100.0))
 }
 
 // ---------------- 错误分类 ----------------
@@ -224,6 +272,11 @@ impl ConversionStore {
         self.lock().insert(entry_id, record);
     }
 
+    /// 该条目最近一次成功输出的路径（供"打开所在文件夹"；仅接受条目 ID，不暴露任意路径）。
+    pub fn output_path_of(&self, entry_id: u64) -> Option<PathBuf> {
+        self.lock().get(&entry_id).and_then(|r| r.output_path.clone())
+    }
+
     pub fn all(&self) -> Vec<ConversionView> {
         let mut items: Vec<(u64, ConversionRecord)> =
             self.lock().iter().map(|(k, v)| (*k, v.clone())).collect();
@@ -270,6 +323,7 @@ fn run_conversion(
     format: ConversionFormat,
     timeout_ms: u64,
     task: &ProbeTask,
+    progress: Option<&ProgressReporter>,
 ) -> Result<u64, ConversionFailure> {
     let started = Instant::now();
     let mut child = Command::new(tool)
@@ -290,10 +344,27 @@ fn run_conversion(
 
     let stdout_pipe = child.stdout.take().expect("stdout piped");
     let stderr_pipe = child.stderr.take().expect("stderr piped");
+    let progress_owned = progress.cloned();
     let stdout_reader = std::thread::spawn(move || {
+        use std::io::BufRead;
+        let mut reader = std::io::BufReader::new(stdout_pipe);
         let mut buf = Vec::new();
-        let _ = { let mut p = stdout_pipe; p.read_to_end(&mut buf) };
-        buf
+        loop {
+            buf.clear();
+            match reader.read_until(b'\n', &mut buf) {
+                Ok(0) | Err(_) => break,
+                Ok(_) => {
+                    if let Some(reporter) = progress_owned.as_ref() {
+                        let line = String::from_utf8_lossy(&buf);
+                        if let Some(us) = parse_progress_us(line.trim()) {
+                            if let Some(pct) = progress_percent(us, reporter.duration_us) {
+                                (reporter.sink)(pct);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     });
     let stderr_reader = std::thread::spawn(move || {
         let mut buf = Vec::new();
@@ -455,6 +526,7 @@ fn conv_view(entry_id: u64, format: &str, result: &Result<u64, ConversionFailure
 /// 为指定条目启动视频转换（阻塞至完成；生命周期经 ProbeTaskManager 登记）。
 #[tauri::command]
 pub async fn convert_video(
+    app: tauri::AppHandle,
     import_state: tauri::State<'_, crate::import::ImportState>,
     probe_state: tauri::State<'_, crate::probe::ProbeStateStore>,
     task_manager: tauri::State<'_, ProbeTaskManager>,
@@ -496,6 +568,33 @@ pub async fn convert_video(
     let fmt_str = fmt.as_str().to_string();
     let output_for_closure = output.clone();
 
+    // 进度（Stage 5）：仅当元数据给出有效总时长时启用（未知时长不显示假进度）。
+    let duration_us = match &probe_record.state {
+        crate::probe::ProbeState::Ready(meta) => meta
+            .duration_secs
+            .map(|s| (s.max(0.0) * 1_000_000.0) as u64)
+            .filter(|v| *v > 0),
+        _ => None,
+    };
+    let progress = duration_us.map(|dur| ProgressReporter {
+        duration_us: dur,
+        sink: {
+            let app = app.clone();
+            Arc::new(move |pct: f64| {
+                let _ = app.emit(
+                    "conv-progress",
+                    ConvProgress { entry_id, percent: pct },
+                );
+            })
+        },
+    });
+    if progress.is_some() {
+        let _ = app.emit(
+            "conv-progress",
+            ConvProgress { entry_id, percent: 0.0 },
+        );
+    }
+
     log_conv("register", entry_id, &format!(" format={}", fmt.as_str()));
 
     let probed = tauri::async_runtime::spawn_blocking(move || {
@@ -520,7 +619,15 @@ pub async fn convert_video(
             }
         };
         log_conv("start", entry_id, "");
-        let result = run_conversion(&tool, &input_path, &output_for_closure, fmt, timeout_ms, &task);
+        let result = run_conversion(
+            &tool,
+            &input_path,
+            &output_for_closure,
+            fmt,
+            timeout_ms,
+            &task,
+            progress.as_ref(),
+        );
         match &result {
             Ok(size) => log_conv("complete", entry_id, &format!(" output_size={size}")),
             Err(f) => log_conv("failed", entry_id, &format!(" code={}", f.code.as_str())),
@@ -571,4 +678,148 @@ pub async fn convert_video(
 #[tauri::command]
 pub fn list_conversion_results(conv_store: tauri::State<'_, ConversionStore>) -> Vec<ConversionView> {
     conv_store.all()
+}
+
+/// 打开该条目最近一次转换输出所在的文件夹（资源管理器 `/select`）。
+/// 仅接受条目 ID——路径取自转换结果存储（WebView 无法指定任意路径）；
+/// explorer 以 `/select,<path>` 单参数调用（路径含空格/逗号不受影响）。
+#[tauri::command]
+pub fn reveal_conversion_output(
+    conv_store: tauri::State<'_, ConversionStore>,
+    entry_id: u64,
+) -> Result<String, String> {
+    let path = conv_store
+        .output_path_of(entry_id)
+        .ok_or_else(|| "该条目暂无转换输出".to_string())?;
+    if !path.exists() {
+        return Err(format!("输出文件不存在：{}", path.display()));
+    }
+    std::process::Command::new("explorer")
+        .arg(format!("/select,{}", path.display()))
+        .spawn()
+        .map_err(|err| format!("无法打开资源管理器：{err}"))?;
+    logging::log_line(
+        "lifecycle",
+        &format!("conv reveal entry_id={entry_id}"),
+    );
+    Ok(path.to_string_lossy().into_owned())
+}
+
+// ---------------- 单元测试（Stage 5 补充：此前 converter.rs 无单测） ----------------
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn convert_args_mp4_contain_expected_flags_and_raw_paths() {
+        let input = Path::new("D:/素材 目录 & qa/输入 视频'1.mp4");
+        let output = Path::new("D:/素材 目录 & qa/输入 视频'1_converted.mp4");
+        let args = build_convert_args(input, output, ConversionFormat::Mp4);
+        let strs: Vec<String> = args.iter().map(|a| a.to_string_lossy().into_owned()).collect();
+        assert_eq!(strs[0], "-v");
+        assert!(strs.contains(&"-nostats".to_string()));
+        assert!(strs.contains(&"-progress".to_string()));
+        assert!(strs.contains(&"pipe:1".to_string()));
+        assert!(strs.windows(2).any(|w| w == ["-c:v", "libx264"]));
+        assert!(strs.windows(2).any(|w| w == ["-crf", "23"]));
+        assert!(strs.windows(2).any(|w| w == ["-movflags", "+faststart"]));
+        // 路径原样单参数传递（不经 shell；空格/&/'/中文均不受影响）
+        assert!(strs.contains(&input.to_string_lossy().into_owned()));
+        assert_eq!(strs[strs.len() - 1], output.to_string_lossy());
+        assert_eq!(strs[strs.len() - 2], "-y");
+    }
+
+    #[test]
+    fn convert_args_webm_use_libvpx_libvorbis() {
+        let args = build_convert_args(
+            Path::new("in.webm"),
+            Path::new("out.webm"),
+            ConversionFormat::WebM,
+        );
+        let strs: Vec<String> = args.iter().map(|a| a.to_string_lossy().into_owned()).collect();
+        assert!(strs.windows(2).any(|w| w == ["-c:v", "libvpx"]));
+        assert!(strs.windows(2).any(|w| w == ["-c:a", "libvorbis"]));
+        assert!(!strs.contains(&"libx264".to_string()));
+    }
+
+    #[test]
+    fn conversion_format_from_str_round_trip() {
+        assert_eq!(ConversionFormat::from_str("MP4"), Some(ConversionFormat::Mp4));
+        assert_eq!(ConversionFormat::from_str("webm"), Some(ConversionFormat::WebM));
+        assert_eq!(ConversionFormat::from_str("mkv"), None);
+        assert_eq!(ConversionFormat::Mp4.as_str(), "mp4");
+        assert_eq!(ConversionFormat::WebM.extension(), "webm");
+    }
+
+    #[test]
+    fn compute_output_path_increments_on_conflict_and_keeps_source_dir() {
+        let dir = std::env::temp_dir().join(format!("clipforge-conv-path-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&dir);
+        std::fs::create_dir_all(&dir).unwrap();
+        let src = dir.join("样本 视频 #1.mp4");
+        std::fs::write(&src, b"x").unwrap();
+        let src_str = src.to_string_lossy().into_owned();
+
+        let p1 = compute_output_path(&src_str, ConversionFormat::Mp4);
+        assert_eq!(p1.parent().unwrap(), dir.as_path());
+        assert_eq!(p1.file_name().unwrap().to_string_lossy(), "样本 视频 #1_converted.mp4");
+        assert!(!p1.exists());
+
+        std::fs::write(&p1, b"y").unwrap();
+        let p2 = compute_output_path(&src_str, ConversionFormat::Mp4);
+        assert_eq!(p2.file_name().unwrap().to_string_lossy(), "样本 视频 #1_converted_2.mp4");
+        std::fs::write(&p2, b"z").unwrap();
+        let p3 = compute_output_path(&src_str, ConversionFormat::WebM);
+        assert_eq!(p3.file_name().unwrap().to_string_lossy(), "样本 视频 #1_converted.webm");
+        let _ = std::fs::remove_dir_all(&dir);
+    }
+
+    #[test]
+    fn parse_progress_us_reads_time_keys_and_ignores_others() {
+        assert_eq!(parse_progress_us("out_time_us=1234567"), Some(1_234_567));
+        assert_eq!(parse_progress_us("out_time_ms=2000000"), Some(2_000_000)); // 语义同为微秒
+        assert_eq!(parse_progress_us("frame=42"), None);
+        assert_eq!(parse_progress_us("progress=continue"), None);
+        assert_eq!(parse_progress_us("out_time_us=-9223372036854775807"), None); // 启动初期负值 → 忽略
+        assert_eq!(parse_progress_us("out_time_us=abc"), None);
+        assert_eq!(parse_progress_us("no_equals_sign"), None);
+    }
+
+    #[test]
+    fn progress_percent_clamps_and_requires_duration() {
+        assert_eq!(progress_percent(0, 5_000_000), Some(0.0));
+        assert_eq!(progress_percent(2_500_000, 5_000_000), Some(50.0));
+        assert_eq!(progress_percent(6_000_000, 5_000_000), Some(100.0)); // 钳制
+        assert_eq!(progress_percent(1_000_000, 0), None); // 总时长未知 → 不显示假进度
+    }
+
+    #[test]
+    fn conversion_store_transitions_and_output_lookup() {
+        let store = ConversionStore::default();
+        store.set_converting(3, "mp4");
+        let all = store.all();
+        assert_eq!(all.len(), 1);
+        assert_eq!(all[0].state, "converting");
+        assert_eq!(all[0].format.as_deref(), Some("mp4"));
+        assert!(store.output_path_of(3).is_none(), "转换中不应有输出路径");
+
+        store.set_finished(
+            3,
+            ConversionRecord {
+                state: ConvRecordState::Completed,
+                format: "mp4".to_string(),
+                output_path: Some(PathBuf::from("D:/out/样本_converted.mp4")),
+                output_size: Some(123),
+                failure_code: None,
+                failure_message: None,
+            },
+        );
+        assert_eq!(
+            store.output_path_of(3),
+            Some(PathBuf::from("D:/out/样本_converted.mp4"))
+        );
+        assert_eq!(store.all()[0].state, "completed");
+        assert_eq!(store.all()[0].output_size, Some(123));
+    }
 }

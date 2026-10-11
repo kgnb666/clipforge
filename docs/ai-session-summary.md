@@ -109,3 +109,14 @@
 - **任务**：打包与交付（用户对"打包是加分还是减分"征询结论：加分项，命中笔试题第 6/7 条；但不得挤占第 5 条 GitHub 提交）。
 - **AI 实际执行**：D-0028 页头副标题产品化（经运行中 dev 会话 HMR 实机验证 + 截图 + npm build EXIT=0）；D-0029 产品名/窗口标题 → ClipForge、窗口 1024×720（min 900×600）、**特色图标**（Pillow 脚本绘制 1024 源图 → `npx tauri icon` 全套，生成脚本与日志入档）、`index.html` 标题与 favicon 清理、NSIS 打包（`--bundles nsis`）、回归 cargo 65/0/7 + npm build EXIT=0。
 - **状态**：进行中——安装/卸载/中文路径验收、README/截图/Demo GIF、git 初始化与 GitHub 提交（第 5 条硬缺口闭环）。详见 `docs/Stage-4-Delivery-Report.md`（撰写中）。
+
+## 会话 12（2026-10-12）：Stage 5 功能优化（0.1.1）
+
+- **任务**：用户询问"第三点（自己按想法做优化）能做一些**功能上**的优化吗"——既有优化偏可靠性/工程侧，需补功能可见的改进（明确不含批量转换/播放器/字幕/AI）。
+- **AI 实际执行**：四项一并落地（D-0030）——A 完成态/失败态**可切换另一格式**（解除 3B 登记欠账）；B 元数据新增**帧率/比特率/容器**（实施规格中已批准但搁置的 P2B-012，D-0019）；C 一键**打开输出所在文件夹**（自研 IPC，仅接受条目 ID、`explorer /select`，零新依赖零新权限）；D **转换进度条**（FFmpeg `-progress pipe:1` 解析 → 事件 → UI；仅在总时长已知时显示，不造假进度）。版本 0.1.0 → 0.1.1；**converter.rs 此前无单测，本轮补齐 7 项**（参数构造/输出路径冲突/进度解析/存储行为），probe.rs 加 3 项。
+- **AI 的失误与更正（如实记录）**：
+  1) 首轮验收 `wait-progress` 用**锚定正则**在 UIA 文本里找独立百分比元素而超时误报失败——根因是 **WebView2 的 UIA 不暴露绝对定位的百分比 span**（同容器"转换中…"可见、百分比不可见）。定位手段：以 `WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS=--remote-debugging-port=9333` 开 CDP，用 `cdp-eval.js` 在页面里 `Runtime.evaluate` 读 DOM，实证 **dev 与 release 的进度功能均正常**（`转换中…18%`、事件负载 {entryId:0,percent:0}）——是检测方法失效而非产品缺陷；修正为"截图 + DOM 读数 + 日志"三重取证。
+  2) C 首轮验收证据过弱（未区分既有资源管理器窗口，且脚本一次关掉了包括用户原有窗口在内的全部资源管理器窗口）——复验脚本改为**窗口数增量 + 应用日志证据行**，并只关闭本次新增窗口。
+  3) 全量并行下 `probe_lifecycle` 的定时敏感测试偶发一次失败（该模块未被本轮修改）；单测单跑 3/3、全量复跑两轮 75/0/7，判定为负载偶发（与 2D 阶段"瞬态环境伪影"同类），如实记录。
+- **新增实测覆盖**：**CONV_CANCELLED 首次实机触发**（转换进行中关闭应用：`conv failed code=CONV_CANCELLED`、`shutdown cleanup cancelled=1 reaped=1 remaining=0`、无半成品输出、零残留进程）——闭合 3C 报告的遗留项之一。
+- **结果**：**Stage 5 PASS**（`docs/Stage-5-Feature-Polish-Report.md`）；交付 v0.1.1（安装包 + Release）。

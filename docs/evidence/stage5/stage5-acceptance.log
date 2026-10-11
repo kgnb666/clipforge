@@ -1,0 +1,125 @@
+﻿=== Stage 5 功能优化验收 ===
+开始时间: 2026-10-12 01:45:53
+安装包: D:\cargo-target\release\bundle\nsis\ClipForge_0.1.1_x64-setup.exe
+安装包 SHA256: 31CE0BB8DEFC375D7245EF0D5FE54AAD2CEDA41CF3DC0A6B48D0DD65C91D7527
+
+--- [1] 静默安装 + 安装体核对（版本应为 0.1.1）---
+安装器退出码: 0
+主程序: ClipForge.exe 4948992 B | ProductName=ClipForge | 文件版本=0.1.1
+注册表: DisplayName=ClipForge | DisplayVersion=0.1.1 | Publisher=ClipForge | MainBinaryName=ClipForge.exe
+
+--- [2] 启动应用 ---
+    OK: 主窗口就绪 name=[ClipForge] class=[Tauri Window]
+    [helper exit=0]
+
+--- [3] T7 中文特殊路径：导入 → 元数据（帧率/比特率/容器）→ 缩略图 ---
+    OK: 导入流程完成 scenario=t7 setvia=ValuePattern+verified dialog_closed=True
+    [helper exit=0]
+    OK: 界面已出现完整路径 [sample.mp4已导入（路径校验通过）D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4大小532.41 KiB时长00:05分辨率640×360帧率30 fps视频编码H.264 / AVC音频编码AAC比特率872 kbps容器mov,mp4,m4a,3gp,3g2,mj2转换MP4WebM]
+    [helper exit=0]
+    OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4大小532.41 KiB时长00:05分辨率640×360帧率30 fps视频编码H.264 / AVC音频编码AAC比特率872 kbps容器mov,mp4,m4a,3gp,3g2,mj2转换MP4WebM]
+    [helper exit=0]
+    OK: 缩略图已结论 [视频缩略图]
+    [helper exit=0]
+    OK: shot-app D:\Cliporge\docs\evidence\stage5\stage5-metadata.png (SAVED(PrintWindow): 63738)
+    [helper exit=0]
+--- 界面全部文本（含新字段，供与 FFprobe JSON 对照）---
+    TXT: ClipForge
+    TXT: ClipForge - Web 内容
+    TXT: 本地视频导入 · 元数据 · 格式转换
+    TXT: 导入视频
+    TXT: 导入条目列表
+    TXT: sample.mp4已导入（路径校验通过）D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4大小532.41 KiB时长00:05分辨率640×360帧率30 fps视频编码H.264 / AVC音频编码AAC比特率872 kbps容器mov,mp4,m4a,3gp,3g2,mj2转换MP4WebM
+    TXT: D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4
+    TXT: 视频缩略图
+    TXT: MP4
+    TXT: WebM
+    TXT: System Menu Bar
+    TXT: System
+    TXT: Minimize
+    TXT: Maximize
+    TXT: Close
+    OK: read-app-text 完成
+    [helper exit=0]
+
+--- [4] MP4 转换 → 完成态按钮（重新转换 / 转 WEBM / 打开所在文件夹）---
+    OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+    [helper exit=0]
+    OK: 转换已收敛（已结论条目=1 期望>=1 进行中=0）
+    [helper exit=0]
+    OK: shot-app D:\Cliporge\docs\evidence\stage5\stage5-completed.png (SAVED(PrintWindow): 67562)
+    [helper exit=0]
+    TXT: ClipForge
+    TXT: ClipForge - Web 内容
+    TXT: 本地视频导入 · 元数据 · 格式转换
+    TXT: 导入视频
+    TXT: 导入条目列表
+    TXT: sample.mp4已导入（路径校验通过）D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4大小532.41 KiB时长00:05分辨率640×360帧率30 fps视频编码H.264 / AVC音频编码AAC比特率872 kbps容器mov,mp4,m4a,3gp,3g2,mj2已输出 MP4（490 KB）重新转换转 WEBM打开所在文件夹
+    TXT: D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4
+    TXT: 视频缩略图
+    TXT: 重新转换
+    TXT: 转 WEBM
+    TXT: 打开所在文件夹
+    TXT: System Menu Bar
+    TXT: System
+    TXT: Minimize
+    TXT: Maximize
+    TXT: Close
+    OK: read-app-text 完成
+    [helper exit=0]
+    断言通过：完成态同时具备 [重新转换] [转 WEBM] [打开所在文件夹]
+
+--- [5] 点击 [转 WEBM] → 第二条输出 ---
+    OK: 已点击转换按钮 [转 WEBM] (匹配数=1 选中 index=0 方式=InvokePattern)
+    [helper exit=0]
+    OK: 转换已收敛（已结论条目=1 期望>=1 进行中=0）
+    [helper exit=0]
+    TXT: ClipForge
+    TXT: ClipForge - Web 内容
+    TXT: 本地视频导入 · 元数据 · 格式转换
+    TXT: 导入视频
+    TXT: 导入条目列表
+    TXT: sample.mp4已导入（路径校验通过）D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4大小532.41 KiB时长00:05分辨率640×360帧率30 fps视频编码H.264 / AVC音频编码AAC比特率872 kbps容器mov,mp4,m4a,3gp,3g2,mj2已输出 WEBM（633 KB）重新转换转 MP4打开所在文件夹
+    TXT: D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4
+    TXT: 视频缩略图
+    TXT: 重新转换
+    TXT: 转 MP4
+    TXT: 打开所在文件夹
+    TXT: System Menu Bar
+    TXT: System
+    TXT: Minimize
+    TXT: Maximize
+    TXT: Close
+    OK: read-app-text 完成
+    [helper exit=0]
+    新增 WEBM 输出: sample_converted.webm
+
+--- [6] 点击 [打开所在文件夹] → 等待资源管理器窗口 ---
+    OK: 已点击转换按钮 [打开所在文件夹] (匹配数=1 选中 index=0 方式=InvokePattern)
+    [helper exit=0]
+    OK: 资源管理器窗口已出现 [default]
+    [helper exit=0]
+    OK: shot-app D:\Cliporge\docs\evidence\stage5\stage5-reveal.png (SAVED(PrintWindow): 67862)
+    [helper exit=0]
+    OK: 已关闭资源管理器窗口 5 个
+    [helper exit=0]
+
+--- [7] 长视频（183s）转换：观察进度 → 转换中关闭应用（CONV_CANCELLED 顺带实测）---
+    OK: 导入流程完成 scenario=surf setvia=ValuePattern+verified dialog_closed=True
+    [helper exit=0]
+    OK: 界面已出现完整路径 [surfing_720p_h264_aac.mp4已导入（路径校验通过）D:\Cliporge\test-assets\real-world\surfing_720p_h264_aac.mp4大小68.43 MiB时长03:03分辨率1280×720帧率23.98 fps视频编码H.264 / AVC音频编码AAC比特率3.13 Mbps容器mov,mp4,m4a,3gp,3g2,mj2转换MP4WebM]
+    [helper exit=0]
+    OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4大小532.41 KiB时长00:05分辨率640×360帧率30 fps视频编码H.264 / AVC音频编码AAC比特率872 kbps容器mov,mp4,m4a,3gp,3g2,mj2已输出 WEBM（633 KB）重新转换转 MP4打开所在文件夹]
+    [helper exit=0]
+    OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+    [helper exit=0]
+    FAIL: 等待超时（60s）：未观察到进度百分比文本
+    [helper exit=1]
+FAIL: helper 失败: Action=wait-progress exit=1 —— FAIL: 等待超时（60s）：未观察到进度百分比文本
+
+--- [8] 静默卸载与清理核验 ---
+卸载器退出码: 0
+安装目录已删除: True | 注册表已删除: True | 快捷方式已删除: True
+
+=== Stage 5 验收结束（有失败项，见上文 FAIL）===
+结束时间: 2026-10-12 01:47:26

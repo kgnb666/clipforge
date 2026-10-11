@@ -82,6 +82,10 @@ pub struct ProbeMetadata {
     pub audio_codec: Option<String>,
     /// 容器格式（ffprobe `format.format_name` 原值）
     pub container: Option<String>,
+    /// 视频流帧率（ffprobe `r_frame_rate` 原值，如 "30/1"；展示层换算，见 `format_frame_rate`）
+    pub frame_rate: Option<String>,
+    /// 容器总比特率（bits/s，ffprobe `format.bit_rate`；展示层换算，见 `format_bit_rate`）
+    pub bit_rate_bps: Option<u64>,
 }
 
 /// 发现命中的策略（用于记录与审计）。
@@ -609,10 +613,17 @@ pub fn parse_probe_json(stdout: &[u8]) -> Result<ProbeMetadata, String> {
         .and_then(|f| f.get("format_name"))
         .and_then(|c| c.as_str())
         .map(str::to_string);
+    let bit_rate_bps = format
+        .and_then(|f| f.get("bit_rate"))
+        .and_then(|b| {
+            b.as_u64()
+                .or_else(|| b.as_str().and_then(|s| s.trim().parse::<u64>().ok()))
+        });
 
     let mut width = None;
     let mut height = None;
     let mut video_codec = None;
+    let mut frame_rate = None;
     let mut video_taken = false;
     let mut has_audio = false;
     let mut audio_codec = None;
@@ -634,6 +645,10 @@ pub fn parse_probe_json(stdout: &[u8]) -> Result<ProbeMetadata, String> {
                     video_codec = stream
                         .get("codec_name")
                         .and_then(|c| c.as_str())
+                        .map(str::to_string);
+                    frame_rate = stream
+                        .get("r_frame_rate")
+                        .and_then(|r| r.as_str())
                         .map(str::to_string);
                 }
                 Some("audio") if !audio_taken => {
@@ -657,6 +672,8 @@ pub fn parse_probe_json(stdout: &[u8]) -> Result<ProbeMetadata, String> {
         has_audio,
         audio_codec,
         container,
+        frame_rate,
+        bit_rate_bps,
     })
 }
 
@@ -759,6 +776,35 @@ pub fn format_duration_floor(secs: f64) -> String {
     }
 }
 
+/// 帧率展示（P2B-012）：ffprobe `r_frame_rate` 原值（"num/den"）换算为 "30 fps" / "29.97 fps"；
+/// 无法解析时**原值返回**（不猜测）；整数值不显示小数，非整数保留 2 位小数（舍入规则记入对照证据）。
+pub fn format_frame_rate(raw: &str) -> String {
+    let mut parts = raw.splitn(2, '/');
+    let num = parts.next().and_then(|s| s.trim().parse::<f64>().ok());
+    let den = parts.next().and_then(|s| s.trim().parse::<f64>().ok());
+    if let (Some(n), Some(d)) = (num, den) {
+        if d > 0.0 && n >= 0.0 {
+            let fps = n / d;
+            if (fps - fps.round()).abs() < 0.005 {
+                return format!("{} fps", fps.round() as i64);
+            }
+            return format!("{fps:.2} fps");
+        }
+    }
+    raw.to_string()
+}
+
+/// 比特率展示（P2B-012）：ffprobe `format.bit_rate`（bits/s）→ "x.xx Mbps"（≥1 Mbps）/ "x kbps" / "x bps"。
+pub fn format_bit_rate(bps: u64) -> String {
+    if bps >= 1_000_000 {
+        format!("{:.2} Mbps", bps as f64 / 1_000_000.0)
+    } else if bps >= 1_000 {
+        format!("{} kbps", bps / 1000)
+    } else {
+        format!("{bps} bps")
+    }
+}
+
 /// 视频编码映射（P2B-005）：常规编码给可读名；**未识别一律保留原值**，禁止猜测。
 pub fn map_video_codec(codec_name: &str) -> String {
     match codec_name.to_lowercase().as_str() {
@@ -822,6 +868,10 @@ pub struct ProbeView {
     pub resolution_text: Option<String>,
     pub video_codec_text: Option<String>,
     pub audio_text: Option<String>,
+    /// P2B-012 可选字段（D-0019）：帧率/比特率/容器格式
+    pub frame_rate_text: Option<String>,
+    pub bit_rate_text: Option<String>,
+    pub container_text: Option<String>,
     pub failure_code: Option<String>,
     pub failure_message: Option<String>,
 }
@@ -840,6 +890,9 @@ fn build_view(entry_id: u64, record: &ProbeRecord) -> ProbeView {
             },
             video_codec_text: meta.video_codec.as_deref().map(map_video_codec),
             audio_text: audio_text(meta),
+            frame_rate_text: meta.frame_rate.as_deref().map(format_frame_rate),
+            bit_rate_text: meta.bit_rate_bps.map(format_bit_rate),
+            container_text: meta.container.clone(),
             failure_code: None,
             failure_message: None,
         },
@@ -852,6 +905,9 @@ fn build_view(entry_id: u64, record: &ProbeRecord) -> ProbeView {
             resolution_text: None,
             video_codec_text: None,
             audio_text: None,
+            frame_rate_text: None,
+            bit_rate_text: None,
+            container_text: None,
             failure_code: Some(failure.code.as_str().to_string()),
             failure_message: Some(failure.message.clone()),
         },
@@ -1288,6 +1344,8 @@ mod tests_2b2 {
             has_audio: false,
             audio_codec: None,
             container: None,
+            frame_rate: None,
+            bit_rate_bps: None,
         }
     }
 
@@ -1310,6 +1368,40 @@ mod tests_2b2 {
         assert_eq!(format_duration_floor(3600.0), "01:00:00");
         assert_eq!(format_duration_floor(90061.9), "25:01:01");
         assert_eq!(format_duration_floor(0.0), "00:00");
+    }
+
+    #[test]
+    fn format_frame_rate_table() {
+        assert_eq!(format_frame_rate("30/1"), "30 fps");
+        assert_eq!(format_frame_rate("25/1"), "25 fps");
+        assert_eq!(format_frame_rate("30000/1001"), "29.97 fps");
+        assert_eq!(format_frame_rate("24000/1001"), "23.98 fps");
+        assert_eq!(format_frame_rate("0/0"), "0/0", "无意义分式 → 原值返回（不猜测）");
+        assert_eq!(format_frame_rate("abc"), "abc", "不可解析 → 原值返回");
+    }
+
+    #[test]
+    fn format_bit_rate_table() {
+        assert_eq!(format_bit_rate(1_236_377), "1.24 Mbps");
+        assert_eq!(format_bit_rate(1_078_000), "1.08 Mbps");
+        assert_eq!(format_bit_rate(128_000), "128 kbps");
+        assert_eq!(format_bit_rate(999), "999 bps");
+    }
+
+    #[test]
+    fn parse_frame_rate_and_bit_rate_present_and_absent() {
+        let json = r#"{"streams":[{"codec_type":"video","codec_name":"h264","width":640,"height":360,"r_frame_rate":"30000/1001"}],"format":{"duration":"5.0","format_name":"mov,mp4","bit_rate":"1236377"}}"#;
+        let meta = parse_probe_json(json.as_bytes()).unwrap();
+        assert_eq!(meta.frame_rate.as_deref(), Some("30000/1001"));
+        assert_eq!(meta.bit_rate_bps, Some(1_236_377));
+
+        let as_number = r#"{"streams":[{"codec_type":"video","codec_name":"h264"}],"format":{"format_name":"x","bit_rate":500000}}"#;
+        assert_eq!(parse_probe_json(as_number.as_bytes()).unwrap().bit_rate_bps, Some(500_000));
+
+        let json2 = r#"{"streams":[{"codec_type":"video","codec_name":"h264"}],"format":{"format_name":"x"}}"#;
+        let meta2 = parse_probe_json(json2.as_bytes()).unwrap();
+        assert_eq!(meta2.frame_rate, None, "缺失字段为 None，不得以 0 代替");
+        assert_eq!(meta2.bit_rate_bps, None);
     }
 
     #[test]
@@ -1350,6 +1442,8 @@ mod tests_2b2 {
             has_audio: true,
             audio_codec: Some("aac".to_string()),
             container: Some("matroska,webm".to_string()),
+            frame_rate: Some("25/1".to_string()),
+            bit_rate_bps: Some(1_236_377),
         };
         let record = ProbeRecord {
             size_bytes: Some(1_236_377),
@@ -1364,6 +1458,9 @@ mod tests_2b2 {
         assert_eq!(view.resolution_text.as_deref(), Some("640×360"));
         assert_eq!(view.video_codec_text.as_deref(), Some("MPEG-4 Video"));
         assert_eq!(view.audio_text.as_deref(), Some("AAC"));
+        assert_eq!(view.frame_rate_text.as_deref(), Some("25 fps"));
+        assert_eq!(view.bit_rate_text.as_deref(), Some("1.24 Mbps"));
+        assert_eq!(view.container_text.as_deref(), Some("matroska,webm"));
         assert!(view.failure_code.is_none());
         assert!(view.failure_message.is_none());
     }
@@ -1475,6 +1572,8 @@ mod tests_2b2 {
             has_audio: true,
             audio_codec: Some("aac".to_string()),
             container: Some("mov,mp4,m4a".to_string()),
+            frame_rate: None,
+            bit_rate_bps: None,
         };
         let err = ensure_video_stream(audio_like).unwrap_err();
         assert_eq!(err.code, ProbeFailureCode::MediaUnsupported);
@@ -1489,6 +1588,8 @@ mod tests_2b2 {
             has_audio: false,
             audio_codec: None,
             container: None,
+            frame_rate: None,
+            bit_rate_bps: None,
         };
         assert!(ensure_video_stream(with_video).is_ok());
     }

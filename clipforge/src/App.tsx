@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { listen } from "@tauri-apps/api/event";
 import {
   convertVideo,
   createImportEntry,
@@ -8,7 +9,9 @@ import {
   listProbeResults,
   pickVideoFile,
   probeImportEntry,
+  revealConversionOutput,
   type ConversionView,
+  type ConvProgress,
   type ImportEntry,
   type ProbeView,
   type ThumbView,
@@ -100,22 +103,50 @@ function ProbeBlock({ probe, onRetry }: { probe: ProbeSlot; onRetry: () => void 
       <MetaRow label="大小" value={probe.sizeText} />
       <MetaRow label="时长" value={probe.durationText} />
       <MetaRow label="分辨率" value={probe.resolutionText} />
+      <MetaRow label="帧率" value={probe.frameRateText} />
       <MetaRow label="视频编码" value={probe.videoCodecText} />
       <MetaRow label="音频编码" value={probe.audioText} />
+      <MetaRow label="比特率" value={probe.bitRateText} />
+      <MetaRow label="容器" value={probe.containerText} />
     </div>
   );
 }
 
-/** 转换区：格式按钮 + 状态展示（completed 显示输出路径）。 */
+/** 另一输出格式（供"转 WebM / 转 MP4"与失败态"改用 …"）。 */
+function otherFormat(format: string | null | undefined): string {
+  return (format ?? "mp4") === "mp4" ? "webm" : "mp4";
+}
+
+/** 转换区：格式按钮 + 状态展示（转换中显示进度；completed 可切格式/打开文件夹）。 */
 function ConvSection({
   conv,
+  percent,
   onConvert,
+  onReveal,
 }: {
   conv: ConvSlot;
+  percent: number | undefined;
   onConvert: (format: string) => void;
+  onReveal: () => void;
 }) {
   if (conv === "converting") {
-    return <div className="conv-section conv-pending">转换中…</div>;
+    return (
+      <div className="conv-section conv-pending">
+        <span className="conv-label">转换中…</span>
+        {typeof percent === "number" && (
+          <div
+            className="conv-progress"
+            role="progressbar"
+            aria-valuenow={Math.round(percent)}
+            aria-valuemin={0}
+            aria-valuemax={100}
+          >
+            <div className="conv-progress-fill" style={{ width: `${percent}%` }} />
+            <span className="conv-progress-text">{percent.toFixed(0)}%</span>
+          </div>
+        )}
+      </div>
+    );
   }
   if (conv === undefined) {
     return (
@@ -127,21 +158,31 @@ function ConvSection({
     );
   }
   if (conv.state === "failed") {
+    const other = otherFormat(conv.format);
     return (
       <div className="conv-section conv-error">
         <span>
           转换失败（{conv.failureCode}）：{conv.failureMessage}
         </span>
         <button type="button" className="conv-btn" onClick={() => onConvert(conv.format ?? "mp4")}>重试</button>
+        <button type="button" className="conv-btn" onClick={() => onConvert(other)}>
+          改用 {other.toUpperCase()}
+        </button>
       </div>
     );
   }
+  const used = conv.format ?? "mp4";
+  const other = otherFormat(used);
   return (
     <div className="conv-section conv-ok">
       <span className="conv-label">
-        已输出 {conv.format?.toUpperCase()}（{conv.outputSize ? `${(conv.outputSize / 1024).toFixed(0)} KB` : ""}）
+        已输出 {used.toUpperCase()}（{conv.outputSize ? `${(conv.outputSize / 1024).toFixed(0)} KB` : ""}）
       </span>
-      <button type="button" className="conv-btn" onClick={() => onConvert(conv.format ?? "mp4")}>重新转换</button>
+      <button type="button" className="conv-btn" onClick={() => onConvert(used)}>重新转换</button>
+      <button type="button" className="conv-btn" onClick={() => onConvert(other)}>
+        转 {other.toUpperCase()}
+      </button>
+      <button type="button" className="conv-btn" onClick={onReveal}>打开所在文件夹</button>
     </div>
   );
 }
@@ -151,6 +192,7 @@ function App() {
   const [probes, setProbes] = useState<Record<number, ProbeSlot>>({});
   const [thumbs, setThumbs] = useState<Record<number, ThumbSlot>>({});
   const [convs, setConvs] = useState<Record<number, ConvSlot>>({});
+  const [convPct, setConvPct] = useState<Record<number, number>>({});
   const [notice, setNotice] = useState<string | null>(null);
   const [expandedId, setExpandedId] = useState<number | null>(null);
   const [busy, setBusy] = useState(false);
@@ -187,6 +229,20 @@ function App() {
     })().catch((error) => setNotice(`读取数据失败：${String(error)}`));
   }, []);
 
+  /** 转换进度订阅（Rust 事件 "conv-progress"）：仅更新时间与百分比，不改变转换结论。 */
+  useEffect(() => {
+    let unlisten: (() => void) | undefined;
+    void listen<ConvProgress>("conv-progress", (event) => {
+      const { entryId, percent } = event.payload;
+      setConvPct((prev) => ({ ...prev, [entryId]: percent }));
+    }).then((fn) => {
+      unlisten = fn;
+    });
+    return () => {
+      unlisten?.();
+    };
+  }, []);
+
   function probeFailureFallback(entryId: number, error: unknown): ProbeView {
     return {
       entryId,
@@ -197,6 +253,9 @@ function App() {
       resolutionText: null,
       videoCodecText: null,
       audioText: null,
+      frameRateText: null,
+      bitRateText: null,
+      containerText: null,
       failureCode: null,
       failureMessage: `探测调用失败：${String(error)}`,
     };
@@ -234,6 +293,11 @@ function App() {
 
   async function runConv(entryId: number, format: string) {
     setConvs((prev) => ({ ...prev, [entryId]: "converting" }));
+    setConvPct((prev) => {
+      const next = { ...prev };
+      delete next[entryId];
+      return next;
+    });
     try {
       const view = await convertVideo(entryId, format);
       setConvs((prev) => ({ ...prev, [entryId]: view }));
@@ -244,6 +308,14 @@ function App() {
           : prev,
       );
       setNotice(`转换失败：${String(error)}`);
+    }
+  }
+
+  async function handleReveal(entryId: number) {
+    try {
+      await revealConversionOutput(entryId);
+    } catch (error) {
+      setNotice(`打开所在文件夹失败：${String(error)}`);
     }
   }
 
@@ -331,7 +403,9 @@ function App() {
                     <ProbeBlock probe={probes[entry.id]} onRetry={() => void runProbe(entry.id, true)} />
                     <ConvSection
                       conv={convs[entry.id]}
+                      percent={convPct[entry.id]}
                       onConvert={(format) => void runConv(entry.id, format)}
+                      onReveal={() => void handleReveal(entry.id)}
                     />
                   </>
                 )}

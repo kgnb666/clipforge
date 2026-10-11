@@ -13,7 +13,7 @@ Tauri 2（Rust） + React 19 + TypeScript，调用本机 FFmpeg 命令行完成�
 
 ## 快速开始（审核人请看这里）
 
-1. 到本仓库 **Releases** 页下载 `ClipForge_0.1.0_x64-setup.exe`
+1. 到本仓库 **Releases** 页下载最新版 `ClipForge_0.1.x_x64-setup.exe`
 2. 双击安装。安装包未代码签名，若出现 SmartScreen"Windows 已保护你的电脑"提示：点 **更多信息 → 仍要运行**（属正常现象）
 3. 前置依赖：本机需有 **FFmpeg / FFprobe**（应用调用系统 FFmpeg 转码）。未安装时一条命令装好：
    ```powershell
@@ -29,11 +29,15 @@ Tauri 2（Rust） + React 19 + TypeScript，调用本机 FFmpeg 命令行完成�
 
 ![主界面：元数据与缩略图](docs/evidence/stage4/stage4-release-main.png)
 
-![转换完成：已输出 MP4](docs/evidence/stage4/stage4-release-converted.png)
+![转换完成：可重新转换 / 切换到另一格式 / 打开所在文件夹](docs/evidence/stage5/stage5-completed.png)
+
+长视频转换显示**实时进度条**（183 秒素材，进度依赖元数据时长；时长缺失的容器不显示进度、不造假）：
+
+![转换进度](docs/evidence/stage5/stage5-progress.png)
 
 **Demo 动图**（真实素材 Big Buck Bunny 720p，HEVC → H.264，release 版实机录制）：
 
-![Demo](docs/evidence/stage4/stage4-demo.gif)
+![Demo](docs/evidence/stage5/stage5-demo.gif)
 
 ## 功能
 
@@ -43,8 +47,8 @@ Tauri 2（Rust） + React 19 + TypeScript，调用本机 FFmpeg 命令行完成�
 - 中文、空格、`&`、`#`、`'`、括号等特殊字符路径全链路实测通过
 
 **元数据**（FFprobe）
-- 大小、时长、分辨率、视频编码、音频编码
-- 无音轨如实显示"无音轨"；WebM 时长缺失显示 `N/A` 而非编造数值
+- 大小、时长、分辨率、**帧率、比特率、容器格式**、视频编码、音频编码
+- 无音轨如实显示"无音轨"；时长/比特率等缺失字段显示 `N/A` 而非编造数值；换算规则可与 FFprobe 原始值逐项核对
 - 读取失败显示错误码 + 原始原因（如 `moov atom not found`），并可一键**重试**
 
 **缩略图**
@@ -55,7 +59,8 @@ Tauri 2（Rust） + React 19 + TypeScript，调用本机 FFmpeg 命令行完成�
 - **MP4**：`libx264`（veryfast / CRF 23）+ `AAC 128k` + `faststart`
 - **WebM**：`libvpx`（1 Mbps）+ `libvorbis`
 - 输出到源文件旁 `{文件名}_converted.{扩展名}`；**同名自动递增序号（_2、_3…），绝不覆盖**源文件或既有输出
-- 失败自动清理半成品，不留脏文件
+- 转换中显示**实时进度条**（长视频不再像卡死）；失败自动清理半成品，不留脏文件
+- 完成后可 **[重新转换] / [转 WebM|转 MP4]（切换另一格式，无需重新导入）/ [打开所在文件夹]**；失败态可 **[重试] / [改用另一格式]**
 
 **可靠性**（工程化细节，均有实测证据）
 - 六类转换错误码：`CONV_NOT_FOUND / START_FAILED / NONZERO_EXIT / TIMEOUT / IO / CANCELLED`，均附原始工具输出片段
@@ -87,7 +92,7 @@ IPC 命令：`pick_video_file`、`create_import_entry`、`list_import_entries`�
 
 ## 测试与验证
 
-- `cargo test`：**65 passed / 0 failed / 7 ignored**（EXIT=0；7 项为默认忽略的实机/受控环境测试）
+- `cargo test`：**75 passed / 0 failed / 7 ignored**（EXIT=0；7 项为默认忽略的实机/受控环境测试）
 - **真实 UI 驱动验收**（Windows UI Automation 驱动真实窗口与系统对话框，非 API 直调）：导入 / 元数据 / 缩略图 / MP4+WebM 转换 / 损坏视频错误态 / 特殊路径 / 退出清理 / 安装与卸载，逐项通过
 - 完整过程证据（截图、日志、哈希基线）见 `docs/evidence/`
 
@@ -106,7 +111,7 @@ IPC 命令：`pick_video_file`、`create_import_entry`、`list_import_entries`�
 ## 已知限制
 
 - 需要本机安装 FFmpeg（见"快速开始"第 3 条）
-- 转换完成后提供"重新转换"（同格式）；切换另一种格式需重新导入
+- 进度条依赖容器提供总时长；时长缺失的素材不显示百分比（设计如此）
 - 未实现（按题目范围主动裁剪）：批量转换、播放器、字幕、AI 功能
 - 安装包未代码签名；转 WebM 较慢（VP8 约为 x264 的 5 倍）
 

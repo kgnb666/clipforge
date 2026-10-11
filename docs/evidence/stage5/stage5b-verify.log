@@ -1,0 +1,178 @@
+﻿=== Stage 5 聚焦复验（D 进度/转换中关闭、C 打开文件夹严格证据、A 复检）===
+开始时间: 2026-10-12 01:53:10
+
+--- [1] 静默安装 ---
+安装器退出码: 0
+主程序版本: 0.1.1 | 注册表版本: 0.1.1
+
+--- [2] D：长视频转换 → 观察进度 → 转换中关闭应用 ---
+    OK: 主窗口就绪 name=[ClipForge] class=[Tauri Window]
+    [helper exit=0]
+    OK: 导入流程完成 scenario=surf setvia=ValuePattern+verified dialog_closed=True
+    [helper exit=0]
+    OK: 界面已出现完整路径 [surfing_720p_h264_aac.mp4已导入（路径校验通过）D:\Cliporge\test-assets\real-world\surfing_720p_h264_aac.mp4大小68.43 MiB时长03:03分辨率1280×720帧率23.98 fps视频编码H.264 / AVC音频编码AAC比特率3.13 Mbps容器mov,mp4,m4a,3gp,3g2,mj2转换MP4WebM]
+    [helper exit=0]
+    OK: 元数据已结论 [surfing_720p_h264_aac.mp4已导入（路径校验通过）D:\Cliporge\test-assets\real-world\surfing_720p_h264_aac.mp4大小68.43 MiB时长03:03分辨率1280×720帧率23.98 fps视频编码H.264 / AVC音频编码AAC比特率3.13 Mbps容器mov,mp4,m4a,3gp,3g2,mj2转换MP4WebM]
+    [helper exit=0]
+    OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+    [helper exit=0]
+    FAIL: 等待超时（60s）：未观察到进度百分比文本
+    [helper exit=1]
+FAIL: helper 失败: Action=wait-progress exit=1 —— FAIL: 等待超时（60s）：未观察到进度百分比文本
+
+--- [5] 静默卸载与清理核验 ---
+卸载器退出码: 0
+安装目录已删除: True | 注册表已删除: True
+
+=== 聚焦复验结束（有失败项，见上文 FAIL）===
+结束时间: 2026-10-12 01:54:23
+
+=== [D2] 转换中关闭应用（release 实机；CONV_CANCELLED）===
+FAIL: 未找到转换按钮: 重新转换
+RESULT: {"convText":"已输出 MP4（61189 KB）重新转换转 WEBM打开所在文件夹","hasBar":false,"pct":null}
+OK: shot-app D:\Cliporge\docs\evidence\stage5\stage5-progress.png (SAVED(PrintWindow): 142428)
+关闭应用（转换进行中）...
+OK: 已请求关闭主窗口(WindowPattern.Close)
+残留进程: 0
+输出文件数: 关闭前 6 → 关闭后 6（相等=无半成品）
+--- 应用日志尾部 ---
+2026-10-11T17:59:55.663Z [lifecycle] task register entry_id=0
+2026-10-11T17:59:55.670Z [lifecycle] task start entry_id=0
+2026-10-11T17:59:55.925Z [lifecycle] task complete entry_id=0
+2026-10-11T17:59:55.930Z [lifecycle] thumb cache hit entry_id=0
+2026-10-11T17:59:58.467Z [lifecycle] conv register entry_id=0 format=mp4
+2026-10-11T17:59:58.469Z [lifecycle] conv start entry_id=0
+2026-10-11T18:00:17.869Z [lifecycle] conv complete entry_id=0 output_size=62657714
+2026-10-11T18:00:23.218Z [lifecycle] shutdown cleanup cancelled=0 reaped=0 remaining=0 peak=1 elapsed_ms=0 errors=[]
+
+=== [D2-复做] 转换中关闭应用（release 实机；CONV_CANCELLED 实机触发）===
+OK: 主窗口就绪 name=[ClipForge] class=[Tauri Window]
+OK: 导入流程完成 scenario=surf setvia=ValuePattern+verified dialog_closed=True
+OK: 元数据已结论 [surfing_720p_h264_aac.mp4已导入（路径校验通过）D:\Cliporge\test-assets\real-world\surfing_720p_h264_aac.mp4大小68.43 MiB时长03:03分辨率1280×720帧率23.98 fps视频编码H.264 / AVC音频编码AAC比特率3.13 Mbps容器mov,mp4,m4a,3gp,3g2,mj2转换MP4WebM]
+OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+RESULT: {"convText":"转换中…18%","hasBar":true,"pct":"18%"}
+OK: shot-app D:\Cliporge\docs\evidence\stage5\stage5-progress.png (SAVED(PrintWindow): 139371)
+关闭应用（转换进行中）
+OK: 已请求关闭主窗口(WindowPattern.Close)
+残留进程: 0
+输出文件数: 转换前 6 → 关闭后 6（相等=无半成品输出）
+--- 应用日志尾部 ---
+2026-10-11T18:00:58.089Z [lifecycle] task start entry_id=0
+2026-10-11T18:00:58.344Z [lifecycle] task complete entry_id=0
+2026-10-11T18:00:58.354Z [lifecycle] thumb cache hit entry_id=0
+2026-10-11T18:01:00.048Z [lifecycle] conv register entry_id=0 format=mp4
+2026-10-11T18:01:00.049Z [lifecycle] conv start entry_id=0
+2026-10-11T18:01:11.031Z [lifecycle] conv failed entry_id=0 code=CONV_CANCELLED
+2026-10-11T18:01:11.041Z [lifecycle] shutdown cleanup cancelled=1 reaped=1 remaining=0 peak=1 elapsed_ms=70 errors=[]
+
+=== [C/A] 打开所在文件夹（严格证据）与格式切换复检（release 可执行文件直跑）===
+开始: 02:01:45
+    OK: 主窗口就绪 name=[ClipForge] class=[Tauri Window]
+    [helper exit=0]
+    OK: 导入流程完成 scenario=t7 setvia=ValuePattern+verified dialog_closed=True
+    [helper exit=0]
+    OK: 界面已出现完整路径 [sample.mp4已导入（路径校验通过）D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4大小532.41 KiB时长00:05分辨率640×360帧率30 fps视频编码H.264 / AVC音频编码AAC比特率872 kbps容器mov,mp4,m4a,3gp,3g2,mj2转换MP4WebM]
+    [helper exit=0]
+    OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4大小532.41 KiB时长00:05分辨率640×360帧率30 fps视频编码H.264 / AVC音频编码AAC比特率872 kbps容器mov,mp4,m4a,3gp,3g2,mj2转换MP4WebM]
+    [helper exit=0]
+    OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+    [helper exit=0]
+    OK: 转换已收敛（已结论条目=1 期望>=1 进行中=0）
+    [helper exit=0]
+    TXT: ClipForge
+    TXT: ClipForge - Web 内容
+    TXT: 本地视频导入 · 元数据 · 格式转换
+    TXT: 导入视频
+    TXT: 导入条目列表
+    TXT: sample.mp4已导入（路径校验通过）D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4大小532.41 KiB时长00:05分辨率640×360帧率30 fps视频编码H.264 / AVC音频编码AAC比特率872 kbps容器mov,mp4,m4a,3gp,3g2,mj2已输出 MP4（490 KB）重新转换转 WEBM打开所在文件夹
+    TXT: D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4
+    TXT: 视频缩略图
+    TXT: 重新转换
+    TXT: 转 WEBM
+    TXT: 打开所在文件夹
+    TXT: System Menu Bar
+    TXT: System
+    TXT: Minimize
+    TXT: Maximize
+    TXT: Close
+    OK: read-app-text 完成
+    [helper exit=0]
+    完成态按钮断言通过：[重新转换][转 WEBM][打开所在文件夹]
+    OK: shot-app D:\Cliporge\docs\evidence\stage5\stage5-completed.png (SAVED(PrintWindow): 67562)
+    [helper exit=0]
+    C: 点击前资源管理器窗口数=0
+    OK: 已点击转换按钮 [打开所在文件夹] (匹配数=1 选中 index=0 方式=InvokePattern)
+    [helper exit=0]
+    C: 点击后窗口数=，新增=1（文档）
+    C: 应用日志 conv reveal 行数 1 → 2
+FAIL: 使用“2”个参数调用“.ctor”时发生异常:“属性“AutomationElementIdentifiers.NativeWindowHandleProperty”的 PropertyCondition 值必须为“Int32”。”
+=== [C/A] 结束（有失败项） 02:02:01
+
+=== [C/A] 打开所在文件夹（严格证据）与格式切换复检（release 可执行文件直跑）===
+开始: 02:02:11
+    OK: 主窗口就绪 name=[ClipForge] class=[Tauri Window]
+    [helper exit=0]
+    OK: 导入流程完成 scenario=t7 setvia=ValuePattern+verified dialog_closed=True
+    [helper exit=0]
+    OK: 界面已出现完整路径 [sample.mp4已导入（路径校验通过）D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4大小532.41 KiB时长00:05分辨率640×360帧率30 fps视频编码H.264 / AVC音频编码AAC比特率872 kbps容器mov,mp4,m4a,3gp,3g2,mj2转换MP4WebM]
+    [helper exit=0]
+    OK: 元数据已结论 [sample.mp4已导入（路径校验通过）D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4大小532.41 KiB时长00:05分辨率640×360帧率30 fps视频编码H.264 / AVC音频编码AAC比特率872 kbps容器mov,mp4,m4a,3gp,3g2,mj2转换MP4WebM]
+    [helper exit=0]
+    OK: 已点击转换按钮 [MP4] (匹配数=1 选中 index=0 方式=InvokePattern)
+    [helper exit=0]
+    OK: 转换已收敛（已结论条目=1 期望>=1 进行中=0）
+    [helper exit=0]
+    TXT: ClipForge
+    TXT: ClipForge - Web 内容
+    TXT: 本地视频导入 · 元数据 · 格式转换
+    TXT: 导入视频
+    TXT: 导入条目列表
+    TXT: sample.mp4已导入（路径校验通过）D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4大小532.41 KiB时长00:05分辨率640×360帧率30 fps视频编码H.264 / AVC音频编码AAC比特率872 kbps容器mov,mp4,m4a,3gp,3g2,mj2已输出 MP4（490 KB）重新转换转 WEBM打开所在文件夹
+    TXT: D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4
+    TXT: 视频缩略图
+    TXT: 重新转换
+    TXT: 转 WEBM
+    TXT: 打开所在文件夹
+    TXT: System Menu Bar
+    TXT: System
+    TXT: Minimize
+    TXT: Maximize
+    TXT: Close
+    OK: read-app-text 完成
+    [helper exit=0]
+    完成态按钮断言通过：[重新转换][转 WEBM][打开所在文件夹]
+    OK: shot-app D:\Cliporge\docs\evidence\stage5\stage5-completed.png (SAVED(PrintWindow): 67562)
+    [helper exit=0]
+    C: 点击前资源管理器窗口数=
+    OK: 已点击转换按钮 [打开所在文件夹] (匹配数=1 选中 index=0 方式=InvokePattern)
+    [helper exit=0]
+    C: 点击后窗口数=2，新增=1（文档）
+    C: 应用日志 conv reveal 行数 2 → 3
+    C: 仅关闭新增窗口后剩余=1（点击前=）
+    OK: 已点击转换按钮 [转 WEBM] (匹配数=1 选中 index=0 方式=InvokePattern)
+    [helper exit=0]
+    OK: 转换已收敛（已结论条目=1 期望>=1 进行中=0）
+    [helper exit=0]
+    TXT: ClipForge
+    TXT: ClipForge - Web 内容
+    TXT: 本地视频导入 · 元数据 · 格式转换
+    TXT: 导入视频
+    TXT: 导入条目列表
+    TXT: sample.mp4已导入（路径校验通过）D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4大小532.41 KiB时长00:05分辨率640×360帧率30 fps视频编码H.264 / AVC音频编码AAC比特率872 kbps容器mov,mp4,m4a,3gp,3g2,mj2已输出 WEBM（633 KB）重新转换转 MP4打开所在文件夹
+    TXT: D:\Cliporge\test-assets\stage3c\测试 & 视频 #1 (终版)'s\sample.mp4
+    TXT: 视频缩略图
+    TXT: 重新转换
+    TXT: 转 MP4
+    TXT: 打开所在文件夹
+    TXT: System Menu Bar
+    TXT: System
+    TXT: Minimize
+    TXT: Maximize
+    TXT: Close
+    OK: read-app-text 完成
+    [helper exit=0]
+    A: 新增 WEBM 输出 = sample_converted_2.webm
+    OK: 已请求关闭主窗口(WindowPattern.Close)
+    [helper exit=0]
+    关闭后残留进程: 0
+=== [C/A] 结束（全部通过） 02:02:37
