@@ -1,0 +1,10 @@
+=== Stage 4：安装 GitHub CLI（用于仓库创建/推送/Release）===
+时间: 2026-10-12 00:21:43
+已找到 GitHub CLI [GitHub.cli] 版本 2.102.0
+此应用程序由其所有者授权给你。
+Microsoft 对第三方程序包概不负责，也不向第三方程序包授予任何许可证。
+正在下载 https://github.com/cli/cli/releases/download/v2.102.0/gh_2.102.0_windows_amd64.msi
+已成功验证安装程序哈希
+正在启动程序包安装...
+已成功安装
+WINGET_EXIT=0

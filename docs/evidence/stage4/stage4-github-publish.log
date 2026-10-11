@@ -1,0 +1,28 @@
+=== GitHub 发布（等待认证 → 创建仓库 → 推送 → Release）===
+开始: 2026-10-12 00:36:45
+--- 认证成功 ---
+github.com
+  ✓ Logged in to github.com account kgnb666 (keyring)
+  - Active account: true
+  - Git operations protocol: https
+  - Token: gho_************************************
+  - Token scopes: 'gist', 'read:org', 'repo'
+--- 创建公开仓库 clipforge 并推送 main ---
+https://github.com/kgnb666/clipforge
+fatal: unable to access 'https://github.com/kgnb666/clipforge.git/': TLS connect error: error:0A000126:SSL routines::unexpected eof while reading
+failed to run git: exit status 128
+REPO_CREATE_FAILED
+
+--- 重试（HTTP/1.1）：push main 成功 ---
+--- 最终核对 ---
+仓库: https://github.com/kgnb666/clipforge
+Release: https://github.com/kgnb666/clipforge/releases/tag/v0.1.0
+
+--- 认证方式说明 ---
+gh CLI 设备码流程（--web），账号 kgnb666；一次性代码与临时日志未入库存档。
+--- 发布结果 ---
+仓库(public): https://github.com/kgnb666/clipforge  (default branch: main)
+Release:      https://github.com/kgnb666/clipforge/releases/tag/v0.1.0
+附件:         ClipForge_0.1.0_x64-setup.exe  1646079 B  (state=uploaded)
+远端文件树条目: 424
+注: 首次 push 因 HTTP/2 被网络中断失败 → 已设 git config http.version HTTP/1.1 后成功（main 与 tag 均通过）。
