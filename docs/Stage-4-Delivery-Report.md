@@ -45,7 +45,7 @@
 | 命令 | `npm run tauri build -- --bundles nsis`（`bundle.targets` 配置保持 `"all"` 不动，用 CLI 参数限定本轮产物） |
 | release 编译 | **3m06s**，产物 `D:\cargo-target\release\ClipForge.exe` |
 | **失败与修复** | 首次打包在 bundling 阶段失败：`failed to bundle project: timeout: global` —— **NSIS 工具包从 GitHub Release 下载被网络阻断**（curl 实测 HTTP=000）。修复：使用 tauri-bundler 官方镜像开关 `TAURI_BUNDLER_TOOLS_GITHUB_MIRROR=https://gh-proxy.com` 重试（日志可见下载 URL 已改写）；**下载物 SHA1 与 bundler 内置校验值 `EF7FF767E5CBD9EDD22ADD3A32C9B8F4500BB10D` 完全一致**（`validating hash` 通过），完整性未降级。证据：`stage4-tauri-build.log`（失败）、`stage4-tauri-build2/3-*.log`（成功） |
-| 最终安装包 | `ClipForge_0.1.0_x64-setup.exe` **1,645,833 B**，SHA256 `5B14DC7A884F2BDBC5C9EBE94930C6F3B6CEA84A110E05857BA2E966C1FDAB9F` |
+| 最终安装包 | `ClipForge_0.1.0_x64-setup.exe` **1,646,079 B**（1.57 MiB），SHA256 `5B14DC7A884F2BDBC5C9EBE94930C6F3B6CEA84A110E05857BA2E966C1FDAB9F`（与两轮验收所用文件逐字节一致） |
 | release 加固复核 | release 二进制中 `CLIPFORGE_TEST` 字符串出现 **0 次**（D-0023 承诺的"测试覆盖仅 Debug 存在"在打包产物上再次成立） |
 
 ## 5. 安装验收（两轮，全流程真实 UI 驱动）
