@@ -7,6 +7,8 @@
 
 Tauri 2（Rust） + React 19 + TypeScript，调用本机 FFmpeg 命令行完成转码
 
+**审核人快速索引：一页纸交付总结 → [交付总结.md](交付总结.md)**（含题面要求 → 交付与证据映射、验证方法、文档索引）
+
 </div>
 
 ---
@@ -106,6 +108,7 @@ IPC 命令：`pick_video_file`、`create_import_entry`、`list_import_entries`�
 | [`docs/stage-0-audit.md`](docs/stage-0-audit.md) / [`docs/test-report.md`](docs/test-report.md) | 环境与方案审计 / 环境验收实测记录 |
 | `docs/Stage-*.md` | 各阶段实施报告、基线检查与最终验收矩阵 |
 | [`docs/Stage-4-Delivery-Report.md`](docs/Stage-4-Delivery-Report.md) | 交付包装报告（打包、安装验收、入库裁剪） |
+| [`交付总结.md`](交付总结.md) | **一页纸交付总结**（题面要求映射、验证方法、文档索引） |
 | [`docs/evidence/`](docs/evidence/) | 全部原始证据（日志、截图、脚本、哈希） |
 
 ## 已知限制
